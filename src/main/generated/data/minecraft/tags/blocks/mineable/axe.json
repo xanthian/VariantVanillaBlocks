@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#variantvanillablocks:barrels",
+    "#variantvanillablocks:beehives",
+    "#variantvanillablocks:cartographytables",
+    "#variantvanillablocks:chiseledbookshelves",
+    "#variantvanillablocks:composters",
+    "#variantvanillablocks:craftingtables",
+    "#variantvanillablocks:fletchingtables",
+    "#variantvanillablocks:lecterns"
+  ]
+}

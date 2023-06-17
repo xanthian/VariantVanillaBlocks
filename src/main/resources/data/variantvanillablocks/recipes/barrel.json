@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:barrels"
+    }
+  ],
+  "result": {
+    "item": "minecraft:barrel"
+  }
+}

@@ -1,38 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "variantvanillablocks",
   "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
-  ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
+  "name": "Variant Vanilla Blocks",
+  "description": "Vanilla blocks recreated in all vanilla wood types",
+  "authors": ["Xanthian"],
+  "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
-    ]
+    "main": ["net.xanthian.variantvanillablocks.Initialise"],
+    "fabric-datagen": ["net.xanthian.variantvanillablocks.DataGenerator"]
   },
-  "mixins": [
-    "modid.mixins.json"
-  ],
-
+  "mixins": ["variantvanillablocks.mixins.json"],
+  "accessWidener": "variantvanillablocks.accesswidener",
   "depends": {
-    "fabricloader": ">=0.14.19",
-    "fabric-api": "*",
-    "minecraft": "~1.19.4",
+    "fabricloader": ">=0.14.20",
+    "fabric": "*",
+    "minecraft": "1.20.x",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

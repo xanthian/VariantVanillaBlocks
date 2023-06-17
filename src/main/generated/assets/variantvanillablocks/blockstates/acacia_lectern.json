@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "variantvanillablocks:block/acacia_lectern",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "variantvanillablocks:block/acacia_lectern"
+    },
+    "facing=south": {
+      "model": "variantvanillablocks:block/acacia_lectern",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "variantvanillablocks:block/acacia_lectern",
+      "y": 270
+    }
+  }
+}

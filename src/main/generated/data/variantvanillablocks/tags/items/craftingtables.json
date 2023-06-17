@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "variantvanillablocks:acacia_crafting_table",
+    "variantvanillablocks:bamboo_crafting_table",
+    "variantvanillablocks:birch_crafting_table",
+    "variantvanillablocks:cherry_crafting_table",
+    "variantvanillablocks:crimson_crafting_table",
+    "variantvanillablocks:dark_oak_crafting_table",
+    "variantvanillablocks:jungle_crafting_table",
+    "variantvanillablocks:mangrove_crafting_table",
+    "variantvanillablocks:spruce_crafting_table",
+    "variantvanillablocks:warped_crafting_table"
+  ]
+}

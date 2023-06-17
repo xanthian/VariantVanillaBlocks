@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:chiseledbookshelves"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chiseled_bookshelf"
+  }
+}

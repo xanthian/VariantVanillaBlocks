@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "variantvanillablocks:crimson_barrel",
+    "variantvanillablocks:warped_barrel",
+    "variantvanillablocks:crimson_beehive",
+    "variantvanillablocks:warped_beehive",
+    "variantvanillablocks:crimson_cartography_table",
+    "variantvanillablocks:warped_cartography_table",
+    "variantvanillablocks:crimson_chiseled_bookshelf",
+    "variantvanillablocks:warped_chiseled_bookshelf",
+    "variantvanillablocks:crimson_composter",
+    "variantvanillablocks:warped_composter",
+    "variantvanillablocks:crimson_crafting_table",
+    "variantvanillablocks:warped_crafting_table",
+    "variantvanillablocks:crimson_fletching_table",
+    "variantvanillablocks:warped_fletching_table",
+    "variantvanillablocks:crimson_lectern",
+    "variantvanillablocks:warped_lectern"
+  ]
+}

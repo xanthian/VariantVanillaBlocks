@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/birch_planks",
+    "east": "variantvanillablocks:block/birch_cartography_table_side3",
+    "north": "variantvanillablocks:block/birch_cartography_table_side3",
+    "particle": "variantvanillablocks:block/birch_cartography_table_side3",
+    "south": "variantvanillablocks:block/birch_cartography_table_side1",
+    "up": "variantvanillablocks:block/birch_cartography_table_top",
+    "west": "variantvanillablocks:block/birch_cartography_table_side2"
+  }
+}

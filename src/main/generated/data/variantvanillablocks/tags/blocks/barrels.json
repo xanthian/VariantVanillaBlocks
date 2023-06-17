@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "variantvanillablocks:acacia_barrel",
+    "variantvanillablocks:bamboo_barrel",
+    "variantvanillablocks:birch_barrel",
+    "variantvanillablocks:cherry_barrel",
+    "variantvanillablocks:crimson_barrel",
+    "variantvanillablocks:dark_oak_barrel",
+    "variantvanillablocks:jungle_barrel",
+    "variantvanillablocks:mangrove_barrel",
+    "variantvanillablocks:oak_barrel",
+    "variantvanillablocks:warped_barrel"
+  ]
+}

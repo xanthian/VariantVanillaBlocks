@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:warped_planks"
+    },
+    "@": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    "@@",
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "variantvanillablocks:warped_cartography_table"
+  },
+  "show_notification": true
+}

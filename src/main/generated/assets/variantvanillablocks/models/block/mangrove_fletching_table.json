@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/mangrove_planks",
+    "east": "variantvanillablocks:block/mangrove_fletching_table_side",
+    "north": "variantvanillablocks:block/mangrove_fletching_table_front",
+    "particle": "variantvanillablocks:block/mangrove_fletching_table_front",
+    "south": "variantvanillablocks:block/mangrove_fletching_table_front",
+    "up": "variantvanillablocks:block/mangrove_fletching_table_top",
+    "west": "variantvanillablocks:block/mangrove_fletching_table_side"
+  }
+}

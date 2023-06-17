@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/jungle_planks",
+    "east": "variantvanillablocks:block/jungle_fletching_table_side",
+    "north": "variantvanillablocks:block/jungle_fletching_table_front",
+    "particle": "variantvanillablocks:block/jungle_fletching_table_front",
+    "south": "variantvanillablocks:block/jungle_fletching_table_front",
+    "up": "variantvanillablocks:block/jungle_fletching_table_top",
+    "west": "variantvanillablocks:block/jungle_fletching_table_side"
+  }
+}

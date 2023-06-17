@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.xanthian.variantvanillablocks.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BlockEntityTypeMixin",
+    "CartographyTableScreenHandlerMixin",
+    "CraftingScreenHandlerMixin",
+    "FarmerWorkTaskMixin",
+    "GrindstoneScreenHandlerMixin",
+    "PointOfInterestTypesAccessor",
+    "WritableBookItemMixin",
+    "WrittenBookItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:lecterns"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lectern"
+  }
+}

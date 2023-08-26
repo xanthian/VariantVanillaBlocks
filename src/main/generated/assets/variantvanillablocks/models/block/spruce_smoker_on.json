@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "variantvanillablocks:block/spruce_smoker_bottom",
+    "front": "variantvanillablocks:block/spruce_smoker_front_on",
+    "side": "variantvanillablocks:block/spruce_smoker_side",
+    "top": "variantvanillablocks:block/spruce_smoker_top"
+  }
+}

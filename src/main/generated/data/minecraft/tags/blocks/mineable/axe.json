@@ -3,11 +3,12 @@
   "values": [
     "#variantvanillablocks:barrels",
     "#variantvanillablocks:beehives",
-    "#variantvanillablocks:cartographytables",
-    "#variantvanillablocks:chiseledbookshelves",
+    "#variantvanillablocks:cartography_tables",
+    "#variantvanillablocks:chiseled_bookshelves",
     "#variantvanillablocks:composters",
-    "#variantvanillablocks:craftingtables",
-    "#variantvanillablocks:fletchingtables",
-    "#variantvanillablocks:lecterns"
+    "#variantvanillablocks:crafting_tables",
+    "#variantvanillablocks:fletching_tables",
+    "#variantvanillablocks:lecterns",
+    "#variantvanillablocks:smithing_tables"
   ]
 }

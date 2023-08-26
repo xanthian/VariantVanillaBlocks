@@ -3,11 +3,14 @@ package net.xanthian.variantvanillablocks.block;
 import com.google.common.collect.Maps;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import net.xanthian.variantvanillablocks.Initialise;
@@ -18,17 +21,17 @@ public class CartographyTables {
 
     public static Map<Identifier, Block> MOD_CARTOGRAPHY_TABLES = Maps.newHashMap();
 
-    public static final VariantCartographyTableBlock ACACIA_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock BAMBOO_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock BIRCH_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock CHERRY_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock CRIMSON_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
+    public static final CartographyTableBlock ACACIA_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock BAMBOO_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock BIRCH_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock CHERRY_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock CRIMSON_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD));
     // Vanilla Cartography Table is Dark Oak
-    public static final VariantCartographyTableBlock JUNGLE_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock MANGROVE_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock OAK_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock SPRUCE_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
-    public static final VariantCartographyTableBlock WARPED_CARTOGRAPHY_TABLE = new VariantCartographyTableBlock();
+    public static final CartographyTableBlock JUNGLE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock MANGROVE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock OAK_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock SPRUCE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
+    public static final CartographyTableBlock WARPED_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD));
 
 
     public static void registerVanillaTables() {

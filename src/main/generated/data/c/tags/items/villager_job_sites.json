@@ -2,11 +2,12 @@
   "replace": false,
   "values": [
     "#variantvanillablocks:barrels",
-    "#variantvanillablocks:cartographytables",
+    "#variantvanillablocks:cartography_tables",
     "#variantvanillablocks:composters",
-    "#variantvanillablocks:craftingtables",
-    "#variantvanillablocks:fletchingtables",
+    "#variantvanillablocks:fletching_tables",
+    "#variantvanillablocks:grindstones",
     "#variantvanillablocks:lecterns",
-    "#variantvanillablocks:grindstones"
+    "#variantvanillablocks:smithing_tables",
+    "#variantvanillablocks:smokers"
   ]
 }

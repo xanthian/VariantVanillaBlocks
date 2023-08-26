@@ -12,6 +12,7 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 
 import net.xanthian.variantvanillablocks.block.*;
@@ -49,6 +50,18 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(Beehives.MANGROVE_BEEHIVE, BlockLootTableGenerator::beehiveDrops);
         addDrop(Beehives.SPRUCE_BEEHIVE, BlockLootTableGenerator::beehiveDrops);
         addDrop(Beehives.WARPED_BEEHIVE, BlockLootTableGenerator::beehiveDrops);
+
+        addDrop(Bookshelves.ACACIA_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.BAMBOO_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.BIRCH_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.CHERRY_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.DARK_OAK_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.JUNGLE_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.MANGROVE_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.SPRUCE_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.CRIMSON_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.WARPED_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+        addDrop(Bookshelves.MANGROVE_BOOKSHELF, (Block block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
 
         addDrop(CartographyTables.ACACIA_CARTOGRAPHY_TABLE);
         addDrop(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE);
@@ -106,6 +119,17 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(FletchingTables.SPRUCE_FLETCHING_TABLE);
         addDrop(FletchingTables.WARPED_FLETCHING_TABLE);
 
+        addDrop(Grindstones.ACACIA_GRINDSTONE);
+        addDrop(Grindstones.BAMBOO_GRINDSTONE);
+        addDrop(Grindstones.BIRCH_GRINDSTONE);
+        addDrop(Grindstones.CHERRY_GRINDSTONE);
+        addDrop(Grindstones.CRIMSON_GRINDSTONE);
+        addDrop(Grindstones.JUNGLE_GRINDSTONE);
+        addDrop(Grindstones.MANGROVE_GRINDSTONE);
+        addDrop(Grindstones.OAK_GRINDSTONE);
+        addDrop(Grindstones.SPRUCE_GRINDSTONE);
+        addDrop(Grindstones.WARPED_GRINDSTONE);
+
         addDrop(Lecterns.ACACIA_LECTERN);
         addDrop(Lecterns.BAMBOO_LECTERN);
         addDrop(Lecterns.BIRCH_LECTERN);
@@ -117,15 +141,27 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(Lecterns.SPRUCE_LECTERN);
         addDrop(Lecterns.WARPED_LECTERN);
 
-        addDrop(Grindstones.ACACIA_GRINDSTONE);
-        addDrop(Grindstones.BAMBOO_GRINDSTONE);
-        addDrop(Grindstones.BIRCH_GRINDSTONE);
-        addDrop(Grindstones.CHERRY_GRINDSTONE);
-        addDrop(Grindstones.CRIMSON_GRINDSTONE);
-        addDrop(Grindstones.JUNGLE_GRINDSTONE);
-        addDrop(Grindstones.MANGROVE_GRINDSTONE);
-        addDrop(Grindstones.OAK_GRINDSTONE);
-        addDrop(Grindstones.SPRUCE_GRINDSTONE);
-        addDrop(Grindstones.WARPED_GRINDSTONE);
+        addDrop(SmithingTables.ACACIA_SMITHING_TABLE);
+        addDrop(SmithingTables.BAMBOO_SMITHING_TABLE);
+        addDrop(SmithingTables.BIRCH_SMITHING_TABLE);
+        addDrop(SmithingTables.CHERRY_SMITHING_TABLE);
+        addDrop(SmithingTables.CRIMSON_SMITHING_TABLE);
+        addDrop(SmithingTables.DARK_OAK_SMITHING_TABLE);
+        addDrop(SmithingTables.JUNGLE_SMITHING_TABLE);
+        addDrop(SmithingTables.OAK_SMITHING_TABLE);
+        addDrop(SmithingTables.SPRUCE_SMITHING_TABLE);
+        addDrop(SmithingTables.WARPED_SMITHING_TABLE);
+
+        addDrop(Smokers.ACACIA_SMOKER, this::nameableContainerDrops);
+        addDrop(Smokers.BAMBOO_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.BIRCH_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.CHERRY_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.CRIMSON_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.DARK_OAK_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.JUNGLE_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.MANGROVE_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.SPRUCE_SMOKER,this::nameableContainerDrops);
+        addDrop(Smokers.WARPED_SMOKER,this::nameableContainerDrops);
+
     }
 }

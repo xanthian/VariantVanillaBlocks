@@ -10,6 +10,7 @@
     "FarmerWorkTaskMixin",
     "GrindstoneScreenHandlerMixin",
     "PointOfInterestTypesAccessor",
+    "SmithingTableScreenHandlerMixin",
     "WritableBookItemMixin",
     "WrittenBookItemMixin"
   ],

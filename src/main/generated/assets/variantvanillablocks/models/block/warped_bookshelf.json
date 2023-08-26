@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/warped_planks",
+    "east": "variantvanillablocks:block/warped_bookshelf",
+    "north": "variantvanillablocks:block/warped_bookshelf",
+    "particle": "variantvanillablocks:block/warped_bookshelf",
+    "south": "variantvanillablocks:block/warped_bookshelf",
+    "up": "minecraft:block/warped_planks",
+    "west": "variantvanillablocks:block/warped_bookshelf"
+  }
+}

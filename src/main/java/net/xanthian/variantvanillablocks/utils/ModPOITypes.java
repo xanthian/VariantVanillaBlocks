@@ -20,9 +20,10 @@ import java.util.Map;
 public class ModPOITypes {
     public static void init() {
 
-        // Fisherman - Barrel
         Map<BlockState, RegistryEntry<PointOfInterestType>> poiStatesToType = PointOfInterestTypesAccessor
                 .getPointOfInterestStatesToType();
+
+        // Fisherman - Barrel
         RegistryEntry<PointOfInterestType> fishermanEntry = Registries.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.FISHERMAN).get();
         PointOfInterestType fishermanPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FISHERMAN);
@@ -120,5 +121,33 @@ public class ModPOITypes {
             farmerBlockStates.addAll(blockStates);
         }
         farmerPoiType.blockStates = ImmutableSet.copyOf(farmerBlockStates);
+
+        // Fletcher - Smithing Table
+        RegistryEntry<PointOfInterestType> toolsmithEntry = Registries.POINT_OF_INTEREST_TYPE
+                .getEntry(PointOfInterestTypes.TOOLSMITH).get();
+        PointOfInterestType toolsmithPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.TOOLSMITH);
+        List<BlockState> toolsmithBlockStates = new ArrayList<BlockState>(toolsmithPoiType.blockStates);
+        for (Block block : SmithingTables.MOD_SMITHING_TABLES.values()) {
+            ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
+            for (BlockState blockState : blockStates) {
+                poiStatesToType.putIfAbsent(blockState, toolsmithEntry);
+            }
+            toolsmithBlockStates.addAll(blockStates);
+        }
+        toolsmithPoiType.blockStates = ImmutableSet.copyOf(toolsmithBlockStates);
+
+        // Butcher - Smoker
+        RegistryEntry<PointOfInterestType> butcherEntry = Registries.POINT_OF_INTEREST_TYPE
+                .getEntry(PointOfInterestTypes.BUTCHER).get();
+        PointOfInterestType butcherPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.BUTCHER);
+        List<BlockState> butcherBlockStates = new ArrayList<BlockState>(butcherPoiType.blockStates);
+        for (Block block : Smokers.MOD_SMOKERS.values()) {
+            ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
+            for (BlockState blockState : blockStates) {
+                poiStatesToType.putIfAbsent(blockState, butcherEntry);
+            }
+            butcherBlockStates.addAll(blockStates);
+        }
+        butcherPoiType.blockStates = ImmutableSet.copyOf(butcherBlockStates);
     }
 }

@@ -3,7 +3,7 @@
   "category": "redstone",
   "key": {
     "B": {
-      "item": "minecraft:bookshelf"
+      "item": "variantvanillablocks:mangrove_bookshelf"
     },
     "S": {
       "item": "minecraft:mangrove_slab"

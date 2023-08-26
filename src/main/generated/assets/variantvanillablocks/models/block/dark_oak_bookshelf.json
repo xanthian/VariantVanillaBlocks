@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/dark_oak_planks",
+    "east": "variantvanillablocks:block/dark_oak_bookshelf",
+    "north": "variantvanillablocks:block/dark_oak_bookshelf",
+    "particle": "variantvanillablocks:block/dark_oak_bookshelf",
+    "south": "variantvanillablocks:block/dark_oak_bookshelf",
+    "up": "minecraft:block/dark_oak_planks",
+    "west": "variantvanillablocks:block/dark_oak_bookshelf"
+  }
+}

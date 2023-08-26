@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "variantvanillablocks:block/oak_barrel_bottom",
+    "side": "variantvanillablocks:block/oak_barrel_side",
+    "top": "variantvanillablocks:block/oak_barrel_top"
+  }
+}

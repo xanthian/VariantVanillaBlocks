@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#variantvanillablocks:grindstones"
+    "#variantvanillablocks:grindstones",
+    "#variantvanillablocks:smokers"
   ]
 }

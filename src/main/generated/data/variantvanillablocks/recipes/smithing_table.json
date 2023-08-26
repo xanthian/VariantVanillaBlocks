@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:smithing_tables"
+    }
+  ],
+  "result": {
+    "item": "minecraft:smithing_table"
+  }
+}

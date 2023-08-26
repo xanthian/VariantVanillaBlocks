@@ -6,9 +6,12 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.GrindstoneBlock;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
@@ -23,17 +26,17 @@ public class Grindstones {
 
     public static Map<Identifier, Block> MOD_GRINDSTONES = Maps.newHashMap();
 
-    public static final VariantGrindstoneBlock ACACIA_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock BAMBOO_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock BIRCH_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock CHERRY_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock CRIMSON_GRINDSTONE = new VariantGrindstoneBlock();
+    public static final GrindstoneBlock ACACIA_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock BAMBOO_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock BIRCH_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock CHERRY_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock CRIMSON_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     // Vanilla Grindstone is made from Dark Oak
-    public static final VariantGrindstoneBlock JUNGLE_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock MANGROVE_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock OAK_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock SPRUCE_GRINDSTONE = new VariantGrindstoneBlock();
-    public static final VariantGrindstoneBlock WARPED_GRINDSTONE = new VariantGrindstoneBlock();
+    public static final GrindstoneBlock JUNGLE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock MANGROVE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock OAK_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock SPRUCE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static final GrindstoneBlock WARPED_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
 
     public static void registerVanillaGrindstones() {
         registerGrindstoneBlock("acacia_grindstone", ACACIA_GRINDSTONE);

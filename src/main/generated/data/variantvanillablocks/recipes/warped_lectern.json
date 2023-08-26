@@ -3,7 +3,7 @@
   "category": "redstone",
   "key": {
     "B": {
-      "item": "minecraft:bookshelf"
+      "item": "variantvanillablocks:warped_bookshelf"
     },
     "S": {
       "item": "minecraft:warped_slab"

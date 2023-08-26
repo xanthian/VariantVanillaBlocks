@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "variantvanillablocks:block/warped_smoker_bottom",
+    "front": "variantvanillablocks:block/warped_smoker_front",
+    "side": "variantvanillablocks:block/warped_smoker_side",
+    "top": "variantvanillablocks:block/warped_smoker_top"
+  }
+}

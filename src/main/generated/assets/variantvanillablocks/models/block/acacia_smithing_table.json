@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "variantvanillablocks:block/acacia_smithing_table_bottom",
+    "east": "variantvanillablocks:block/acacia_smithing_table_side",
+    "north": "variantvanillablocks:block/acacia_smithing_table_front",
+    "particle": "variantvanillablocks:block/acacia_smithing_table_front",
+    "south": "variantvanillablocks:block/acacia_smithing_table_front",
+    "up": "minecraft:block/smithing_table_top",
+    "west": "variantvanillablocks:block/acacia_smithing_table_side"
+  }
+}

@@ -3,7 +3,7 @@
   "category": "redstone",
   "key": {
     "B": {
-      "item": "minecraft:bookshelf"
+      "item": "variantvanillablocks:cherry_bookshelf"
     },
     "S": {
       "item": "minecraft:cherry_slab"

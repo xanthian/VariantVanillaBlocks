@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -22,21 +23,22 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private static final TagKey<Block> BARRELS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"barrels"));
     private static final TagKey<Block> BEEHIVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"beehives"));
-    private static final TagKey<Block> CARTOGRAPHYTABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"cartographytables"));
-    private static final TagKey<Block> CHISELEDBOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"chiseledbookshelves"));
+    private static final TagKey<Block> BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"bookshelves"));
+    private static final TagKey<Block> CARTOGRAPHY_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"cartography_tables"));
+    private static final TagKey<Block> CHISELED_BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"chiseled_bookshelves"));
     private static final TagKey<Block> COMPOSTERS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"composters"));
-    private static final TagKey<Block> CRAFTINGTABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"craftingtables"));
-    private static final TagKey<Block> FLETCHINGTABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"fletchingtables"));
+    private static final TagKey<Block> CRAFTING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"crafting_tables"));
+    private static final TagKey<Block> FLETCHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"fletching_tables"));
     private static final TagKey<Block> GRINDSTONES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"grindstones"));
     private static final TagKey<Block> LECTERNS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"lecterns"));
+    private static final TagKey<Block> SMITHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"smithing_tables"));
+    private static final TagKey<Block> SMOKERS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"smokers"));
 
-    private static final TagKey<Block> MINEABLE_AXE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:mineable/axe"));
-    private static final TagKey<Block> MINEABLE_PICKAXE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:mineable/pickaxe"));
     private static final TagKey<Block> BEE_HOME = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:point_of_interest_type/bee_home"));
-    private static final TagKey<Block> MC_BEEHIVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:beehives"));
+
     private static final TagKey<Block> JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:villager_job_sites"));
     private static final TagKey<Block> WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:workbench"));
-    private static final TagKey<Block> GUARDED_PIGLIN = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:guarded_by_piglins"));
+    private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:bookshelves"));
 
 
     @Override
@@ -66,7 +68,19 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(Beehives.SPRUCE_BEEHIVE)
                 .add(Beehives.WARPED_BEEHIVE);
 
-        getOrCreateTagBuilder(CARTOGRAPHYTABLES)
+        getOrCreateTagBuilder(BOOKSHELVES)
+                .add(Bookshelves.ACACIA_BOOKSHELF)
+                .add(Bookshelves.BAMBOO_BOOKSHELF)
+                .add(Bookshelves.BIRCH_BOOKSHELF)
+                .add(Bookshelves.CHERRY_BOOKSHELF)
+                .add(Bookshelves.CRIMSON_BOOKSHELF)
+                .add(Bookshelves.DARK_OAK_BOOKSHELF)
+                .add(Bookshelves.JUNGLE_BOOKSHELF)
+                .add(Bookshelves.MANGROVE_BOOKSHELF)
+                .add(Bookshelves.SPRUCE_BOOKSHELF)
+                .add(Bookshelves.WARPED_BOOKSHELF);
+
+        getOrCreateTagBuilder(CARTOGRAPHY_TABLES)
                 .add(CartographyTables.ACACIA_CARTOGRAPHY_TABLE)
                 .add(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE)
                 .add(CartographyTables.BIRCH_CARTOGRAPHY_TABLE)
@@ -78,7 +92,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE)
                 .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE);
 
-        getOrCreateTagBuilder(CHISELEDBOOKSHELVES)
+        getOrCreateTagBuilder(CHISELED_BOOKSHELVES)
                 .add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF)
                 .add(ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF)
                 .add(ChiseledBookshelves.BIRCH_CHISELED_BOOKSHELF)
@@ -102,7 +116,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(Composters.OAK_COMPOSTER)
                 .add(Composters.WARPED_COMPOSTER);
 
-        getOrCreateTagBuilder(CRAFTINGTABLES)
+        getOrCreateTagBuilder(CRAFTING_TABLES)
                 .add(CraftingTables.ACACIA_CRAFTING_TABLE)
                 .add(CraftingTables.BAMBOO_CRAFTING_TABLE)
                 .add(CraftingTables.BIRCH_CRAFTING_TABLE)
@@ -114,7 +128,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(CraftingTables.SPRUCE_CRAFTING_TABLE)
                 .add(CraftingTables.WARPED_CRAFTING_TABLE);
 
-        getOrCreateTagBuilder(FLETCHINGTABLES)
+        getOrCreateTagBuilder(FLETCHING_TABLES)
                 .add(FletchingTables.ACACIA_FLETCHING_TABLE)
                 .add(FletchingTables.BAMBOO_FLETCHING_TABLE)
                 .add(FletchingTables.CHERRY_FLETCHING_TABLE)
@@ -150,37 +164,71 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(Lecterns.SPRUCE_LECTERN)
                 .add(Lecterns.WARPED_LECTERN);
 
-        getOrCreateTagBuilder(MINEABLE_AXE)
+        getOrCreateTagBuilder(SMITHING_TABLES)
+                .add(SmithingTables.ACACIA_SMITHING_TABLE)
+                .add(SmithingTables.BAMBOO_SMITHING_TABLE)
+                .add(SmithingTables.BIRCH_SMITHING_TABLE)
+                .add(SmithingTables.CHERRY_SMITHING_TABLE)
+                .add(SmithingTables.CRIMSON_SMITHING_TABLE)
+                .add(SmithingTables.DARK_OAK_SMITHING_TABLE)
+                .add(SmithingTables.JUNGLE_SMITHING_TABLE)
+                .add(SmithingTables.OAK_SMITHING_TABLE)
+                .add(SmithingTables.SPRUCE_SMITHING_TABLE)
+                .add(SmithingTables.WARPED_SMITHING_TABLE);
+
+        getOrCreateTagBuilder(SMOKERS)
+                .add(Smokers.ACACIA_SMOKER)
+                .add(Smokers.BAMBOO_SMOKER)
+                .add(Smokers.BIRCH_SMOKER)
+                .add(Smokers.CHERRY_SMOKER)
+                .add(Smokers.CRIMSON_SMOKER)
+                .add(Smokers.DARK_OAK_SMOKER)
+                .add(Smokers.JUNGLE_SMOKER)
+                .add(Smokers.MANGROVE_SMOKER)
+                .add(Smokers.SPRUCE_SMOKER)
+                .add(Smokers.WARPED_SMOKER);
+
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .addTag(BARRELS)
                 .addTag(BEEHIVES)
-                .addTag(CARTOGRAPHYTABLES)
-                .addTag(CHISELEDBOOKSHELVES)
+                .addTag(CARTOGRAPHY_TABLES)
+                .addTag(CHISELED_BOOKSHELVES)
                 .addTag(COMPOSTERS)
-                .addTag(CRAFTINGTABLES)
-                .addTag(FLETCHINGTABLES)
-                .addTag(LECTERNS);
+                .addTag(CRAFTING_TABLES)
+                .addTag(FLETCHING_TABLES)
+                .addTag(LECTERNS)
+                .addTag(SMITHING_TABLES);
 
-        getOrCreateTagBuilder(MINEABLE_PICKAXE)
-                .addTag(GRINDSTONES);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .addTag(GRINDSTONES)
+                .addTag(SMOKERS);
 
         getOrCreateTagBuilder(JOB_SITE)
                 .addTag(BARRELS)
-                .addTag(CARTOGRAPHYTABLES)
+                .addTag(CARTOGRAPHY_TABLES)
                 .addTag(COMPOSTERS)
-                .addTag(FLETCHINGTABLES)
+                .addTag(FLETCHING_TABLES)
+                .addTag(GRINDSTONES)
                 .addTag(LECTERNS)
-                .addTag(GRINDSTONES);
+                .addTag(SMITHING_TABLES)
+                .addTag(SMOKERS);
 
         getOrCreateTagBuilder(WORKBENCH)
-                .addTag(CRAFTINGTABLES);
+                .addTag(CRAFTING_TABLES);
 
         getOrCreateTagBuilder(BEE_HOME)
                 .addTag(BEEHIVES);
 
-        getOrCreateTagBuilder(MC_BEEHIVES)
+        getOrCreateTagBuilder(BlockTags.BEEHIVES)
                 .addTag(BEEHIVES);
 
-        getOrCreateTagBuilder(GUARDED_PIGLIN)
+        getOrCreateTagBuilder(BlockTags.GUARDED_BY_PIGLINS)
                 .addTag(BARRELS);
+
+        getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER)
+                .forceAddTag(BOOKSHELVES);
+
+        getOrCreateTagBuilder(C_BOOKSHELF)
+                .forceAddTag(BOOKSHELVES);
     }
 }

@@ -5,6 +5,8 @@
     "variantvanillablocks:warped_barrel",
     "variantvanillablocks:crimson_beehive",
     "variantvanillablocks:warped_beehive",
+    "variantvanillablocks:crimson_bookshelf",
+    "variantvanillablocks:warped_bookshelf",
     "variantvanillablocks:crimson_cartography_table",
     "variantvanillablocks:warped_cartography_table",
     "variantvanillablocks:crimson_chiseled_bookshelf",
@@ -16,6 +18,10 @@
     "variantvanillablocks:crimson_fletching_table",
     "variantvanillablocks:warped_fletching_table",
     "variantvanillablocks:crimson_lectern",
-    "variantvanillablocks:warped_lectern"
+    "variantvanillablocks:warped_lectern",
+    "variantvanillablocks:crimson_smithing_table",
+    "variantvanillablocks:warped_smithing_table",
+    "variantvanillablocks:crimson_smoker",
+    "variantvanillablocks:warped_smoker"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:bookshelves"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bookshelf"
+  }
+}

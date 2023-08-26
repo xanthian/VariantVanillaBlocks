@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/spruce_planks",
+    "east": "variantvanillablocks:block/spruce_bookshelf",
+    "north": "variantvanillablocks:block/spruce_bookshelf",
+    "particle": "variantvanillablocks:block/spruce_bookshelf",
+    "south": "variantvanillablocks:block/spruce_bookshelf",
+    "up": "minecraft:block/spruce_planks",
+    "west": "variantvanillablocks:block/spruce_bookshelf"
+  }
+}

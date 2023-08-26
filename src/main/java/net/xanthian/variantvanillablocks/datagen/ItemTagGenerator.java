@@ -4,8 +4,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -13,26 +15,16 @@ import net.xanthian.variantvanillablocks.block.*;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.xanthian.variantvanillablocks.Initialise.MOD_ID;
+import static net.xanthian.variantvanillablocks.utils.ModItemTags.*;
 
 public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     public ItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
 
-    private static final TagKey<Item> BARRELS = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"barrels"));
-    private static final TagKey<Item> BEEHIVES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"beehives"));
-    private static final TagKey<Item> CARTOGRAPHYTABLES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"cartographytables"));
-    private static final TagKey<Item> CHISELEDBOOKSHELVES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"chiseledbookshelves"));
-    private static final TagKey<Item> COMPOSTERS = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"composters"));
-    private static final TagKey<Item> CRAFTINGTABLES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"craftingtables"));
-    private static final TagKey<Item> FLETCHINGTABLES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"fletchingtables"));
-    private static final TagKey<Item> LECTERNS = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"lecterns"));
-    private static final TagKey<Item> GRINDSTONES = TagKey.of(Registries.ITEM.getKey(), new Identifier(MOD_ID,"grindstones"));
-
-    private static final TagKey<Item> NON_FLAMMABLE_WOOD = TagKey.of(Registries.ITEM.getKey(), new Identifier("minecraft:non_flammable_wood"));
     private static final TagKey<Item> JOB_SITE = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:villager_job_sites"));
     private static final TagKey<Item> WORKBENCH = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:workbench"));
+    private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:bookshelves"));
 
 
         @Override
@@ -62,7 +54,19 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(Beehives.SPRUCE_BEEHIVE.asItem())
                     .add(Beehives.WARPED_BEEHIVE.asItem());
 
-            getOrCreateTagBuilder(CARTOGRAPHYTABLES)
+            getOrCreateTagBuilder(BOOKSHELVES)
+                    .add(Bookshelves.ACACIA_BOOKSHELF.asItem())
+                    .add(Bookshelves.BAMBOO_BOOKSHELF.asItem())
+                    .add(Bookshelves.BIRCH_BOOKSHELF.asItem())
+                    .add(Bookshelves.CHERRY_BOOKSHELF.asItem())
+                    .add(Bookshelves.CRIMSON_BOOKSHELF.asItem())
+                    .add(Bookshelves.DARK_OAK_BOOKSHELF.asItem())
+                    .add(Bookshelves.JUNGLE_BOOKSHELF.asItem())
+                    .add(Bookshelves.MANGROVE_BOOKSHELF.asItem())
+                    .add(Bookshelves.SPRUCE_BOOKSHELF.asItem())
+                    .add(Bookshelves.WARPED_BOOKSHELF.asItem());
+
+            getOrCreateTagBuilder(CARTOGRAPHY_TABLES)
                     .add(CartographyTables.ACACIA_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.BIRCH_CARTOGRAPHY_TABLE.asItem())
@@ -74,7 +78,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE.asItem());
 
-            getOrCreateTagBuilder(CHISELEDBOOKSHELVES)
+            getOrCreateTagBuilder(CHISELED_BOOKSHELVES)
                     .add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF.asItem())
                     .add(ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF.asItem())
                     .add(ChiseledBookshelves.BIRCH_CHISELED_BOOKSHELF.asItem())
@@ -98,7 +102,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(Composters.OAK_COMPOSTER.asItem())
                     .add(Composters.WARPED_COMPOSTER.asItem());
 
-            getOrCreateTagBuilder(CRAFTINGTABLES)
+            getOrCreateTagBuilder(CRAFTING_TABLES)
                     .add(CraftingTables.ACACIA_CRAFTING_TABLE.asItem())
                     .add(CraftingTables.BAMBOO_CRAFTING_TABLE.asItem())
                     .add(CraftingTables.BIRCH_CRAFTING_TABLE.asItem())
@@ -110,7 +114,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(CraftingTables.SPRUCE_CRAFTING_TABLE.asItem())
                     .add(CraftingTables.WARPED_CRAFTING_TABLE.asItem());
 
-            getOrCreateTagBuilder(FLETCHINGTABLES)
+            getOrCreateTagBuilder(FLETCHING_TABLES)
                     .add(FletchingTables.ACACIA_FLETCHING_TABLE.asItem())
                     .add(FletchingTables.BAMBOO_FLETCHING_TABLE.asItem())
                     .add(FletchingTables.CHERRY_FLETCHING_TABLE.asItem())
@@ -121,18 +125,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(FletchingTables.OAK_FLETCHING_TABLE.asItem())
                     .add(FletchingTables.SPRUCE_FLETCHING_TABLE.asItem())
                     .add(FletchingTables.WARPED_FLETCHING_TABLE.asItem());
-
-            getOrCreateTagBuilder(LECTERNS)
-                    .add(Lecterns.ACACIA_LECTERN.asItem())
-                    .add(Lecterns.BAMBOO_LECTERN.asItem())
-                    .add(Lecterns.BIRCH_LECTERN.asItem())
-                    .add(Lecterns.CHERRY_LECTERN.asItem())
-                    .add(Lecterns.CRIMSON_LECTERN.asItem())
-                    .add(Lecterns.DARK_OAK_LECTERN.asItem())
-                    .add(Lecterns.JUNGLE_LECTERN.asItem())
-                    .add(Lecterns.MANGROVE_LECTERN.asItem())
-                    .add(Lecterns.SPRUCE_LECTERN.asItem())
-                    .add(Lecterns.WARPED_LECTERN.asItem());
 
             getOrCreateTagBuilder(GRINDSTONES)
                     .add(Grindstones.ACACIA_GRINDSTONE.asItem())
@@ -146,11 +138,49 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(Grindstones.SPRUCE_GRINDSTONE.asItem())
                     .add(Grindstones.WARPED_GRINDSTONE.asItem());
 
-            getOrCreateTagBuilder(NON_FLAMMABLE_WOOD)
+            getOrCreateTagBuilder(LECTERNS)
+                    .add(Lecterns.ACACIA_LECTERN.asItem())
+                    .add(Lecterns.BAMBOO_LECTERN.asItem())
+                    .add(Lecterns.BIRCH_LECTERN.asItem())
+                    .add(Lecterns.CHERRY_LECTERN.asItem())
+                    .add(Lecterns.CRIMSON_LECTERN.asItem())
+                    .add(Lecterns.DARK_OAK_LECTERN.asItem())
+                    .add(Lecterns.JUNGLE_LECTERN.asItem())
+                    .add(Lecterns.MANGROVE_LECTERN.asItem())
+                    .add(Lecterns.SPRUCE_LECTERN.asItem())
+                    .add(Lecterns.WARPED_LECTERN.asItem());
+
+            getOrCreateTagBuilder(SMITHING_TABLES)
+                    .add(SmithingTables.ACACIA_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.BAMBOO_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.BIRCH_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.CHERRY_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.CRIMSON_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.DARK_OAK_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.JUNGLE_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.OAK_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.SPRUCE_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.WARPED_SMITHING_TABLE.asItem());
+
+            getOrCreateTagBuilder(SMOKERS)
+                    .add(Smokers.ACACIA_SMOKER.asItem())
+                    .add(Smokers.BAMBOO_SMOKER.asItem())
+                    .add(Smokers.BIRCH_SMOKER.asItem())
+                    .add(Smokers.CHERRY_SMOKER.asItem())
+                    .add(Smokers.CRIMSON_SMOKER.asItem())
+                    .add(Smokers.DARK_OAK_SMOKER.asItem())
+                    .add(Smokers.JUNGLE_SMOKER.asItem())
+                    .add(Smokers.MANGROVE_SMOKER.asItem())
+                    .add(Smokers.SPRUCE_SMOKER.asItem())
+                    .add(Smokers.WARPED_SMOKER.asItem());
+
+            getOrCreateTagBuilder(ItemTags.NON_FLAMMABLE_WOOD)
                     .add(Barrels.CRIMSON_BARREL.asItem())
                     .add(Barrels.WARPED_BARREL.asItem())
                     .add(Beehives.CRIMSON_BEEHIVE.asItem())
                     .add(Beehives.WARPED_BEEHIVE.asItem())
+                    .add(Bookshelves.CRIMSON_BOOKSHELF.asItem())
+                    .add(Bookshelves.WARPED_BOOKSHELF.asItem())
                     .add(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE.asItem())
                     .add(ChiseledBookshelves.CRIMSON_CHISELED_BOOKSHELF.asItem())
@@ -162,18 +192,31 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(FletchingTables.CRIMSON_FLETCHING_TABLE.asItem())
                     .add(FletchingTables.WARPED_FLETCHING_TABLE.asItem())
                     .add(Lecterns.CRIMSON_LECTERN.asItem())
-                    .add(Lecterns.WARPED_LECTERN.asItem());
+                    .add(Lecterns.WARPED_LECTERN.asItem())
+                    .add(SmithingTables.CRIMSON_SMITHING_TABLE.asItem())
+                    .add(SmithingTables.WARPED_SMITHING_TABLE.asItem())
+                    .add(Smokers.CRIMSON_SMOKER.asItem())
+                    .add(Smokers.WARPED_SMOKER.asItem());
+                    
 
             getOrCreateTagBuilder(JOB_SITE)
                     .addTag(BARRELS)
-                    .addTag(CARTOGRAPHYTABLES)
+                    .addTag(CARTOGRAPHY_TABLES)
                     .addTag(COMPOSTERS)
-                    .addTag(CRAFTINGTABLES)
-                    .addTag(FLETCHINGTABLES)
+                    .addTag(FLETCHING_TABLES)
+                    .addTag(GRINDSTONES)
                     .addTag(LECTERNS)
-                    .addTag(GRINDSTONES);
+                    .addTag(SMITHING_TABLES)
+                    .addTag(SMOKERS);
 
             getOrCreateTagBuilder(WORKBENCH)
-                    .addTag(CRAFTINGTABLES);
+                    .addTag(CRAFTING_TABLES);
+
+            getOrCreateTagBuilder(C_BOOKSHELF)
+                    .forceAddTag(BOOKSHELVES);
+
+            getOrCreateTagBuilder(BAMBOO_LOGS)
+                    .add(Items.BAMBOO_BLOCK)
+                    .add(Items.STRIPPED_BAMBOO_BLOCK);
         }
     }

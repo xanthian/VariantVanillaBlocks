@@ -36,9 +36,10 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private static final TagKey<Block> BEE_HOME = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:point_of_interest_type/bee_home"));
 
-    private static final TagKey<Block> JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:villager_job_sites"));
-    private static final TagKey<Block> WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:workbench"));
+    private static final TagKey<Block> C_JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:villager_job_sites"));
+    private static final TagKey<Block> C_WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:workbench"));
     private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:bookshelves"));
+    private static final TagKey<Block> C_WOODEN_BARRELS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:wooden_barrels"));
 
 
     @Override
@@ -203,7 +204,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(GRINDSTONES)
                 .addTag(SMOKERS);
 
-        getOrCreateTagBuilder(JOB_SITE)
+        getOrCreateTagBuilder(C_JOB_SITE)
                 .addTag(BARRELS)
                 .addTag(CARTOGRAPHY_TABLES)
                 .addTag(COMPOSTERS)
@@ -213,8 +214,14 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(SMITHING_TABLES)
                 .addTag(SMOKERS);
 
-        getOrCreateTagBuilder(WORKBENCH)
+        getOrCreateTagBuilder(C_WORKBENCH)
                 .addTag(CRAFTING_TABLES);
+
+        getOrCreateTagBuilder(C_BOOKSHELF)
+                .forceAddTag(BOOKSHELVES);
+
+        getOrCreateTagBuilder(C_WOODEN_BARRELS)
+                .forceAddTag(BARRELS);
 
         getOrCreateTagBuilder(BEE_HOME)
                 .addTag(BEEHIVES);
@@ -228,7 +235,6 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER)
                 .forceAddTag(BOOKSHELVES);
 
-        getOrCreateTagBuilder(C_BOOKSHELF)
-                .forceAddTag(BOOKSHELVES);
+
     }
 }

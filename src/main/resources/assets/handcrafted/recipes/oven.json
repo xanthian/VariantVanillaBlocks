@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "handcrafted"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "oven",
+  "key": {
+    "#": {
+      "item": "minecraft:brick"
+    },
+    "/": {
+      "item": "minecraft:iron_bars"
+    },
+    "@": [
+      {
+        "item": "minecraft:smoker"
+      },
+      {
+        "tag": "variantvanillablocks:smokers"
+      }
+    ]
+  },
+  "pattern": [
+    "#/#",
+    "#@#",
+    "###"
+  ],
+  "result": {
+    "item": "handcrafted:oven"
+  },
+  "show_notification": true
+}

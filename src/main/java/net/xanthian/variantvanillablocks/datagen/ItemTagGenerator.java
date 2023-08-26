@@ -22,9 +22,10 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         super(output, registriesFuture);
     }
 
-    private static final TagKey<Item> JOB_SITE = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:villager_job_sites"));
-    private static final TagKey<Item> WORKBENCH = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:workbench"));
+    private static final TagKey<Item> C_JOB_SITE = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:villager_job_sites"));
+    private static final TagKey<Item> C_WORKBENCH = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:workbench"));
     private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:bookshelves"));
+    private static final TagKey<Item> C_WOODEN_BARRELS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:wooden_barrels"));
 
 
         @Override
@@ -199,7 +200,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(Smokers.WARPED_SMOKER.asItem());
                     
 
-            getOrCreateTagBuilder(JOB_SITE)
+            getOrCreateTagBuilder(C_JOB_SITE)
                     .addTag(BARRELS)
                     .addTag(CARTOGRAPHY_TABLES)
                     .addTag(COMPOSTERS)
@@ -209,11 +210,14 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .addTag(SMITHING_TABLES)
                     .addTag(SMOKERS);
 
-            getOrCreateTagBuilder(WORKBENCH)
+            getOrCreateTagBuilder(C_WORKBENCH)
                     .addTag(CRAFTING_TABLES);
 
             getOrCreateTagBuilder(C_BOOKSHELF)
                     .forceAddTag(BOOKSHELVES);
+
+            getOrCreateTagBuilder(C_WOODEN_BARRELS)
+                    .forceAddTag(BARRELS);
 
             getOrCreateTagBuilder(BAMBOO_LOGS)
                     .add(Items.BAMBOO_BLOCK)

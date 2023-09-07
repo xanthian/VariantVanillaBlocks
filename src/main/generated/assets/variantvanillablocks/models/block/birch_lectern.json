@@ -1,0 +1,11 @@
+{
+  "parent": "variantvanillablocks:block/variantlectern",
+  "textures": {
+    "base": "variantvanillablocks:block/birch_lectern_base",
+    "bottom": "minecraft:block/birch_planks",
+    "front": "variantvanillablocks:block/birch_lectern_front",
+    "particle": "variantvanillablocks:block/birch_lectern_sides",
+    "sides": "variantvanillablocks:block/birch_lectern_sides",
+    "top": "variantvanillablocks:block/birch_lectern_top"
+  }
+}

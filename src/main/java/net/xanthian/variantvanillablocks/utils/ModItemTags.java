@@ -13,6 +13,7 @@ public class ModItemTags {
         public static final TagKey<Item> BEEHIVES = register("beehives");
         public static final TagKey<Item> BOOKSHELVES = register("bookshelves");
         public static final TagKey<Item> CARTOGRAPHY_TABLES = register("cartography_tables");
+        public static final TagKey<Item> CHESTS = register("chests");
         public static final TagKey<Item> CHISELED_BOOKSHELVES = register("chiseled_bookshelves");
         public static final TagKey<Item> COMPOSTERS = register("composters");
         public static final TagKey<Item> CRAFTING_TABLES = register("crafting_tables");

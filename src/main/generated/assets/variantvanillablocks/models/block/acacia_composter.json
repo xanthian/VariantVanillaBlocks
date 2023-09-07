@@ -1,0 +1,10 @@
+{
+  "parent": "variantvanillablocks:block/variantcomposter",
+  "textures": {
+    "bottom": "variantvanillablocks:block/acacia_composter_bottom",
+    "inside": "variantvanillablocks:block/acacia_composter_bottom",
+    "particle": "variantvanillablocks:block/acacia_composter_side",
+    "side": "variantvanillablocks:block/acacia_composter_side",
+    "top": "variantvanillablocks:block/acacia_composter_top"
+  }
+}

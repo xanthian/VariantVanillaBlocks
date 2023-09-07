@@ -3,9 +3,6 @@ package net.xanthian.variantvanillablocks.utils;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
-import net.minecraft.block.FireBlock;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-
 import net.xanthian.variantvanillablocks.block.*;
 
 public class ModRegistries {
@@ -17,10 +14,6 @@ public class ModRegistries {
 
     private static void registerFlammableBlocks() {
         FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
-
-/**
- Copy from {@link FireBlock#registerDefaultFlammables()}
- **/
 
         registry.add(Composters.ACACIA_COMPOSTER, 5, 20);
         registry.add(Composters.BAMBOO_COMPOSTER, 5, 20);
@@ -62,9 +55,6 @@ public class ModRegistries {
     private static void registerFuel() {
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-/**
- Copy from {@link AbstractFurnaceBlockEntity#createFuelTimeMap()}
- **/
         registry.add(Barrels.ACACIA_BARREL, 300);
         registry.add(Barrels.BAMBOO_BARREL, 300);
         registry.add(Barrels.BIRCH_BARREL, 300);
@@ -91,6 +81,15 @@ public class ModRegistries {
         registry.add(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE, 300);
         registry.add(CartographyTables.OAK_CARTOGRAPHY_TABLE, 300);
         registry.add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE, 300);
+
+        registry.add(Chests.ACACIA_CHEST, 300);
+        registry.add(Chests.BAMBOO_CHEST, 300);
+        registry.add(Chests.BIRCH_CHEST, 300);
+        registry.add(Chests.CHERRY_CHEST, 300);
+        registry.add(Chests.DARK_OAK_CHEST, 300);
+        registry.add(Chests.JUNGLE_CHEST, 300);
+        registry.add(Chests.MANGROVE_CHEST, 300);
+        registry.add(Chests.SPRUCE_CHEST, 300);
 
         registry.add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF, 300);
         registry.add(ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF, 300);

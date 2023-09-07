@@ -1,0 +1,10 @@
+{
+  "parent": "variantvanillablocks:block/variantgrindstone",
+  "textures": {
+    "leg": "minecraft:block/birch_log",
+    "particle": "minecraft:block/grindstone_side",
+    "pivot": "variantvanillablocks:block/birch_grindstone_pivot",
+    "round": "minecraft:block/grindstone_round",
+    "side": "minecraft:block/grindstone_side"
+  }
+}

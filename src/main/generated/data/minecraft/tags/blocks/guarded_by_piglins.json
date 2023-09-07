@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#variantvanillablocks:barrels"
+    "#variantvanillablocks:barrels",
+    "#variantvanillablocks:chests"
   ]
 }

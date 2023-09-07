@@ -22,11 +22,12 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         super(output, registriesFuture);
     }
 
+    private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:bookshelves"));
+    public static final TagKey<Item> C_CHESTS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:chests"));
     private static final TagKey<Item> C_JOB_SITE = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:villager_job_sites"));
     private static final TagKey<Item> C_WORKBENCH = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:workbench"));
-    private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:bookshelves"));
     private static final TagKey<Item> C_WOODEN_BARRELS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:wooden_barrels"));
-
+    public static final TagKey<Item> C_WOODEN_CHESTS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:wooden_chests"));
 
         @Override
         protected void configure (RegistryWrapper.WrapperLookup arg){
@@ -78,6 +79,18 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(CartographyTables.OAK_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE.asItem());
+            
+            getOrCreateTagBuilder(CHESTS)
+                    .add(Chests.ACACIA_CHEST.asItem())
+                    .add(Chests.BAMBOO_CHEST.asItem())
+                    .add(Chests.BIRCH_CHEST.asItem())
+                    .add(Chests.CHERRY_CHEST.asItem())
+                    .add(Chests.CRIMSON_CHEST.asItem())
+                    .add(Chests.DARK_OAK_CHEST.asItem())
+                    .add(Chests.JUNGLE_CHEST.asItem())
+                    .add(Chests.MANGROVE_CHEST.asItem())
+                    .add(Chests.SPRUCE_CHEST.asItem())
+                    .add(Chests.WARPED_CHEST.asItem());
 
             getOrCreateTagBuilder(CHISELED_BOOKSHELVES)
                     .add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF.asItem())
@@ -184,6 +197,8 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .add(Bookshelves.WARPED_BOOKSHELF.asItem())
                     .add(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE.asItem())
                     .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE.asItem())
+                    .add(Chests.CRIMSON_CHEST.asItem())
+                    .add(Chests.WARPED_CHEST.asItem())
                     .add(ChiseledBookshelves.CRIMSON_CHISELED_BOOKSHELF.asItem())
                     .add(ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF.asItem())
                     .add(Composters.CRIMSON_COMPOSTER.asItem())
@@ -214,10 +229,16 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                     .addTag(CRAFTING_TABLES);
 
             getOrCreateTagBuilder(C_BOOKSHELF)
-                    .forceAddTag(BOOKSHELVES);
+                    .addTag(BOOKSHELVES);
 
             getOrCreateTagBuilder(C_WOODEN_BARRELS)
-                    .forceAddTag(BARRELS);
+                    .addTag(BARRELS);
+
+            getOrCreateTagBuilder(C_CHESTS)
+                    .addTag(CHESTS);
+
+            getOrCreateTagBuilder(C_WOODEN_CHESTS)
+                    .addTag(CHESTS);
 
             getOrCreateTagBuilder(BAMBOO_LOGS)
                     .add(Items.BAMBOO_BLOCK)

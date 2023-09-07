@@ -3,7 +3,8 @@ package net.xanthian.variantvanillablocks.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import net.xanthian.variantvanillablocks.Initialise;
+import net.minecraft.block.Blocks;
+
 import net.xanthian.variantvanillablocks.block.*;
 
 public class LangFileGenerator extends FabricLanguageProvider {
@@ -13,8 +14,6 @@ public class LangFileGenerator extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
-
-        translationBuilder.add(Initialise.ITEM_GROUP, "Variant Vanilla Blocks");
 
         translationBuilder.add(Barrels.ACACIA_BARREL, "Acacia Barrel");
         translationBuilder.add(Barrels.BAMBOO_BARREL, "Bamboo Barrel");
@@ -27,7 +26,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Barrels.OAK_BARREL, "Oak Barrel");
         //translationBuilder.add(Blocks.BARREL, "Spruce Barrel");
         translationBuilder.add(Barrels.WARPED_BARREL, "Warped Barrel");
-        
+
         translationBuilder.add(Beehives.ACACIA_BEEHIVE, "Acacia Beehive");
         translationBuilder.add(Beehives.BAMBOO_BEEHIVE, "Bamboo Beehive");
         translationBuilder.add(Beehives.BIRCH_BEEHIVE, "Birch Beehive");
@@ -63,6 +62,30 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(CartographyTables.OAK_CARTOGRAPHY_TABLE, "Oak Cartography Table");
         translationBuilder.add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE, "Spruce Cartography Table");
         translationBuilder.add(CartographyTables.WARPED_CARTOGRAPHY_TABLE, "Warped Cartography Table");
+
+        translationBuilder.add(Chests.ACACIA_CHEST, "Acacia Chest");
+        translationBuilder.add(Chests.BAMBOO_CHEST, "Bamboo Chest");
+        translationBuilder.add(Chests.BIRCH_CHEST, "Birch Chest");
+        translationBuilder.add(Chests.CHERRY_CHEST, "Cherry Chest");
+        translationBuilder.add(Chests.CRIMSON_CHEST, "Crimson Chest");
+        translationBuilder.add(Chests.DARK_OAK_CHEST, "Dark Oak Chest");
+        translationBuilder.add(Chests.JUNGLE_CHEST, "Jungle Chest");
+        translationBuilder.add(Chests.MANGROVE_CHEST, "Mangrove Chest");
+        translationBuilder.add(Blocks.CHEST, "Oak Chest");
+        translationBuilder.add(Chests.SPRUCE_CHEST, "Spruce Chest");
+        translationBuilder.add(Chests.WARPED_CHEST, "Warped Chest");
+
+        translationBuilder.add("container.variantvanillablocks.acacia_chest", "Acacia Chest");
+        translationBuilder.add("container.variantvanillablocks.bamboo_chest", "Bamboo Chest");
+        translationBuilder.add("container.variantvanillablocks.birch_chest", "Birch Chest");
+        translationBuilder.add("container.variantvanillablocks.cherry_chest", "Cherry Chest");
+        translationBuilder.add("container.variantvanillablocks.crimson_chest", "Crimson Chest");
+        translationBuilder.add("container.variantvanillablocks.dark_oak_chest", "Dark Oak Chest");
+        translationBuilder.add("container.variantvanillablocks.jungle_chest", "Jungle Chest");
+        translationBuilder.add("container.variantvanillablocks.mangrove_chest", "Mangrove Chest");
+        translationBuilder.add("container.variantvanillablocks.chest", "Oak Chest");
+        translationBuilder.add("container.variantvanillablocks.spruce_chest", "Spruce Chest");
+        translationBuilder.add("container.variantvanillablocks.warped_chest", "Warped Chest");
 
         translationBuilder.add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF, "Acacia Chiseled Bookshelf");
         translationBuilder.add(ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF, "Bamboo Chiseled Bookshelf");

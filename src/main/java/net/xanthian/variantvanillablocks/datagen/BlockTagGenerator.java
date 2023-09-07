@@ -25,6 +25,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
     private static final TagKey<Block> BEEHIVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"beehives"));
     private static final TagKey<Block> BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"bookshelves"));
     private static final TagKey<Block> CARTOGRAPHY_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"cartography_tables"));
+    private static final TagKey<Block> CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"chests"));
     private static final TagKey<Block> CHISELED_BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"chiseled_bookshelves"));
     private static final TagKey<Block> COMPOSTERS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"composters"));
     private static final TagKey<Block> CRAFTING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID,"crafting_tables"));
@@ -36,10 +37,12 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
 
     private static final TagKey<Block> BEE_HOME = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:point_of_interest_type/bee_home"));
 
+    private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:bookshelves"));
+    private static final TagKey<Block> C_CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:chests"));
     private static final TagKey<Block> C_JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:villager_job_sites"));
     private static final TagKey<Block> C_WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:workbench"));
-    private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:bookshelves"));
     private static final TagKey<Block> C_WOODEN_BARRELS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:wooden_barrels"));
+    private static final TagKey<Block> C_WOODEN_CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:wooden_chests"));
 
 
     @Override
@@ -92,6 +95,18 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .add(CartographyTables.OAK_CARTOGRAPHY_TABLE)
                 .add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE)
                 .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE);
+
+        getOrCreateTagBuilder(CHESTS)
+                .add(Chests.ACACIA_CHEST)
+                .add(Chests.BAMBOO_CHEST)
+                .add(Chests.BIRCH_CHEST)
+                .add(Chests.CHERRY_CHEST)
+                .add(Chests.CRIMSON_CHEST)
+                .add(Chests.DARK_OAK_CHEST)
+                .add(Chests.JUNGLE_CHEST)
+                .add(Chests.MANGROVE_CHEST)
+                .add(Chests.SPRUCE_CHEST)
+                .add(Chests.WARPED_CHEST);
 
         getOrCreateTagBuilder(CHISELED_BOOKSHELVES)
                 .add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF)
@@ -193,6 +208,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(BARRELS)
                 .addTag(BEEHIVES)
                 .addTag(CARTOGRAPHY_TABLES)
+                .addTag(CHESTS)
                 .addTag(CHISELED_BOOKSHELVES)
                 .addTag(COMPOSTERS)
                 .addTag(CRAFTING_TABLES)
@@ -218,10 +234,16 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(CRAFTING_TABLES);
 
         getOrCreateTagBuilder(C_BOOKSHELF)
-                .forceAddTag(BOOKSHELVES);
+                .addTag(BOOKSHELVES);
 
         getOrCreateTagBuilder(C_WOODEN_BARRELS)
-                .forceAddTag(BARRELS);
+                .addTag(BARRELS);
+
+        getOrCreateTagBuilder(C_CHESTS)
+                .addTag(CHESTS);
+
+        getOrCreateTagBuilder(C_WOODEN_CHESTS)
+                .addTag(CHESTS);
 
         getOrCreateTagBuilder(BEE_HOME)
                 .addTag(BEEHIVES);
@@ -230,10 +252,11 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(BEEHIVES);
 
         getOrCreateTagBuilder(BlockTags.GUARDED_BY_PIGLINS)
-                .addTag(BARRELS);
+                .addTag(BARRELS)
+                .addTag(CHESTS);
 
         getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER)
-                .forceAddTag(BOOKSHELVES);
+                .addTag(BOOKSHELVES);
 
 
     }

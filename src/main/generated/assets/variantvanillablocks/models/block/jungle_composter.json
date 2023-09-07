@@ -1,0 +1,10 @@
+{
+  "parent": "variantvanillablocks:block/variantcomposter",
+  "textures": {
+    "bottom": "variantvanillablocks:block/jungle_composter_bottom",
+    "inside": "variantvanillablocks:block/jungle_composter_bottom",
+    "particle": "variantvanillablocks:block/jungle_composter_side",
+    "side": "variantvanillablocks:block/jungle_composter_side",
+    "top": "variantvanillablocks:block/jungle_composter_top"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "variantvanillablocks:block/variantcomposter",
+  "textures": {
+    "bottom": "variantvanillablocks:block/dark_oak_composter_bottom",
+    "inside": "variantvanillablocks:block/dark_oak_composter_bottom",
+    "particle": "variantvanillablocks:block/dark_oak_composter_side",
+    "side": "variantvanillablocks:block/dark_oak_composter_side",
+    "top": "variantvanillablocks:block/dark_oak_composter_top"
+  }
+}

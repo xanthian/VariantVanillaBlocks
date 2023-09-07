@@ -5,10 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.VanillaRecipeProvider;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -77,6 +74,28 @@ public class RecipeGenerator extends FabricRecipeProvider {
         RecipeGenerator.offerCartographyTableRecipe(exporter, CartographyTables.OAK_CARTOGRAPHY_TABLE, Blocks.OAK_PLANKS);
         RecipeGenerator.offerCartographyTableRecipe(exporter, CartographyTables.SPRUCE_CARTOGRAPHY_TABLE, Blocks.SPRUCE_PLANKS);
         RecipeGenerator.offerCartographyTableRecipe(exporter, CartographyTables.WARPED_CARTOGRAPHY_TABLE, Blocks.WARPED_PLANKS);
+
+        // Chests + Chest Boats
+        offerChestRecipe(exporter, Chests.ACACIA_CHEST, Items.ACACIA_PLANKS);
+        offerChestRecipe(exporter, Chests.BAMBOO_CHEST, Items.BAMBOO_PLANKS);
+        offerChestRecipe(exporter, Chests.BIRCH_CHEST, Items.BIRCH_PLANKS);
+        offerChestRecipe(exporter, Chests.CHERRY_CHEST, Items.CHERRY_PLANKS);
+        offerChestRecipe(exporter, Chests.CRIMSON_CHEST, Items.CRIMSON_PLANKS);
+        offerChestRecipe(exporter, Chests.DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
+        offerChestRecipe(exporter, Chests.JUNGLE_CHEST, Items.JUNGLE_PLANKS);
+        offerChestRecipe(exporter, Chests.MANGROVE_CHEST, Items.MANGROVE_PLANKS);
+        offerChestRecipe(exporter, Chests.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
+        offerChestRecipe(exporter, Chests.WARPED_CHEST, Items.WARPED_PLANKS);
+
+        offerCustomChestBoatRecipe(exporter,Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.BAMBOO_CHEST_RAFT, Items.BAMBOO_RAFT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.BIRCH_CHEST_BOAT, Items.BIRCH_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.CHERRY_CHEST_BOAT, Items.CHERRY_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.DARK_OAK_CHEST_BOAT, Items.DARK_OAK_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.JUNGLE_CHEST_BOAT, Items.JUNGLE_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.MANGROVE_CHEST_BOAT, Items.MANGROVE_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.OAK_CHEST_BOAT, Items.OAK_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter,Items.SPRUCE_CHEST_BOAT, Items.SPRUCE_BOAT, ModItemTags.CHESTS);
 
         // Chiseled Bookshelf
         RecipeGenerator.offerChiseledBookshelfRecipe(exporter, ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF, Blocks.ACACIA_PLANKS, Blocks.ACACIA_SLAB);
@@ -187,12 +206,33 @@ public class RecipeGenerator extends FabricRecipeProvider {
         RecipeGenerator.offerSmokerRecipe(exporter, Smokers.MANGROVE_SMOKER, ItemTags.MANGROVE_LOGS);
         RecipeGenerator.offerSmokerRecipe(exporter, Smokers.SPRUCE_SMOKER, ItemTags.SPRUCE_LOGS);
         RecipeGenerator.offerSmokerRecipe(exporter, Smokers.WARPED_SMOKER, ItemTags.WARPED_STEMS);
-        
+
+        // Chest Minecart
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CHEST_MINECART, 1)
+                .input(ModItemTags.CHESTS).input(Items.MINECART)
+                .criterion("has_minecart", VanillaRecipeProvider.conditionsFromItem(Items.MINECART))
+                .offerTo(exporter, new Identifier("variantchests", "chest_minecart"));
+        // Hopper
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, Items.HOPPER, 1)
+                .input('I', Items.IRON_INGOT).input('C', ModItemTags.CHESTS)
+                .pattern("I I").pattern("ICI").pattern(" I ")
+                .criterion("has_iron_ingot", VanillaRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, new Identifier("variantchests", "hopper"));
+
+        // Shulker Box
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SHULKER_BOX, 1)
+                .input('-', Items.SHULKER_SHELL).input('#', ModItemTags.CHESTS)
+                .pattern(" - ").pattern(" # ").pattern(" - ")
+                .criterion("has_shulker_shell", VanillaRecipeProvider.conditionsFromItem(Items.SHULKER_SHELL))
+                .offerTo(exporter, new Identifier("variantchests", "shulker_box"));
+
+
         // Uncrafting
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.DECORATIONS, ModItemTags.BARRELS, Blocks.BARREL);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.BEEHIVES, Blocks.BEEHIVE);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModItemTags.BOOKSHELVES, Blocks.BOOKSHELF);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CARTOGRAPHY_TABLES, Blocks.CARTOGRAPHY_TABLE);
+        RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CHESTS, Blocks.CHEST);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModItemTags.CHISELED_BOOKSHELVES, Blocks.CHISELED_BOOKSHELF);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.DECORATIONS, ModItemTags.COMPOSTERS, Blocks.COMPOSTER);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CRAFTING_TABLES, Blocks.CRAFTING_TABLE);
@@ -233,6 +273,21 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 .pattern("@@").pattern("##").pattern("##")
                 .criterion(FabricRecipeProvider.hasItem(Items.PAPER), FabricRecipeProvider.conditionsFromItem(Items.PAPER))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(cartographytable)));
+    }
+
+    public static void offerChestRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chest, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, chest, 1)
+                .input('P', plank)
+                .pattern("PPP").pattern("P P").pattern("PPP")
+                .criterion("has_planks", VanillaRecipeProvider.conditionsFromItem(plank))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chest)));
+    }
+
+    public static void offerCustomChestBoatRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chestboat, ItemConvertible boat, TagKey<Item> chest) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, chestboat)
+                .input(chest).input(boat).group("chest_boat")
+                .criterion("has_boat", RecipeProvider.conditionsFromTag(ItemTags.BOATS))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chestboat)));
     }
 
     public static void offerChiseledBookshelfRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible bookshelf, ItemConvertible plank, ItemConvertible slab) {

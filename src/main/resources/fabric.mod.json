@@ -9,6 +9,7 @@
   "environment": "*",
   "entrypoints": {
     "main": ["net.xanthian.variantvanillablocks.Initialise"],
+    "client": ["net.xanthian.variantvanillablocks.ClientInitialise"],
     "fabric-datagen": ["net.xanthian.variantvanillablocks.DataGenerator"]
   },
   "mixins": ["variantvanillablocks.mixins.json"],

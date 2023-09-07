@@ -1,0 +1,11 @@
+{
+  "parent": "variantvanillablocks:block/variantlectern",
+  "textures": {
+    "base": "variantvanillablocks:block/spruce_lectern_base",
+    "bottom": "minecraft:block/spruce_planks",
+    "front": "variantvanillablocks:block/spruce_lectern_front",
+    "particle": "variantvanillablocks:block/spruce_lectern_sides",
+    "sides": "variantvanillablocks:block/spruce_lectern_sides",
+    "top": "variantvanillablocks:block/spruce_lectern_top"
+  }
+}

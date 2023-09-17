@@ -24,7 +24,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Barrels.JUNGLE_BARREL, "Jungle Barrel");
         translationBuilder.add(Barrels.MANGROVE_BARREL, "Mangrove Barrel");
         translationBuilder.add(Barrels.OAK_BARREL, "Oak Barrel");
-        //translationBuilder.add(Blocks.BARREL, "Spruce Barrel");
+        translationBuilder.add(Blocks.BARREL, "Spruce Barrel");
         translationBuilder.add(Barrels.WARPED_BARREL, "Warped Barrel");
 
         translationBuilder.add(Beehives.ACACIA_BEEHIVE, "Acacia Beehive");
@@ -35,7 +35,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Beehives.DARK_OAK_BEEHIVE, "Dark Oak Beehive");
         translationBuilder.add(Beehives.JUNGLE_BEEHIVE, "Jungle Beehive");
         translationBuilder.add(Beehives.MANGROVE_BEEHIVE, "Mangrove Beehive");
-        //translationBuilder.add(Blocks.BEEHIVE, "Oak Beehive");
+        translationBuilder.add(Blocks.BEEHIVE, "Oak Beehive");
         translationBuilder.add(Beehives.SPRUCE_BEEHIVE, "Spruce Beehive");
         translationBuilder.add(Beehives.WARPED_BEEHIVE, "Warped Beehive");
 
@@ -47,7 +47,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Bookshelves.DARK_OAK_BOOKSHELF, "Dark Oak Bookshelf");
         translationBuilder.add(Bookshelves.JUNGLE_BOOKSHELF, "Jungle Bookshelf");
         translationBuilder.add(Bookshelves.MANGROVE_BOOKSHELF, "Mangrove Bookshelf");
-        //translationBuilder.add(Blocks.BOOKSHELF, "Oak Bookshelf");
+        translationBuilder.add(Blocks.BOOKSHELF, "Oak Bookshelf");
         translationBuilder.add(Bookshelves.SPRUCE_BOOKSHELF, "Spruce Bookshelf");
         translationBuilder.add(Bookshelves.WARPED_BOOKSHELF, "Warped Bookshelf");
         
@@ -56,7 +56,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(CartographyTables.BIRCH_CARTOGRAPHY_TABLE, "Birch Cartography Table");
         translationBuilder.add(CartographyTables.CHERRY_CARTOGRAPHY_TABLE, "Cherry Cartography Table");
         translationBuilder.add(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE, "Crimson Cartography Table");
-        //translationBuilder.add(Blocks.CARTOGRAPHY_TABLE, "Dark Oak Cartography Table");
+        translationBuilder.add(Blocks.CARTOGRAPHY_TABLE, "Dark Oak Cartography Table");
         translationBuilder.add(CartographyTables.JUNGLE_CARTOGRAPHY_TABLE, "Jungle Cartography Table");
         translationBuilder.add(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE, "Mangrove Cartography Table");
         translationBuilder.add(CartographyTables.OAK_CARTOGRAPHY_TABLE, "Oak Cartography Table");
@@ -95,7 +95,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(ChiseledBookshelves.DARK_OAK_CHISELED_BOOKSHELF, "Dark Oak Chiseled Bookshelf");
         translationBuilder.add(ChiseledBookshelves.JUNGLE_CHISELED_BOOKSHELF, "Jungle Chiseled Bookshelf");
         translationBuilder.add(ChiseledBookshelves.MANGROVE_CHISELED_BOOKSHELF, "Mangrove Chiseled Bookshelf");
-        //translationBuilder.add(Items.CHISELED_BOOKSHELF, "Oak Chiseled Bookshelf");
+        translationBuilder.add(Blocks.CHISELED_BOOKSHELF, "Oak Chiseled Bookshelf");
         translationBuilder.add(ChiseledBookshelves.SPRUCE_CHISELED_BOOKSHELF, "Spruce Chiseled Bookshelf");
         translationBuilder.add(ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF, "Warped Chiseled Bookshelf");
 
@@ -108,7 +108,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Composters.JUNGLE_COMPOSTER, "Jungle Composter");
         translationBuilder.add(Composters.MANGROVE_COMPOSTER, "Mangrove Composter");
         translationBuilder.add(Composters.OAK_COMPOSTER, "Oak Composter");
-        //translationBuilder.add(Blocks.COMPOSTER, "Spruce Composter");
+        translationBuilder.add(Blocks.COMPOSTER, "Spruce Composter");
         translationBuilder.add(Composters.WARPED_COMPOSTER, "Warped Composter");
 
         translationBuilder.add(CraftingTables.ACACIA_CRAFTING_TABLE, "Acacia Crafting Table");
@@ -119,13 +119,13 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(CraftingTables.DARK_OAK_CRAFTING_TABLE, "Dark Oak Crafting Table");
         translationBuilder.add(CraftingTables.JUNGLE_CRAFTING_TABLE, "Jungle Crafting Table");
         translationBuilder.add(CraftingTables.MANGROVE_CRAFTING_TABLE, "Mangrove Crafting Table");
-        //translationBuilder.add(Blocks.CRAFTING_TABLE, "Oak Crafting Table");
+        translationBuilder.add(Blocks.CRAFTING_TABLE, "Oak Crafting Table");
         translationBuilder.add(CraftingTables.SPRUCE_CRAFTING_TABLE, "Spruce Crafting Table");
         translationBuilder.add(CraftingTables.WARPED_CRAFTING_TABLE, "Warped Crafting Table");
 
         translationBuilder.add(FletchingTables.ACACIA_FLETCHING_TABLE, "Acacia Fletching Table");
         translationBuilder.add(FletchingTables.BAMBOO_FLETCHING_TABLE, "Bamboo Fletching Table");
-        //translationBuilder.add(Blocks.FLETCHING_TABLE, "Birch Fletching Table");
+        translationBuilder.add(Blocks.FLETCHING_TABLE, "Birch Fletching Table");
         translationBuilder.add(FletchingTables.CHERRY_FLETCHING_TABLE, "Cherry Fletching Table");
         translationBuilder.add(FletchingTables.CRIMSON_FLETCHING_TABLE, "Crimson Fletching Table");
         translationBuilder.add(FletchingTables.DARK_OAK_FLETCHING_TABLE, "Dark Oak Fletching Table");
@@ -140,7 +140,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Grindstones.BIRCH_GRINDSTONE, "Birch Grindstone");
         translationBuilder.add(Grindstones.CHERRY_GRINDSTONE, "Cherry Grindstone");
         translationBuilder.add(Grindstones.CRIMSON_GRINDSTONE, "Crimson Grindstone");
-        //translationBuilder.add(Blocks.GRINDSTONE, "Dark Oak Grindstone");
+        translationBuilder.add(Blocks.GRINDSTONE, "Dark Oak Grindstone");
         translationBuilder.add(Grindstones.JUNGLE_GRINDSTONE, "Jungle Grindstone");
         translationBuilder.add(Grindstones.MANGROVE_GRINDSTONE, "Mangrove Grindstone");
         translationBuilder.add(Grindstones.OAK_GRINDSTONE, "Oak Grindstone");
@@ -155,7 +155,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Lecterns.DARK_OAK_LECTERN, "Dark Oak Lectern");
         translationBuilder.add(Lecterns.JUNGLE_LECTERN, "Jungle Lectern");
         translationBuilder.add(Lecterns.MANGROVE_LECTERN, "Mangrove Lectern");
-        //translationBuilder.add(Blocks.LECTERN, "Oak Lectern");
+        translationBuilder.add(Blocks.LECTERN, "Oak Lectern");
         translationBuilder.add(Lecterns.SPRUCE_LECTERN, "Spruce Lectern");
         translationBuilder.add(Lecterns.WARPED_LECTERN, "Warped Lectern");
 
@@ -166,7 +166,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(SmithingTables.CRIMSON_SMITHING_TABLE, "Crimson Smithing Table");
         translationBuilder.add(SmithingTables.DARK_OAK_SMITHING_TABLE, "Dark Oak Smithing Table");
         translationBuilder.add(SmithingTables.JUNGLE_SMITHING_TABLE, "Jungle Smithing Table");
-        //translationBuilder.add(Blocks.SMITHING_TABLE, "Mangrove Smithing Table");
+        translationBuilder.add(Blocks.SMITHING_TABLE, "Mangrove Smithing Table");
         translationBuilder.add(SmithingTables.OAK_SMITHING_TABLE, "Oak Smithing Table");
         translationBuilder.add(SmithingTables.SPRUCE_SMITHING_TABLE, "Spruce Smithing Table");
         translationBuilder.add(SmithingTables.WARPED_SMITHING_TABLE, "Warped Smithing Table");
@@ -180,7 +180,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Smokers.JUNGLE_SMOKER, "Jungle Smoker");
         translationBuilder.add(Smokers.MANGROVE_SMOKER, "Mangrove Smoker");
         translationBuilder.add(Smokers.SPRUCE_SMOKER, "Spruce Smoker");
-        //translationBuilder.add(Blocks.SMOKER, "Spruce Smoker");
+        translationBuilder.add(Blocks.SMOKER, "Spruce Smoker");
         translationBuilder.add(Smokers.WARPED_SMOKER, "Warped Smoker");
     }
 }

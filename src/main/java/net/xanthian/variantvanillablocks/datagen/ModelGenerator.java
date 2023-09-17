@@ -27,28 +27,14 @@ public class ModelGenerator extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
         // Barrels
-        createBarrel(blockStateModelGenerator, Barrels.ACACIA_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.BAMBOO_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.BIRCH_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.CHERRY_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.CRIMSON_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.DARK_OAK_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.JUNGLE_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.MANGROVE_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.OAK_BARREL);
-        createBarrel(blockStateModelGenerator, Barrels.WARPED_BARREL);
+        for (Block block : Barrels.MOD_BARRELS.values()) {
+            createBarrel(blockStateModelGenerator, block);
+        }
 
         // Beehives
-        blockStateModelGenerator.registerBeehive(Beehives.ACACIA_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.BAMBOO_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.BIRCH_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.CHERRY_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.CRIMSON_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.DARK_OAK_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.JUNGLE_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.MANGROVE_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.SPRUCE_BEEHIVE, TextureMap::sideFrontEnd);
-        blockStateModelGenerator.registerBeehive(Beehives.WARPED_BEEHIVE, TextureMap::sideFrontEnd);
+        for (Block block : Beehives.MOD_BEEHIVES.values()) {
+            blockStateModelGenerator.registerBeehive(block, TextureMap::sideFrontEnd);
+        }
 
         // Bookshelves
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.ACACIA_BOOKSHELF, Blocks.ACACIA_PLANKS, ModTextureMap::endside);
@@ -99,16 +85,9 @@ public class ModelGenerator extends FabricModelProvider {
         //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF);
 
         // Composters
-        createComposter(blockStateModelGenerator, Composters.ACACIA_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.BAMBOO_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.BIRCH_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.CHERRY_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.CRIMSON_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.DARK_OAK_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.JUNGLE_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.MANGROVE_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.OAK_COMPOSTER);
-        createComposter(blockStateModelGenerator, Composters.WARPED_COMPOSTER);
+        for (Block block : Composters.MOD_COMPOSTERS.values()) {
+            createComposter(blockStateModelGenerator, block);
+        }
 
         // Crafting Tables
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.ACACIA_CRAFTING_TABLE, Blocks.ACACIA_PLANKS, TextureMap::frontSideWithCustomBottom);
@@ -159,30 +138,14 @@ public class ModelGenerator extends FabricModelProvider {
         createLectern(blockStateModelGenerator, Lecterns.WARPED_LECTERN, Blocks.WARPED_PLANKS);
 
         // Smithing Tables
-        createSmithingTable(blockStateModelGenerator, SmithingTables.ACACIA_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.BAMBOO_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.BIRCH_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.CHERRY_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.CRIMSON_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.DARK_OAK_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.JUNGLE_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.OAK_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.SPRUCE_SMITHING_TABLE);
-        createSmithingTable(blockStateModelGenerator, SmithingTables.WARPED_SMITHING_TABLE);
+        for (Block block : SmithingTables.MOD_SMITHING_TABLES.values()) {
+            createSmithingTable(blockStateModelGenerator, block);
+        }
 
         // Smokers
-        blockStateModelGenerator.registerCooker(Smokers.ACACIA_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.BAMBOO_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.BIRCH_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.CHERRY_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.CRIMSON_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.DARK_OAK_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.JUNGLE_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.MANGROVE_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.SPRUCE_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        blockStateModelGenerator.registerCooker(Smokers.WARPED_SMOKER,TexturedModel.ORIENTABLE_WITH_BOTTOM);
-
-
+        for (Block block : Smokers.MOD_SMOKERS.values()) {
+            blockStateModelGenerator.registerCooker(block, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+        }
     }
 
     @Override

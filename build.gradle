@@ -52,7 +52,7 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg '-mixin.config=rfdeepslateminer.mixins.json'
+            arg '-mixin.config=variantvanillablocks.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
@@ -68,7 +68,7 @@ minecraft {
 
         gameTestServer {
             workingDirectory project.file('run')
-            arg '-mixin.config=rfdeepslateminer.mixins.json'
+            arg '-mixin.config=variantvanillablocks.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
@@ -84,7 +84,7 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            arg '-mixin.config=rfdeepslateminer.mixins.json'
+            arg '-mixin.config=variantvanillablocks.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'

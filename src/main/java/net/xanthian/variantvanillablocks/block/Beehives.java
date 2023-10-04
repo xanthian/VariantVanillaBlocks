@@ -2,55 +2,59 @@ package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.BeehiveBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.xanthian.variantvanillablocks.Initialise;
+import net.xanthian.variantvanillablocks.item.ModItems;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class Beehives {
 
-    public static Map<Identifier, Block> MOD_BEEHIVES = Maps.newHashMap();
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
 
-    public static final BeehiveBlock ACACIA_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock BAMBOO_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock BIRCH_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock CHERRY_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock CRIMSON_BEEHIVE = new BeehiveBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
-    public static final BeehiveBlock DARK_OAK_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock JUNGLE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock MANGROVE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    // Vanilla Beehive is made from Oak
-    public static final BeehiveBlock SPRUCE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock WARPED_BEEHIVE = new BeehiveBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
+    public static Map<ResourceLocation, Supplier> MOD_BEEHIVES = Maps.newHashMap();
 
+    public static final RegistryObject<Block> ACACIA_BEEHIVE = registerBlock("acacia_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)));
+    public static final RegistryObject<Block> BAMBOO_BEEHIVE = registerBlock("bamboo_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
+    public static final RegistryObject<Block> BIRCH_BEEHIVE = registerBlock("birch_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)));
+    public static final RegistryObject<Block> CHERRY_BEEHIVE = registerBlock("cherry_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
+    public static final RegistryObject<Block> CRIMSON_BEEHIVE = registerBlock("crimson_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)));
+    public static final RegistryObject<Block> DARK_OAK_BEEHIVE = registerBlock("dark_oak_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> JUNGLE_BEEHIVE = registerBlock("jungle_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)));
+    public static final RegistryObject<Block> MANGROVE_BEEHIVE = registerBlock("mangrove_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)));
 
-    public static void registerVanillaHives() {
-        registerBeehiveBlock("acacia_beehive", ACACIA_BEEHIVE);
-        registerBeehiveBlock("bamboo_beehive", BAMBOO_BEEHIVE);
-        registerBeehiveBlock("cherry_beehive", CHERRY_BEEHIVE);
-        registerBeehiveBlock("crimson_beehive", CRIMSON_BEEHIVE);
-        registerBeehiveBlock("dark_oak_beehive", DARK_OAK_BEEHIVE);
-        registerBeehiveBlock("jungle_beehive", JUNGLE_BEEHIVE);
-        registerBeehiveBlock("mangrove_beehive", MANGROVE_BEEHIVE);
-        registerBeehiveBlock("birch_beehive", BIRCH_BEEHIVE);
-        registerBeehiveBlock("spruce_beehive", SPRUCE_BEEHIVE);
-        registerBeehiveBlock("warped_beehive", WARPED_BEEHIVE);
+    public static final RegistryObject<Block> SPRUCE_BEEHIVE = registerBlock("spruce_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)));
+    public static final RegistryObject<Block> WARPED_BEEHIVE = registerBlock("warped_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)));
+
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
     }
-
-    private static void registerBeehiveBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
-        MOD_BEEHIVES.put(identifier, block);
+    private static <T extends Block> RegistryObject<BlockItem> registerBlockItem(String name, RegistryObject<T> block) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 }

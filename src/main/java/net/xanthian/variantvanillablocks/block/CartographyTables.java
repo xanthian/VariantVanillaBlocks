@@ -2,55 +2,68 @@ package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CartographyTableBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.xanthian.variantvanillablocks.Initialise;
+import net.xanthian.variantvanillablocks.item.ModItems;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class CartographyTables {
 
-    public static Map<Identifier, Block> MOD_CARTOGRAPHY_TABLES = Maps.newHashMap();
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
 
-    public static final CartographyTableBlock ACACIA_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock BAMBOO_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock BIRCH_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock CHERRY_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock CRIMSON_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD));
-    // Vanilla Cartography Table is Dark Oak
-    public static final CartographyTableBlock JUNGLE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock MANGROVE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock OAK_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock SPRUCE_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.copy(Blocks.CARTOGRAPHY_TABLE));
-    public static final CartographyTableBlock WARPED_CARTOGRAPHY_TABLE = new CartographyTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD));
+    public static Map<ResourceLocation, Supplier> MOD_CARTOGRAPHY_TABLES = Maps.newHashMap();
 
+    public static final RegistryObject<Block> ACACIA_CARTOGRAPHY_TABLE = register("acacia_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
+    public static final RegistryObject<Block> BAMBOO_CARTOGRAPHY_TABLE = register("bamboo_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
+    public static final RegistryObject<Block> BIRCH_CARTOGRAPHY_TABLE = register("birch_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)), 300);
+    public static final RegistryObject<Block> CHERRY_CARTOGRAPHY_TABLE = register("cherry_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
+    public static final RegistryObject<Block> CRIMSON_CARTOGRAPHY_TABLE = register("crimson_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), 0);
+    
+    public static final RegistryObject<Block> JUNGLE_CARTOGRAPHY_TABLE = register("jungle_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
+    public static final RegistryObject<Block> MANGROVE_CARTOGRAPHY_TABLE = register("mangrove_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_CARTOGRAPHY_TABLE = register("oak_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> SPRUCE_CARTOGRAPHY_TABLE = register("spruce_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
+    public static final RegistryObject<Block> WARPED_CARTOGRAPHY_TABLE = register("warped_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
 
-    public static void registerVanillaTables() {
-        registerCartographyTableBlock("acacia_cartography_table", ACACIA_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("bamboo_cartography_table", BAMBOO_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("birch_cartography_table", BIRCH_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("cherry_cartography_table", CHERRY_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("crimson_cartography_table", CRIMSON_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("jungle_cartography_table", JUNGLE_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("mangrove_cartography_table", MANGROVE_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("oak_cartography_table", OAK_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("spruce_cartography_table", SPRUCE_CARTOGRAPHY_TABLE);
-        registerCartographyTableBlock("warped_cartography_table", WARPED_CARTOGRAPHY_TABLE);
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, int burnTime) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerItem(name, toReturn, burnTime);
+        return toReturn;
     }
 
-    private static void registerCartographyTableBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
-        MOD_CARTOGRAPHY_TABLES.put(identifier, block);
+    private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+            @Override
+            public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                return burnTime;
+            }
+        });
     }
 }

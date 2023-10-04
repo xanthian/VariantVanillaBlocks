@@ -2,54 +2,68 @@ package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LecternBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.xanthian.variantvanillablocks.Initialise;
+import net.xanthian.variantvanillablocks.item.ModItems;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class Lecterns {
 
-    public static Map<Identifier, Block> MOD_LECTERNS = Maps.newHashMap();
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
 
-    public static final LecternBlock ACACIA_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock BAMBOO_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock BIRCH_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock CHERRY_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock CRIMSON_LECTERN = new LecternBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD));
-    public static final LecternBlock DARK_OAK_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock JUNGLE_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock MANGROVE_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    // Vanilla Lectern block is made from Oak
-    public static final LecternBlock SPRUCE_LECTERN = new LecternBlock(FabricBlockSettings.copy(Blocks.LECTERN));
-    public static final LecternBlock WARPED_LECTERN = new LecternBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD));
+    public static Map<ResourceLocation, Supplier> MOD_LECTERNS = Maps.newHashMap();
 
-    public static void registerVanillaLecterns() {
-        registerLecternBlock("acacia_lectern", ACACIA_LECTERN);
-        registerLecternBlock("bamboo_lectern", BAMBOO_LECTERN);
-        registerLecternBlock("birch_lectern", BIRCH_LECTERN);
-        registerLecternBlock("cherry_lectern", CHERRY_LECTERN);
-        registerLecternBlock("crimson_lectern", CRIMSON_LECTERN);
-        registerLecternBlock("dark_oak_lectern", DARK_OAK_LECTERN);
-        registerLecternBlock("jungle_lectern", JUNGLE_LECTERN);
-        registerLecternBlock("mangrove_lectern", MANGROVE_LECTERN);
-        registerLecternBlock("spruce_lectern", SPRUCE_LECTERN);
-        registerLecternBlock("warped_lectern", WARPED_LECTERN);
+    public static final RegistryObject<Block> ACACIA_LECTERN = register("acacia_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
+    public static final RegistryObject<Block> BAMBOO_LECTERN = register("bamboo_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
+    public static final RegistryObject<Block> BIRCH_LECTERN = register("birch_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)), 300);
+    public static final RegistryObject<Block> CHERRY_LECTERN = register("cherry_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
+    public static final RegistryObject<Block> CRIMSON_LECTERN = register("crimson_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), 0);
+    public static final RegistryObject<Block> DARK_OAK_LECTERN = register("dark_oak_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> JUNGLE_LECTERN = register("jungle_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
+    public static final RegistryObject<Block> MANGROVE_LECTERN = register("mangrove_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+
+    public static final RegistryObject<Block> SPRUCE_LECTERN = register("spruce_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
+    public static final RegistryObject<Block> WARPED_LECTERN = register("warped_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
+
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, int burnTime) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerItem(name, toReturn, burnTime);
+        return toReturn;
     }
 
-    private static void registerLecternBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
-        MOD_LECTERNS.put(identifier, block);
+    private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+            @Override
+            public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                return burnTime;
+            }
+        });
     }
 }

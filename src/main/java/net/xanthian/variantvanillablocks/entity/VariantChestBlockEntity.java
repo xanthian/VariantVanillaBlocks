@@ -1,23 +1,35 @@
 package net.xanthian.variantvanillablocks.entity;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.ChestBlockEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-import net.xanthian.variantvanillablocks.block.VariantChests;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
+
+import org.jetbrains.annotations.NotNull;
 
 public class VariantChestBlockEntity extends ChestBlockEntity {
 
-    private final VariantChests chestType;
+    private final VariantChests type;
 
-    public VariantChestBlockEntity(VariantChests chestType, BlockPos blockPos, BlockState blockState) {
-        super(chestType.getBlockEntityType(), blockPos, blockState);
-        this.chestType = chestType;
+    public VariantChestBlockEntity(BlockPos pos, BlockState state, VariantChests type) {
+        this(type.getBlockEntityType(), pos, state, type);
+    }
+
+    public VariantChestBlockEntity(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState state, VariantChests type) {
+        super(blockEntityType, pos, state);
+        this.type = type;
+    }
+
+    public VariantChests getChestType() {
+        return type;
     }
 
     @Override
-    protected Text getContainerName() {
-        return Text.translatable("container.variantvanillablocks." + chestType.name().toLowerCase() + "_chest");
+    public @NotNull Component getDefaultName() {
+        return Component.translatable("container.variantvanillablocks." + type.name().toLowerCase() + "_chest");
     }
+
 }

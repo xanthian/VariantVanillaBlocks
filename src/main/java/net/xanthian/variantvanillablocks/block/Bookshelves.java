@@ -1,46 +1,69 @@
 package net.xanthian.variantvanillablocks.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import com.google.common.collect.Maps;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.Block;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.xanthian.variantvanillablocks.Initialise;
+import net.xanthian.variantvanillablocks.item.ModItems;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
+import java.util.function.Supplier;
 
 public class Bookshelves {
 
-    public static final Block ACACIA_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block BAMBOO_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block BIRCH_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block CHERRY_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block DARK_OAK_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block JUNGLE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block MANGROVE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block SPRUCE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block WARPED_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block CRIMSON_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
 
-    public static void registerVanillaBookShelves() {
-        registerBookshelfBlock("acacia_bookshelf", ACACIA_BOOKSHELF);
-        registerBookshelfBlock("bamboo_bookshelf", BAMBOO_BOOKSHELF);
-        registerBookshelfBlock("birch_bookshelf", BIRCH_BOOKSHELF);
-        registerBookshelfBlock("cherry_bookshelf", CHERRY_BOOKSHELF);
-        registerBookshelfBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF);
-        registerBookshelfBlock("jungle_bookshelf", JUNGLE_BOOKSHELF);
-        registerBookshelfBlock("mangrove_bookshelf", MANGROVE_BOOKSHELF);
-        registerBookshelfBlock("spruce_bookshelf", SPRUCE_BOOKSHELF);
-        registerBookshelfBlock("crimson_bookshelf", CRIMSON_BOOKSHELF);
-        registerBookshelfBlock("warped_bookshelf", WARPED_BOOKSHELF);
+    public static Map<ResourceLocation, Supplier> MOD_BOOKSHELVES = Maps.newHashMap();
+
+    public static final RegistryObject<Block> ACACIA_BOOKSHELF = register("acacia_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
+    public static final RegistryObject<Block> BAMBOO_BOOKSHELF = register("bamboo_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
+    public static final RegistryObject<Block> BIRCH_BOOKSHELF = register("birch_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)), 300);
+    public static final RegistryObject<Block> CHERRY_BOOKSHELF = register("cherry_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
+    public static final RegistryObject<Block> CRIMSON_BOOKSHELF = register("crimson_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), 0);
+    public static final RegistryObject<Block> DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> JUNGLE_BOOKSHELF = register("jungle_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
+    public static final RegistryObject<Block> MANGROVE_BOOKSHELF = register("mangrove_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+
+    public static final RegistryObject<Block> SPRUCE_BOOKSHELF = register("spruce_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
+    public static final RegistryObject<Block> WARPED_BOOKSHELF = register("warped_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
+
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, int burnTime) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerItem(name, toReturn, burnTime);
+        return toReturn;
     }
 
-    private static void registerBookshelfBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+    private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+            @Override
+            public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                return burnTime;
+            }
+        });
     }
+
 }

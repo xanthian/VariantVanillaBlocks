@@ -2,55 +2,68 @@ package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.FletchingTableBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.xanthian.variantvanillablocks.Initialise;
-
+import net.xanthian.variantvanillablocks.item.ModItems;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class FletchingTables {
 
-    public static Map<Identifier, Block> MOD_FLETCHING_TABLES = Maps.newHashMap();
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
 
-    public static final FletchingTableBlock ACACIA_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock BAMBOO_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    // Vanilla Fletching Table is made from Birch
-    public static final FletchingTableBlock CHERRY_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock CRIMSON_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD));
-    public static final FletchingTableBlock DARK_OAK_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock JUNGLE_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock MANGROVE_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock OAK_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock SPRUCE_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.copy(Blocks.FLETCHING_TABLE));
-    public static final FletchingTableBlock WARPED_FLETCHING_TABLE = new FletchingTableBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD));
+    public static Map<ResourceLocation, Supplier> MOD_FLETCHING_TABLES = Maps.newHashMap();
 
-    public static void registerVanillaTables() {
-        registerFletchingTableBlock("acacia_fletching_table", ACACIA_FLETCHING_TABLE);
-        registerFletchingTableBlock("bamboo_fletching_table", BAMBOO_FLETCHING_TABLE);
-        registerFletchingTableBlock("cherry_fletching_table", CHERRY_FLETCHING_TABLE);
-        registerFletchingTableBlock("crimson_fletching_table", CRIMSON_FLETCHING_TABLE);
-        registerFletchingTableBlock("dark_oak_fletching_table", DARK_OAK_FLETCHING_TABLE);
-        registerFletchingTableBlock("jungle_fletching_table", JUNGLE_FLETCHING_TABLE);
-        registerFletchingTableBlock("mangrove_fletching_table", MANGROVE_FLETCHING_TABLE);
-        registerFletchingTableBlock("oak_fletching_table", OAK_FLETCHING_TABLE);
-        registerFletchingTableBlock("spruce_fletching_table", SPRUCE_FLETCHING_TABLE);
-        registerFletchingTableBlock("warped_fletching_table", WARPED_FLETCHING_TABLE);
+    public static final RegistryObject<Block> ACACIA_FLETCHING_TABLE = register("acacia_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
+    public static final RegistryObject<Block> BAMBOO_FLETCHING_TABLE = register("bamboo_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
+
+    public static final RegistryObject<Block> CHERRY_FLETCHING_TABLE = register("cherry_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
+    public static final RegistryObject<Block> CRIMSON_FLETCHING_TABLE = register("crimson_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), 0);
+    public static final RegistryObject<Block> DARK_OAK_FLETCHING_TABLE = register("dark_oak_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> JUNGLE_FLETCHING_TABLE = register("jungle_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
+    public static final RegistryObject<Block> MANGROVE_FLETCHING_TABLE = register("mangrove_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_FLETCHING_TABLE = register("oak_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> SPRUCE_FLETCHING_TABLE = register("spruce_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
+    public static final RegistryObject<Block> WARPED_FLETCHING_TABLE = register("warped_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
+
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, int burnTime) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerItem(name, toReturn, burnTime);
+        return toReturn;
     }
 
-    private static void registerFletchingTableBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
-        MOD_FLETCHING_TABLES.put(identifier, block);
+    private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+            @Override
+            public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                return burnTime;
+            }
+        });
     }
 }

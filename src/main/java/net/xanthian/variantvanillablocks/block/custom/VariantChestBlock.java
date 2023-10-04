@@ -1,17 +1,12 @@
-package net.xanthian.variantvanillablocks.block;
+package net.xanthian.variantvanillablocks.block.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 
 import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
 
@@ -30,21 +25,6 @@ public class VariantChestBlock extends ChestBlock {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return this.chestType.getBlockEntity(pos, state);
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext context) {
-        Direction direction = context.getHorizontalPlayerFacing().getOpposite();
-        FluidState fluidState = context.getWorld().getFluidState(context.getBlockPos());
-        return this.getDefaultState().with(FACING, direction).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
-    }
-
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-        }
-        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
     @Nullable

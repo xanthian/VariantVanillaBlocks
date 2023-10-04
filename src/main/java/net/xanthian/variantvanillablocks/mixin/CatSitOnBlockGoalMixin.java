@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ai.goal.CatSitOnBlockGoal;
 
-import net.xanthian.variantvanillablocks.block.VariantChestBlock;
+import net.xanthian.variantvanillablocks.block.custom.VariantChestBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 

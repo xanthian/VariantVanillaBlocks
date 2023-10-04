@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 import net.xanthian.variantvanillablocks.block.Chests;
-import net.xanthian.variantvanillablocks.block.VariantChests;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 
 public class EntityInitialise {
 

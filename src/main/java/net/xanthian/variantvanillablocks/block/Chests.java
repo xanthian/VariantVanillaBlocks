@@ -12,6 +12,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.xanthian.variantvanillablocks.block.custom.VariantChestBlock;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 
 public class Chests {
 

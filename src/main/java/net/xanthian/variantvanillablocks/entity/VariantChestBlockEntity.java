@@ -5,7 +5,7 @@ import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
-import net.xanthian.variantvanillablocks.block.VariantChests;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 
 public class VariantChestBlockEntity extends ChestBlockEntity {
 
@@ -14,6 +14,10 @@ public class VariantChestBlockEntity extends ChestBlockEntity {
     public VariantChestBlockEntity(VariantChests chestType, BlockPos blockPos, BlockState blockState) {
         super(chestType.getBlockEntityType(), blockPos, blockState);
         this.chestType = chestType;
+    }
+
+    public VariantChests getChestType() {
+        return chestType;
     }
 
     @Override

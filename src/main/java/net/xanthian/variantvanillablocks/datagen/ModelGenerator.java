@@ -13,6 +13,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.xanthian.variantvanillablocks.block.*;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 import net.xanthian.variantvanillablocks.utils.ModModel;
 import net.xanthian.variantvanillablocks.utils.ModTextureKey;
 import net.xanthian.variantvanillablocks.utils.ModTextureMap;

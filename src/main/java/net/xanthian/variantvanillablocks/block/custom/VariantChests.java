@@ -1,4 +1,4 @@
-package net.xanthian.variantvanillablocks.block;
+package net.xanthian.variantvanillablocks.block.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
@@ -40,10 +40,6 @@ public enum VariantChests {
 
     public VariantChestBlockEntity getBlockEntity(BlockPos pos, BlockState state) {
         return new VariantChestBlockEntity(this, pos, state);
-    }
-
-    public Identifier getTextureId(){
-        return new Identifier(Initialise.MOD_ID, "entity/chest/" + this.name().toLowerCase() + "_chest");
     }
 
     public Identifier getId(){

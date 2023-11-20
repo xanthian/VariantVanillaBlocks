@@ -1,25 +1,23 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
-import net.minecraft.block.*;
+import net.minecraft.block.BeehiveBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
 
 public class Beehives {
-
-    public static Map<Identifier, Block> MOD_BEEHIVES = Maps.newHashMap();
 
     public static final BeehiveBlock ACACIA_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     public static final BeehiveBlock BAMBOO_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
@@ -32,7 +30,7 @@ public class Beehives {
     // Vanilla Beehive is made from Oak
     public static final BeehiveBlock SPRUCE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     public static final BeehiveBlock WARPED_BEEHIVE = new BeehiveBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
-
+    public static Map<Identifier, Block> MOD_BEEHIVES = Maps.newHashMap();
 
     public static void registerVanillaHives() {
         registerBeehiveBlock("acacia_beehive", ACACIA_BEEHIVE);

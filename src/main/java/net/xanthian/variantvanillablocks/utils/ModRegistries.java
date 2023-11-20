@@ -2,7 +2,6 @@ package net.xanthian.variantvanillablocks.utils;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-
 import net.xanthian.variantvanillablocks.block.*;
 
 public class ModRegistries {
@@ -33,14 +32,14 @@ public class ModRegistries {
         registry.add(Beehives.MANGROVE_BEEHIVE, 5, 20);
         registry.add(Beehives.SPRUCE_BEEHIVE, 5, 20);
 
-        registry.add(Bookshelves.ACACIA_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.BAMBOO_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.BIRCH_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.CHERRY_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.DARK_OAK_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.JUNGLE_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.MANGROVE_BOOKSHELF,30, 20);
-        registry.add(Bookshelves.SPRUCE_BOOKSHELF,30, 20);
+        registry.add(Bookshelves.ACACIA_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.BAMBOO_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.BIRCH_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.CHERRY_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.DARK_OAK_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.JUNGLE_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.MANGROVE_BOOKSHELF, 30, 20);
+        registry.add(Bookshelves.SPRUCE_BOOKSHELF, 30, 20);
 
         registry.add(Lecterns.ACACIA_LECTERN, 30, 20);
         registry.add(Lecterns.BAMBOO_LECTERN, 30, 20);
@@ -64,14 +63,14 @@ public class ModRegistries {
         registry.add(Barrels.MANGROVE_BARREL, 300);
         registry.add(Barrels.OAK_BARREL, 300);
 
-        registry.add(Bookshelves.ACACIA_BOOKSHELF,300);
-        registry.add(Bookshelves.BAMBOO_BOOKSHELF,300);
-        registry.add(Bookshelves.BIRCH_BOOKSHELF,300);
-        registry.add(Bookshelves.CHERRY_BOOKSHELF,300);
-        registry.add(Bookshelves.DARK_OAK_BOOKSHELF,300);
-        registry.add(Bookshelves.JUNGLE_BOOKSHELF,300);
-        registry.add(Bookshelves.MANGROVE_BOOKSHELF,300);
-        registry.add(Bookshelves.SPRUCE_BOOKSHELF,300);
+        registry.add(Bookshelves.ACACIA_BOOKSHELF, 300);
+        registry.add(Bookshelves.BAMBOO_BOOKSHELF, 300);
+        registry.add(Bookshelves.BIRCH_BOOKSHELF, 300);
+        registry.add(Bookshelves.CHERRY_BOOKSHELF, 300);
+        registry.add(Bookshelves.DARK_OAK_BOOKSHELF, 300);
+        registry.add(Bookshelves.JUNGLE_BOOKSHELF, 300);
+        registry.add(Bookshelves.MANGROVE_BOOKSHELF, 300);
+        registry.add(Bookshelves.SPRUCE_BOOKSHELF, 300);
 
         registry.add(CartographyTables.ACACIA_CARTOGRAPHY_TABLE, 300);
         registry.add(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE, 300);

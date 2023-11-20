@@ -2,7 +2,6 @@ package net.xanthian.variantvanillablocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.*;
@@ -13,7 +12,6 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.block.*;
 import net.xanthian.variantvanillablocks.utils.ModItemTags;
 
@@ -22,6 +20,116 @@ import java.util.function.Consumer;
 public class RecipeGenerator extends FabricRecipeProvider {
     public RecipeGenerator(FabricDataOutput output) {
         super(output);
+    }
+
+    public static void offerBarrelRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible barrel, ItemConvertible plank, ItemConvertible slab) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, barrel, 1)
+                .input('P', plank).input('S', slab)
+                .pattern("PSP").pattern("P P").pattern("PSP")
+                .criterion("has_planks", VanillaRecipeProvider.conditionsFromItem(plank)).criterion("has_wood_slab", VanillaRecipeProvider.conditionsFromItem(slab))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(barrel)));
+    }
+
+    public static void offerBeehiveRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible beehive, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, beehive)
+                .input('H', Items.HONEYCOMB).input('P', plank)
+                .pattern("PPP").pattern("HHH").pattern("PPP")
+                .criterion(FabricRecipeProvider.hasItem(Items.HONEYCOMB), FabricRecipeProvider.conditionsFromItem(Items.HONEYCOMB))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(beehive)));
+    }
+
+    public static void offerBookshelfRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible bookshelf, ItemConvertible planks) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, bookshelf)
+                .input('#', planks)
+                .input('X', Items.BOOK)
+                .pattern("###").pattern("XXX").pattern("###")
+                .criterion("has_book", VanillaRecipeProvider.conditionsFromItem(Items.BOOK)).offerTo(exporter);
+    }
+
+    public static void offerCartographyTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible cartographytable, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, cartographytable)
+                .input('@', Items.PAPER).input('#', plank)
+                .pattern("@@").pattern("##").pattern("##")
+                .criterion(FabricRecipeProvider.hasItem(Items.PAPER), FabricRecipeProvider.conditionsFromItem(Items.PAPER))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(cartographytable)));
+    }
+
+    public static void offerChestRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chest, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, chest, 1)
+                .input('P', plank)
+                .pattern("PPP").pattern("P P").pattern("PPP")
+                .criterion("has_planks", VanillaRecipeProvider.conditionsFromItem(plank))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chest)));
+    }
+
+    public static void offerCustomChestBoatRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chestboat, ItemConvertible boat, TagKey<Item> chest) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, chestboat)
+                .input(chest).input(boat).group("chest_boat")
+                .criterion("has_boat", RecipeProvider.conditionsFromTag(ItemTags.BOATS))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chestboat)));
+    }
+
+    public static void offerChiseledBookshelfRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible bookshelf, ItemConvertible plank, ItemConvertible slab) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, bookshelf)
+                .input('#', plank).input('X', slab)
+                .pattern("###").pattern("XXX").pattern("###")
+                .criterion(FabricRecipeProvider.hasItem(Items.BOOK), FabricRecipeProvider.conditionsFromItem(Items.BOOK))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(bookshelf)));
+    }
+
+    public static void offerComposterRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible composter, ItemConvertible slab) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, composter)
+                .input('#', slab)
+                .pattern("# #").pattern("# #").pattern("###")
+                .criterion(FabricRecipeProvider.hasItem(slab), FabricRecipeProvider.conditionsFromItem(slab))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(composter)));
+    }
+
+    public static void offerFletchingTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible fletchingtable, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, fletchingtable)
+                .input('@', Items.FLINT).input('#', plank)
+                .pattern("@@").pattern("##").pattern("##")
+                .criterion(FabricRecipeProvider.hasItem(Items.FLINT), FabricRecipeProvider.conditionsFromItem(Items.FLINT))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(fletchingtable)));
+    }
+
+    public static void offerGrindstoneRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible grindstone, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, grindstone)
+                .input('I', Items.STICK).input('-', Blocks.STONE_SLAB).input('#', plank)
+                .pattern("I-I").pattern("# #")
+                .criterion(FabricRecipeProvider.hasItem(Blocks.STONE_SLAB), FabricRecipeProvider.conditionsFromItem(Blocks.STONE_SLAB))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(grindstone)));
+    }
+
+    public static void offerLecternRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible lectern, ItemConvertible slab, ItemConvertible bookshelf) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, lectern)
+                .input('B', bookshelf).input('S', slab)
+                .pattern("SSS").pattern(" B ").pattern(" S ")
+                .criterion(FabricRecipeProvider.hasItem(Items.BOOK), FabricRecipeProvider.conditionsFromItem(Items.BOOK))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(lectern)));
+    }
+
+    public static void offerSmithingTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible smithingtable, ItemConvertible plank) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, smithingtable)
+                .input('#', plank).input('@', Items.IRON_INGOT)
+                .pattern("@@").pattern("##").pattern("##")
+                .criterion("has_iron_ingot", VanillaRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(smithingtable)));
+    }
+
+    public static void offerSmokerRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible smoker, TagKey<Item> log) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, smoker)
+                .input('#', log).input('X', Blocks.FURNACE)
+                .pattern(" # ").pattern("#X#").pattern(" # ")
+                .criterion("has_furnace", VanillaRecipeProvider.conditionsFromItem(Blocks.FURNACE))
+                .offerTo(exporter);
+    }
+
+    public static void offerUncraftingRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, TagKey<Item> input, ItemConvertible output) {
+        ShapelessRecipeJsonBuilder.create(category, output, 1)
+                .input(input)
+                .criterion("has_variant_item", InventoryChangedCriterion.Conditions.items(output))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
     }
 
     @Override
@@ -87,15 +195,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
         offerChestRecipe(exporter, Chests.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
         offerChestRecipe(exporter, Chests.WARPED_CHEST, Items.WARPED_PLANKS);
 
-        offerCustomChestBoatRecipe(exporter,Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.BAMBOO_CHEST_RAFT, Items.BAMBOO_RAFT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.BIRCH_CHEST_BOAT, Items.BIRCH_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.CHERRY_CHEST_BOAT, Items.CHERRY_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.DARK_OAK_CHEST_BOAT, Items.DARK_OAK_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.JUNGLE_CHEST_BOAT, Items.JUNGLE_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.MANGROVE_CHEST_BOAT, Items.MANGROVE_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.OAK_CHEST_BOAT, Items.OAK_BOAT, ModItemTags.CHESTS);
-        offerCustomChestBoatRecipe(exporter,Items.SPRUCE_CHEST_BOAT, Items.SPRUCE_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.BAMBOO_CHEST_RAFT, Items.BAMBOO_RAFT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.BIRCH_CHEST_BOAT, Items.BIRCH_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.CHERRY_CHEST_BOAT, Items.CHERRY_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.DARK_OAK_CHEST_BOAT, Items.DARK_OAK_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.JUNGLE_CHEST_BOAT, Items.JUNGLE_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.MANGROVE_CHEST_BOAT, Items.MANGROVE_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.OAK_CHEST_BOAT, Items.OAK_BOAT, ModItemTags.CHESTS);
+        offerCustomChestBoatRecipe(exporter, Items.SPRUCE_CHEST_BOAT, Items.SPRUCE_BOAT, ModItemTags.CHESTS);
 
         // Chiseled Bookshelf
         RecipeGenerator.offerChiseledBookshelfRecipe(exporter, ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF, Blocks.ACACIA_PLANKS, Blocks.ACACIA_SLAB);
@@ -241,115 +349,5 @@ public class RecipeGenerator extends FabricRecipeProvider {
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.REDSTONE, ModItemTags.LECTERNS, Blocks.LECTERN);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.DECORATIONS, ModItemTags.SMITHING_TABLES, Blocks.SMITHING_TABLE);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.DECORATIONS, ModItemTags.SMOKERS, Blocks.SMOKER);
-    }
-
-    public static void offerBarrelRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible barrel, ItemConvertible plank, ItemConvertible slab) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, barrel, 1)
-                .input('P', plank).input('S', slab)
-                .pattern("PSP").pattern("P P").pattern("PSP")
-                .criterion("has_planks", VanillaRecipeProvider.conditionsFromItem(plank)).criterion("has_wood_slab", VanillaRecipeProvider.conditionsFromItem(slab))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(barrel)));
-    }
-
-    public static void offerBeehiveRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible beehive, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, beehive)
-                .input('H', Items.HONEYCOMB).input('P', plank)
-                .pattern("PPP").pattern("HHH").pattern("PPP")
-                .criterion(FabricRecipeProvider.hasItem(Items.HONEYCOMB), FabricRecipeProvider.conditionsFromItem(Items.HONEYCOMB))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(beehive)));
-    }
-
-    public static void offerBookshelfRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible bookshelf, ItemConvertible planks) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, bookshelf)
-                .input('#', planks)
-                .input('X', Items.BOOK)
-                .pattern("###").pattern("XXX").pattern("###")
-                .criterion("has_book", VanillaRecipeProvider.conditionsFromItem(Items.BOOK)).offerTo(exporter);
-    }
-
-    public static void offerCartographyTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible cartographytable, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, cartographytable)
-                .input('@', Items.PAPER).input('#', plank)
-                .pattern("@@").pattern("##").pattern("##")
-                .criterion(FabricRecipeProvider.hasItem(Items.PAPER), FabricRecipeProvider.conditionsFromItem(Items.PAPER))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(cartographytable)));
-    }
-
-    public static void offerChestRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chest, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, chest, 1)
-                .input('P', plank)
-                .pattern("PPP").pattern("P P").pattern("PPP")
-                .criterion("has_planks", VanillaRecipeProvider.conditionsFromItem(plank))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chest)));
-    }
-
-    public static void offerCustomChestBoatRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible chestboat, ItemConvertible boat, TagKey<Item> chest) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, chestboat)
-                .input(chest).input(boat).group("chest_boat")
-                .criterion("has_boat", RecipeProvider.conditionsFromTag(ItemTags.BOATS))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(chestboat)));
-    }
-
-    public static void offerChiseledBookshelfRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible bookshelf, ItemConvertible plank, ItemConvertible slab) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, bookshelf)
-                .input('#', plank).input('X', slab)
-                .pattern("###").pattern("XXX").pattern("###")
-                .criterion(FabricRecipeProvider.hasItem(Items.BOOK), FabricRecipeProvider.conditionsFromItem(Items.BOOK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(bookshelf)));
-    }
-
-    public static void offerComposterRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible composter, ItemConvertible slab) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, composter)
-                .input('#', slab)
-                .pattern("# #").pattern("# #").pattern("###")
-                .criterion(FabricRecipeProvider.hasItem(slab), FabricRecipeProvider.conditionsFromItem(slab))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(composter)));
-    }
-
-    public static void offerFletchingTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible fletchingtable, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, fletchingtable)
-                .input('@', Items.FLINT).input('#', plank)
-                .pattern("@@").pattern("##").pattern("##")
-                .criterion(FabricRecipeProvider.hasItem(Items.FLINT), FabricRecipeProvider.conditionsFromItem(Items.FLINT))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(fletchingtable)));
-    }
-
-    public static void offerGrindstoneRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible grindstone, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, grindstone)
-                .input('I', Items.STICK).input('-', Blocks.STONE_SLAB).input('#', plank)
-                .pattern("I-I").pattern("# #")
-                .criterion(FabricRecipeProvider.hasItem(Blocks.STONE_SLAB), FabricRecipeProvider.conditionsFromItem(Blocks.STONE_SLAB))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(grindstone)));
-    }
-
-    public static void offerLecternRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible lectern, ItemConvertible slab, ItemConvertible bookshelf) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, lectern)
-                .input('B', bookshelf).input('S', slab)
-                .pattern("SSS").pattern(" B ").pattern(" S ")
-                .criterion(FabricRecipeProvider.hasItem(Items.BOOK), FabricRecipeProvider.conditionsFromItem(Items.BOOK))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(lectern)));
-    }
-
-    public static void offerSmithingTableRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible smithingtable, ItemConvertible plank) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, smithingtable)
-                .input('#', plank).input('@', Items.IRON_INGOT)
-                .pattern("@@").pattern("##").pattern("##")
-                .criterion("has_iron_ingot", VanillaRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(smithingtable)));
-    }
-
-    public static void offerSmokerRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible smoker, TagKey<Item> log) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, smoker)
-                .input('#', log).input('X', Blocks.FURNACE)
-                .pattern(" # ").pattern("#X#").pattern(" # ")
-                .criterion("has_furnace", VanillaRecipeProvider.conditionsFromItem(Blocks.FURNACE))
-                .offerTo(exporter);
-    }
-    
-    public static void offerUncraftingRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, TagKey<Item> input, ItemConvertible output) {
-        ShapelessRecipeJsonBuilder.create(category, output, 1)
-                .input(input)
-                .criterion("has_variant_item", InventoryChangedCriterion.Conditions.items(output))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(output)));
     }
 }

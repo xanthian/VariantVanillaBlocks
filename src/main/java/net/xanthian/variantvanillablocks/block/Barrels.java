@@ -1,10 +1,8 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -15,14 +13,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
 
 public class Barrels {
-
-    public static Map<Identifier, Block> MOD_BARRELS = Maps.newHashMap();
 
     public static final BarrelBlock ACACIA_BARREL = new BarrelBlock(FabricBlockSettings.copy(Blocks.BARREL));
     public static final BarrelBlock BAMBOO_BARREL = new BarrelBlock(FabricBlockSettings.copy(Blocks.BARREL));
@@ -35,6 +30,7 @@ public class Barrels {
     public static final BarrelBlock OAK_BARREL = new BarrelBlock(FabricBlockSettings.copy(Blocks.BARREL));
     // Vanilla Barrel block is made from Spruce
     public static final BarrelBlock WARPED_BARREL = new BarrelBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(2.5F).sounds(BlockSoundGroup.WOOD));
+    public static Map<Identifier, Block> MOD_BARRELS = Maps.newHashMap();
 
     public static void registerVanillaBarrels() {
         registerBarrelBlock("acacia_barrel", ACACIA_BARREL);

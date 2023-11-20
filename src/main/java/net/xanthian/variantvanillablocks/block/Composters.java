@@ -1,10 +1,8 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
@@ -15,14 +13,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
 
 public class Composters {
-
-    public static Map<Identifier, Block> MOD_COMPOSTERS = Maps.newHashMap();
 
     public static final ComposterBlock ACACIA_COMPOSTER = new ComposterBlock(FabricBlockSettings.copy(Blocks.COMPOSTER));
     public static final ComposterBlock BAMBOO_COMPOSTER = new ComposterBlock(FabricBlockSettings.copy(Blocks.COMPOSTER));
@@ -35,6 +30,7 @@ public class Composters {
     public static final ComposterBlock OAK_COMPOSTER = new ComposterBlock(FabricBlockSettings.copy(Blocks.COMPOSTER));
     // Vanilla Composter is made from Spruce
     public static final ComposterBlock WARPED_COMPOSTER = new ComposterBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
+    public static Map<Identifier, Block> MOD_COMPOSTERS = Maps.newHashMap();
 
     public static void registerVanillaComposters() {
         registerComposterBlock("acacia_composter", ACACIA_COMPOSTER);

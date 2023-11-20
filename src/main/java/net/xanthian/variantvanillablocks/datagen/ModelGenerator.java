@@ -2,12 +2,10 @@ package net.xanthian.variantvanillablocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.data.client.*;
-
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
@@ -22,6 +20,15 @@ public class ModelGenerator extends FabricModelProvider {
 
     public ModelGenerator(FabricDataOutput output) {
         super(output);
+    }
+
+    public static Identifier getMCBlockId(String id) {
+        return new Identifier(id);
+    }
+
+    public static Identifier getId(Block block) {
+        Identifier identifier = Registries.BLOCK.getId(block);
+        return identifier.withPrefixedPath("chest/");
     }
 
     @Override
@@ -173,7 +180,7 @@ public class ModelGenerator extends FabricModelProvider {
                 .coordinate(BlockStateVariantMap.create(Properties.OPEN).register(false, BlockStateVariant.create()
                         .put(VariantSettings.MODEL, TexturedModel.CUBE_BOTTOM_TOP.upload(block, blockStateModelGenerator.modelCollector))).register(true, BlockStateVariant.create()
                         .put(VariantSettings.MODEL, TexturedModel.CUBE_BOTTOM_TOP.get(block).textures(textureMap -> textureMap
-                        .put(TextureKey.TOP, identifier)).upload(block, "_open", blockStateModelGenerator.modelCollector)))));
+                                .put(TextureKey.TOP, identifier)).upload(block, "_open", blockStateModelGenerator.modelCollector)))));
     }
 
     public final void createComposter(BlockStateModelGenerator blockStateModelGenerator, Block block) {
@@ -198,7 +205,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     public final void createGrindstone(BlockStateModelGenerator blockStateModelGenerator, Block block, Block log) {
         TextureMap textureMap = TextureMap.of(
-                ModTextureKey.PIVOT, TextureMap.getSubId(block, "_pivot"))
+                        ModTextureKey.PIVOT, TextureMap.getSubId(block, "_pivot"))
                 .put(ModTextureKey.ROUND, getMCBlockId("minecraft:block/grindstone_round"))
                 .put(TextureKey.SIDE, getMCBlockId("minecraft:block/grindstone_side"))
                 .put(TextureKey.PARTICLE, getMCBlockId("minecraft:block/grindstone_side"))
@@ -224,7 +231,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     public final void createLectern(BlockStateModelGenerator blockStateModelGenerator, Block block, Block plank) {
         TextureMap textureMap = TextureMap.of(
-                 TextureKey.TOP, TextureMap.getSubId(block, "_top"))
+                        TextureKey.TOP, TextureMap.getSubId(block, "_top"))
                 .put(TextureKey.BOTTOM, TextureMap.getId(plank))
                 .put(ModTextureKey.BASE, TextureMap.getSubId(block, "_base"))
                 .put(TextureKey.PARTICLE, TextureMap.getSubId(block, "_sides"))
@@ -246,16 +253,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, Models.CUBE.upload(block, textureMap, blockStateModelGenerator.modelCollector)));
     }
 
-    public static Identifier getMCBlockId(String id) {
-        return new Identifier(id);
-    }
-
     public final void createChestItem(ItemModelGenerator itemModelGenerator, Block block) {
         TextureMap textureMap = new TextureMap().put(ModTextureKey.CHEST, getId(block));
         ModModel.CHEST.upload(ModelIds.getItemModelId(block.asItem()), textureMap, itemModelGenerator.writer);
-    }
-    public static Identifier getId(Block block) {
-        Identifier identifier = Registries.BLOCK.getId(block);
-        return identifier.withPrefixedPath("chest/");
     }
 }

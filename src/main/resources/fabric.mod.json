@@ -4,20 +4,30 @@
   "version": "${version}",
   "name": "Variant Vanilla Blocks",
   "description": "Vanilla blocks recreated in all vanilla wood types",
-  "authors": ["Xanthian"],
+  "authors": [
+    "Xanthian"
+  ],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["net.xanthian.variantvanillablocks.Initialise"],
-    "client": ["net.xanthian.variantvanillablocks.ClientInitialise"],
-    "fabric-datagen": ["net.xanthian.variantvanillablocks.DataGenerator"]
+    "main": [
+      "net.xanthian.variantvanillablocks.Initialise"
+    ],
+    "client": [
+      "net.xanthian.variantvanillablocks.ClientInitialise"
+    ],
+    "fabric-datagen": [
+      "net.xanthian.variantvanillablocks.DataGenerator"
+    ]
   },
-  "mixins": ["variantvanillablocks.mixins.json"],
+  "mixins": [
+    "variantvanillablocks.mixins.json"
+  ],
   "accessWidener": "variantvanillablocks.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.20",
     "fabric": "*",
-    "minecraft": ">=1.20.0- <1.20.2-",
+    "minecraft": "1.20.2",
     "java": ">=17"
   }
 }

@@ -1,14 +1,12 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GrindstoneBlock;
@@ -17,14 +15,11 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
 
 public class Grindstones {
-
-    public static Map<Identifier, Block> MOD_GRINDSTONES = Maps.newHashMap();
 
     public static final GrindstoneBlock ACACIA_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock BAMBOO_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
@@ -37,6 +32,7 @@ public class Grindstones {
     public static final GrindstoneBlock OAK_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock SPRUCE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock WARPED_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
+    public static Map<Identifier, Block> MOD_GRINDSTONES = Maps.newHashMap();
 
     public static void registerVanillaGrindstones() {
         registerGrindstoneBlock("acacia_grindstone", ACACIA_GRINDSTONE);
@@ -50,7 +46,7 @@ public class Grindstones {
         registerGrindstoneBlock("spruce_grindstone", SPRUCE_GRINDSTONE);
         registerGrindstoneBlock("warped_grindstone", WARPED_GRINDSTONE);
     }
-    
+
     private static void registerGrindstoneBlock(String Id, Block block) {
         Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
         Registry.register(Registries.BLOCK, identifier, block);
@@ -59,7 +55,8 @@ public class Grindstones {
 
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
             RegisterBlockRenderLayerMap(block);
-}
+    }
+
     @Environment(EnvType.CLIENT)
     private static void RegisterBlockRenderLayerMap(Block block) {
         BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());

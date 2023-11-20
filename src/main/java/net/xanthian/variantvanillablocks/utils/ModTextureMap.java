@@ -1,7 +1,8 @@
 package net.xanthian.variantvanillablocks.utils;
 
 import net.minecraft.block.Block;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.TextureKey;
+import net.minecraft.data.client.TextureMap;
 
 public class ModTextureMap extends TextureMap {
 
@@ -16,6 +17,7 @@ public class ModTextureMap extends TextureMap {
                 .put(TextureKey.EAST, getSubId(frontTopSideBlock, "_side3"))
                 .put(TextureKey.WEST, getSubId(frontTopSideBlock, "_side2"));
     }
+
     // Texture map used in datagen for the Bookshelf models
     public static TextureMap endside(Block frontTopSideBlock, Block endBlock) {
         return (new ModTextureMap())

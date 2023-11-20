@@ -13,18 +13,18 @@ public class ModModel {
     public static final Model GRINDSTONE;
     public static final Model LECTERN;
 
+    static {
+        CHEST = createModel("variantchest", ModTextureKey.CHEST);
+        COMPOSTER = createModel("variantcomposter", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE, TextureKey.INSIDE, TextureKey.PARTICLE);
+        GRINDSTONE = createModel("variantgrindstone", ModTextureKey.PIVOT, TextureKey.SIDE, ModTextureKey.ROUND, ModTextureKey.LEG, TextureKey.PARTICLE);
+        LECTERN = createModel("variantlectern", ModTextureKey.BASE, TextureKey.BOTTOM, ModTextureKey.SIDES, TextureKey.FRONT, TextureKey.TOP, TextureKey.PARTICLE);
+    }
+
     public static Identifier getBlockId(String id) {
         return new Identifier("variantvanillablocks", "block/" + id);
     }
 
     public static Model createModel(String parent, TextureKey... requiredTextures) {
         return new Model(Optional.of(getBlockId(parent)), Optional.empty(), requiredTextures);
-    }
-
-    static {
-        CHEST = createModel("variantchest", ModTextureKey.CHEST);
-        COMPOSTER = createModel("variantcomposter", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE, TextureKey.INSIDE, TextureKey.PARTICLE);
-        GRINDSTONE = createModel("variantgrindstone", ModTextureKey.PIVOT, TextureKey.SIDE, ModTextureKey.ROUND, ModTextureKey.LEG,  TextureKey.PARTICLE);
-        LECTERN = createModel("variantlectern", ModTextureKey.BASE, TextureKey.BOTTOM, ModTextureKey.SIDES, TextureKey.FRONT, TextureKey.TOP, TextureKey.PARTICLE);
     }
 }

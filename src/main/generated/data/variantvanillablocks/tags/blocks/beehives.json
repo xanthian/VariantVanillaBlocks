@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_beehive",
-    "variantvanillablocks:bamboo_beehive",
     "variantvanillablocks:birch_beehive",
-    "variantvanillablocks:cherry_beehive",
+    "variantvanillablocks:acacia_beehive",
+    "variantvanillablocks:mangrove_beehive",
+    "variantvanillablocks:spruce_beehive",
     "variantvanillablocks:crimson_beehive",
     "variantvanillablocks:dark_oak_beehive",
     "variantvanillablocks:jungle_beehive",
-    "variantvanillablocks:mangrove_beehive",
-    "variantvanillablocks:spruce_beehive",
-    "variantvanillablocks:warped_beehive"
+    "variantvanillablocks:cherry_beehive",
+    "variantvanillablocks:warped_beehive",
+    "variantvanillablocks:bamboo_beehive"
   ]
 }

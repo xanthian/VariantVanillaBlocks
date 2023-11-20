@@ -2,12 +2,10 @@ package net.xanthian.variantvanillablocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.block.enums.BlockFace;
 import net.minecraft.data.client.*;
-
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
@@ -22,6 +20,15 @@ public class ModelGenerator extends FabricModelProvider {
 
     public ModelGenerator(FabricDataOutput output) {
         super(output);
+    }
+
+    public static Identifier getMCBlockId(String id) {
+        return new Identifier(id);
+    }
+
+    public static Identifier getId(Block block) {
+        Identifier identifier = Registries.BLOCK.getId(block);
+        return identifier.withPrefixedPath("chest/");
     }
 
     @Override
@@ -173,7 +180,7 @@ public class ModelGenerator extends FabricModelProvider {
                 .coordinate(BlockStateVariantMap.create(Properties.OPEN).register(false, BlockStateVariant.create()
                         .put(VariantSettings.MODEL, TexturedModel.CUBE_BOTTOM_TOP.upload(block, blockStateModelGenerator.modelCollector))).register(true, BlockStateVariant.create()
                         .put(VariantSettings.MODEL, TexturedModel.CUBE_BOTTOM_TOP.get(block).textures(textureMap -> textureMap
-                        .put(TextureKey.TOP, identifier)).upload(block, "_open", blockStateModelGenerator.modelCollector)))));
+                                .put(TextureKey.TOP, identifier)).upload(block, "_open", blockStateModelGenerator.modelCollector)))));
     }
 
     public final void createComposter(BlockStateModelGenerator blockStateModelGenerator, Block block) {
@@ -198,33 +205,34 @@ public class ModelGenerator extends FabricModelProvider {
 
     public final void createGrindstone(BlockStateModelGenerator blockStateModelGenerator, Block block, Block log) {
         TextureMap textureMap = TextureMap.of(
-                ModTextureKey.PIVOT, TextureMap.getSubId(block, "_pivot"))
+                        ModTextureKey.PIVOT, TextureMap.getSubId(block, "_pivot"))
                 .put(ModTextureKey.ROUND, getMCBlockId("minecraft:block/grindstone_round"))
                 .put(TextureKey.SIDE, getMCBlockId("minecraft:block/grindstone_side"))
                 .put(TextureKey.PARTICLE, getMCBlockId("minecraft:block/grindstone_side"))
                 .put(ModTextureKey.LEG, TextureMap.getId(log));
         ModModel.GRINDSTONE.upload(block, textureMap, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, BlockStateVariant.create()
-                .put(VariantSettings.MODEL, ModelIds.getBlockModelId(block))).coordinate(BlockStateVariantMap.create(Properties.WALL_MOUNT_LOCATION, Properties.HORIZONTAL_FACING).register(WallMountLocation.FLOOR, Direction.NORTH, BlockStateVariant.create()).register(WallMountLocation.FLOOR, Direction.EAST, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.FLOOR, Direction.SOUTH, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.FLOOR, Direction.WEST, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(WallMountLocation.WALL, Direction.NORTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R90)).register(WallMountLocation.WALL, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.MODEL, ModelIds.getBlockModelId(block))).coordinate(BlockStateVariantMap.create(Properties.BLOCK_FACE,
+                Properties.HORIZONTAL_FACING).register(BlockFace.FLOOR, Direction.NORTH, BlockStateVariant.create()).register(BlockFace.FLOOR, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.FLOOR, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.FLOOR, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(BlockFace.WALL, Direction.NORTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R90)).register(BlockFace.WALL, Direction.EAST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.WALL, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.WALL, Direction.SOUTH, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.WALL, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.WALL, Direction.WEST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(WallMountLocation.CEILING, Direction.SOUTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180)).register(WallMountLocation.CEILING, Direction.WEST, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.CEILING, Direction.NORTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.CEILING, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(BlockFace.CEILING, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180)).register(BlockFace.CEILING, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.CEILING, Direction.NORTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.CEILING, Direction.EAST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R270))));
     }
 
     public final void createLectern(BlockStateModelGenerator blockStateModelGenerator, Block block, Block plank) {
         TextureMap textureMap = TextureMap.of(
-                 TextureKey.TOP, TextureMap.getSubId(block, "_top"))
+                        TextureKey.TOP, TextureMap.getSubId(block, "_top"))
                 .put(TextureKey.BOTTOM, TextureMap.getId(plank))
                 .put(ModTextureKey.BASE, TextureMap.getSubId(block, "_base"))
                 .put(TextureKey.PARTICLE, TextureMap.getSubId(block, "_sides"))
@@ -246,16 +254,8 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, Models.CUBE.upload(block, textureMap, blockStateModelGenerator.modelCollector)));
     }
 
-    public static Identifier getMCBlockId(String id) {
-        return new Identifier(id);
-    }
-
     public final void createChestItem(ItemModelGenerator itemModelGenerator, Block block) {
         TextureMap textureMap = new TextureMap().put(ModTextureKey.CHEST, getId(block));
         ModModel.CHEST.upload(ModelIds.getItemModelId(block.asItem()), textureMap, itemModelGenerator.writer);
-    }
-    public static Identifier getId(Block block) {
-        Identifier identifier = Registries.BLOCK.getId(block);
-        return identifier.withPrefixedPath("chest/");
     }
 }

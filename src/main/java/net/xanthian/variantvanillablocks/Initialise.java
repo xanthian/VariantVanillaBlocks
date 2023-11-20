@@ -1,7 +1,6 @@
 package net.xanthian.variantvanillablocks;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.xanthian.variantvanillablocks.block.*;
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.utils.ModCreativeTab;

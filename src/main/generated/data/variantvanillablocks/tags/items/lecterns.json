@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_lectern",
-    "variantvanillablocks:bamboo_lectern",
-    "variantvanillablocks:birch_lectern",
     "variantvanillablocks:cherry_lectern",
-    "variantvanillablocks:crimson_lectern",
+    "variantvanillablocks:warped_lectern",
+    "variantvanillablocks:acacia_lectern",
+    "variantvanillablocks:birch_lectern",
     "variantvanillablocks:dark_oak_lectern",
-    "variantvanillablocks:jungle_lectern",
     "variantvanillablocks:mangrove_lectern",
     "variantvanillablocks:spruce_lectern",
-    "variantvanillablocks:warped_lectern"
+    "variantvanillablocks:bamboo_lectern",
+    "variantvanillablocks:crimson_lectern",
+    "variantvanillablocks:jungle_lectern"
   ]
 }

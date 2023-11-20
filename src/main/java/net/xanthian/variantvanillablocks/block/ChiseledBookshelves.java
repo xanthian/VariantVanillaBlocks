@@ -1,17 +1,21 @@
 package net.xanthian.variantvanillablocks.block;
 
+import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ChiseledBookshelfBlock;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
+
+import java.util.Map;
 
 public class ChiseledBookshelves {
 
@@ -27,6 +31,7 @@ public class ChiseledBookshelves {
     // Vanilla Chiseled Bookshelf block is made from Oak
     public static final ChiseledBookshelfBlock SPRUCE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
     public static final ChiseledBookshelfBlock WARPED_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(1.5f).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+    public static Map<Identifier, Block> MOD_CHISELED_BOOKSHELVES = Maps.newHashMap();
 
     public static void registerVanillaChiseledBookshelves() {
         registerChiseledBookshelfBlock("acacia_chiseled_bookshelf", ACACIA_CHISELED_BOOKSHELF);
@@ -45,5 +50,6 @@ public class ChiseledBookshelves {
         Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        MOD_CHISELED_BOOKSHELVES.put(identifier, block);
     }
 }

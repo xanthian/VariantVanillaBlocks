@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_fletching_table",
-    "variantvanillablocks:bamboo_fletching_table",
-    "variantvanillablocks:cherry_fletching_table",
-    "variantvanillablocks:crimson_fletching_table",
-    "variantvanillablocks:dark_oak_fletching_table",
-    "variantvanillablocks:jungle_fletching_table",
-    "variantvanillablocks:mangrove_fletching_table",
     "variantvanillablocks:oak_fletching_table",
+    "variantvanillablocks:warped_fletching_table",
+    "variantvanillablocks:acacia_fletching_table",
     "variantvanillablocks:spruce_fletching_table",
-    "variantvanillablocks:warped_fletching_table"
+    "variantvanillablocks:jungle_fletching_table",
+    "variantvanillablocks:cherry_fletching_table",
+    "variantvanillablocks:dark_oak_fletching_table",
+    "variantvanillablocks:crimson_fletching_table",
+    "variantvanillablocks:mangrove_fletching_table",
+    "variantvanillablocks:bamboo_fletching_table"
   ]
 }

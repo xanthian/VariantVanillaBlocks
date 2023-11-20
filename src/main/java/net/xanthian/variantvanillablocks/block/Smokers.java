@@ -1,25 +1,20 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-
-import net.minecraft.block.SmokerBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SmokerBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
 
 public class Smokers {
-
-    public static Map<Identifier, Block> MOD_SMOKERS = Maps.newHashMap();
 
     public static final SmokerBlock ACACIA_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock BAMBOO_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
@@ -32,6 +27,7 @@ public class Smokers {
     // Vanilla Smoker block is made from Oak
     public static final SmokerBlock SPRUCE_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock WARPED_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
+    public static Map<Identifier, Block> MOD_SMOKERS = Maps.newHashMap();
 
     public static void registerVanillaSmokers() {
         registerSmokerBlock("acacia_smoker", ACACIA_SMOKER);

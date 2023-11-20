@@ -2,9 +2,7 @@ package net.xanthian.variantvanillablocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-
 import net.minecraft.block.Blocks;
-
 import net.xanthian.variantvanillablocks.block.*;
 
 public class LangFileGenerator extends FabricLanguageProvider {
@@ -50,7 +48,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Blocks.BOOKSHELF, "Oak Bookshelf");
         translationBuilder.add(Bookshelves.SPRUCE_BOOKSHELF, "Spruce Bookshelf");
         translationBuilder.add(Bookshelves.WARPED_BOOKSHELF, "Warped Bookshelf");
-        
+
         translationBuilder.add(CartographyTables.ACACIA_CARTOGRAPHY_TABLE, "Acacia Cartography Table");
         translationBuilder.add(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE, "Bamboo Cartography Table");
         translationBuilder.add(CartographyTables.BIRCH_CARTOGRAPHY_TABLE, "Birch Cartography Table");

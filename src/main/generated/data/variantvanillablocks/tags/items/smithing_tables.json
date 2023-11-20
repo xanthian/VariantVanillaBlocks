@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_smithing_table",
-    "variantvanillablocks:bamboo_smithing_table",
-    "variantvanillablocks:birch_smithing_table",
-    "variantvanillablocks:cherry_smithing_table",
     "variantvanillablocks:crimson_smithing_table",
     "variantvanillablocks:dark_oak_smithing_table",
-    "variantvanillablocks:jungle_smithing_table",
+    "variantvanillablocks:bamboo_smithing_table",
     "variantvanillablocks:oak_smithing_table",
-    "variantvanillablocks:spruce_smithing_table",
-    "variantvanillablocks:warped_smithing_table"
+    "variantvanillablocks:birch_smithing_table",
+    "variantvanillablocks:cherry_smithing_table",
+    "variantvanillablocks:warped_smithing_table",
+    "variantvanillablocks:jungle_smithing_table",
+    "variantvanillablocks:acacia_smithing_table",
+    "variantvanillablocks:spruce_smithing_table"
   ]
 }

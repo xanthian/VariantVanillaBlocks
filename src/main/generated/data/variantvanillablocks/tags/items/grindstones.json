@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_grindstone",
-    "variantvanillablocks:bamboo_grindstone",
     "variantvanillablocks:birch_grindstone",
     "variantvanillablocks:cherry_grindstone",
-    "variantvanillablocks:crimson_grindstone",
     "variantvanillablocks:jungle_grindstone",
     "variantvanillablocks:mangrove_grindstone",
-    "variantvanillablocks:oak_grindstone",
+    "variantvanillablocks:acacia_grindstone",
+    "variantvanillablocks:bamboo_grindstone",
     "variantvanillablocks:spruce_grindstone",
-    "variantvanillablocks:warped_grindstone"
+    "variantvanillablocks:warped_grindstone",
+    "variantvanillablocks:crimson_grindstone",
+    "variantvanillablocks:oak_grindstone"
   ]
 }

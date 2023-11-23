@@ -45,8 +45,8 @@ public class Composters {
         registerComposterBlock("warped_composter", WARPED_COMPOSTER);
     }
 
-    private static void registerComposterBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerComposterBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_COMPOSTERS.put(identifier, block);

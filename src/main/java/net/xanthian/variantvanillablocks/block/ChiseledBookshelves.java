@@ -46,8 +46,8 @@ public class ChiseledBookshelves {
         registerChiseledBookshelfBlock("warped_chiseled_bookshelf", WARPED_CHISELED_BOOKSHELF);
     }
 
-    private static void registerChiseledBookshelfBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerChiseledBookshelfBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_CHISELED_BOOKSHELVES.put(identifier, block);

@@ -45,8 +45,8 @@ public class CartographyTables {
         registerCartographyTableBlock("warped_cartography_table", WARPED_CARTOGRAPHY_TABLE);
     }
 
-    private static void registerCartographyTableBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerCartographyTableBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_CARTOGRAPHY_TABLES.put(identifier, block);

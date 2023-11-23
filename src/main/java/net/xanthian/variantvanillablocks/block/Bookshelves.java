@@ -40,8 +40,8 @@ public class Bookshelves {
         registerBookshelfBlock("warped_bookshelf", WARPED_BOOKSHELF);
     }
 
-    private static void registerBookshelfBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerBookshelfBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_BOOKSHELVES.put(identifier, block);

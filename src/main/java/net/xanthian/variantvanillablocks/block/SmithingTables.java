@@ -45,8 +45,8 @@ public class SmithingTables {
         registerSmithingTableBlock("warped_smithing_table", WARPED_SMITHING_TABLE);
     }
 
-    private static void registerSmithingTableBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerSmithingTableBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_SMITHING_TABLES.put(identifier, block);

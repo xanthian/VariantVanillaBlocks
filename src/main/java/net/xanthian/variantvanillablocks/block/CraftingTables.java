@@ -46,8 +46,8 @@ public class CraftingTables {
         registerCraftingTableBlock("warped_crafting_table", WARPED_CRAFTING_TABLE);
     }
 
-    private static void registerCraftingTableBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerCraftingTableBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_CRAFTING_TABLES.put(identifier, block);

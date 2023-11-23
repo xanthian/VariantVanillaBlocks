@@ -26,6 +26,8 @@ import net.xanthian.variantvanillablocks.block.custom.VariantChestBlock;
 import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
 
+import java.util.Locale;
+
 @Environment(EnvType.CLIENT)
 public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestBlockEntity> {
 
@@ -36,7 +38,7 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
     static {
         for (VariantChests type : VariantChests.values()) {
             int ordinal = type.ordinal();
-            String name = type.name().toLowerCase();
+            String name = type.name().toLowerCase(Locale.ROOT);
             single[ordinal] = getChestID(name + "_chest");
             left[ordinal] = getChestID(name + "_chest_left");
             right[ordinal] = getChestID(name + "_chest_right");
@@ -90,7 +92,7 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
         World world = entity.getWorld();
 
         BlockState blockState = world != null ? entity.getCachedState() : Blocks.CHEST.getDefaultState().with(ChestBlock.FACING, Direction.SOUTH);
-        ChestType chestType = blockState.contains(ChestBlock.CHEST_TYPE) ? (ChestType) blockState.get(ChestBlock.CHEST_TYPE) : ChestType.SINGLE;
+        ChestType chestType = blockState.contains(ChestBlock.CHEST_TYPE) ? blockState.get(ChestBlock.CHEST_TYPE) : ChestType.SINGLE;
         Block block = blockState.getBlock();
 
         if (block instanceof VariantChestBlock) {

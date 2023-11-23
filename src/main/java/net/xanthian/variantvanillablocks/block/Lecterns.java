@@ -45,8 +45,8 @@ public class Lecterns {
         registerLecternBlock("warped_lectern", WARPED_LECTERN);
     }
 
-    private static void registerLecternBlock(String Id, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, Id.toLowerCase());
+    private static void registerLecternBlock(String name, Block block) {
+        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
         Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
         MOD_LECTERNS.put(identifier, block);

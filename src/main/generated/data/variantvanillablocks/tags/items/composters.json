@@ -1,15 +1,13 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_composter",
-    "variantvanillablocks:bamboo_composter",
-    "variantvanillablocks:birch_composter",
-    "variantvanillablocks:cherry_composter",
-    "variantvanillablocks:crimson_composter",
     "variantvanillablocks:dark_oak_composter",
-    "variantvanillablocks:jungle_composter",
+    "variantvanillablocks:warped_composter",
     "variantvanillablocks:mangrove_composter",
+    "variantvanillablocks:crimson_composter",
+    "variantvanillablocks:birch_composter",
+    "variantvanillablocks:jungle_composter",
     "variantvanillablocks:oak_composter",
-    "variantvanillablocks:warped_composter"
+    "variantvanillablocks:acacia_composter"
   ]
 }

@@ -1,34 +1,32 @@
 package net.xanthian.variantvanillablocks.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.tag.ItemTags;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.block.*;
-
-import java.util.concurrent.CompletableFuture;
 
 import static net.xanthian.variantvanillablocks.utils.ModItemTags.*;
 
 public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
-    private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:bookshelves"));
-    private static final TagKey<Item> C_CHESTS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:chests"));
-    private static final TagKey<Item> C_JOB_SITE = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:villager_job_sites"));
-    private static final TagKey<Item> C_WORKBENCH = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:workbench"));
-    private static final TagKey<Item> C_WOODEN_BARRELS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:wooden_barrels"));
-    private static final TagKey<Item> C_WOODEN_CHESTS = TagKey.of(Registries.ITEM.getKey(), new Identifier("c:wooden_chests"));
-    public ItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+
+    private static final TagKey<Item> C_BOOKSHELF = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:bookshelves"));
+    private static final TagKey<Item> C_CHESTS = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:chests"));
+    private static final TagKey<Item> C_JOB_SITE = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:villager_job_sites"));
+    private static final TagKey<Item> C_WORKBENCH = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:workbench"));
+    private static final TagKey<Item> C_WOODEN_BARRELS = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:wooden_barrels"));
+    private static final TagKey<Item> C_WOODEN_CHESTS = TagKey.of(Registry.ITEM.getKey(), new Identifier("c:wooden_chests"));
+
+    public ItemTagGenerator(FabricDataGenerator dataGenerator) {
+        super(dataGenerator);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup arg) {
+    protected void generateTags() {
 
         for (Block barrel : Barrels.MOD_BARRELS.values()) {
             getOrCreateTagBuilder(BARRELS)
@@ -53,11 +51,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         for (Block chest : Chests.MOD_CHESTS.values()) {
             getOrCreateTagBuilder(CHESTS)
                     .add(chest.asItem());
-        }
-
-        for (Block cBookshelf : ChiseledBookshelves.MOD_CHISELED_BOOKSHELVES.values()) {
-            getOrCreateTagBuilder(CHISELED_BOOKSHELVES)
-                    .add(cBookshelf.asItem());
         }
 
         for (Block composter : Composters.MOD_COMPOSTERS.values()) {
@@ -106,8 +99,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
                 .add(CartographyTables.WARPED_CARTOGRAPHY_TABLE.asItem())
                 .add(Chests.CRIMSON_CHEST.asItem())
                 .add(Chests.WARPED_CHEST.asItem())
-                .add(ChiseledBookshelves.CRIMSON_CHISELED_BOOKSHELF.asItem())
-                .add(ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF.asItem())
                 .add(Composters.CRIMSON_COMPOSTER.asItem())
                 .add(Composters.WARPED_COMPOSTER.asItem())
                 .add(CraftingTables.CRIMSON_CRAFTING_TABLE.asItem())
@@ -146,9 +137,5 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(C_WOODEN_CHESTS)
                 .addTag(CHESTS);
-
-        getOrCreateTagBuilder(BAMBOO_LOGS)
-                .add(Items.BAMBOO_BLOCK)
-                .add(Items.STRIPPED_BAMBOO_BLOCK);
     }
 }

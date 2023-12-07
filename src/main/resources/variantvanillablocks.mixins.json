@@ -8,6 +8,7 @@
     "CartographyTableScreenHandlerMixin",
     "CatSitOnBlockGoalMixin",
     "CraftingScreenHandlerMixin",
+    "EnchantingTableBlockMixin",
     "FarmerWorkTaskMixin",
     "GrindstoneScreenHandlerMixin",
     "PointOfInterestTypesAccessor",

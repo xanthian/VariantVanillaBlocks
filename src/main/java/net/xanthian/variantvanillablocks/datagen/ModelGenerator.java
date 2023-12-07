@@ -1,34 +1,32 @@
 package net.xanthian.variantvanillablocks.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.data.client.*;
-import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.block.*;
-import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 import net.xanthian.variantvanillablocks.utils.ModModel;
 import net.xanthian.variantvanillablocks.utils.ModTextureKey;
 import net.xanthian.variantvanillablocks.utils.ModTextureMap;
 
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
+
 public class ModelGenerator extends FabricModelProvider {
 
-    public ModelGenerator(FabricDataOutput output) {
+    public ModelGenerator(FabricDataGenerator output) {
         super(output);
     }
 
     public static Identifier getMCBlockId(String id) {
         return new Identifier(id);
-    }
-
-    public static Identifier getId(Block block) {
-        Identifier identifier = Registries.BLOCK.getId(block);
-        return identifier.withPrefixedPath("chest/");
     }
 
     @Override
@@ -46,9 +44,7 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Bookshelves
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.ACACIA_BOOKSHELF, Blocks.ACACIA_PLANKS, ModTextureMap::endside);
-        blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.BAMBOO_BOOKSHELF, Blocks.BAMBOO_PLANKS, ModTextureMap::endside);
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.BIRCH_BOOKSHELF, Blocks.BIRCH_PLANKS, ModTextureMap::endside);
-        blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.CHERRY_BOOKSHELF, Blocks.CHERRY_PLANKS, ModTextureMap::endside);
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.DARK_OAK_BOOKSHELF, Blocks.DARK_OAK_PLANKS, ModTextureMap::endside);
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.JUNGLE_BOOKSHELF, Blocks.JUNGLE_PLANKS, ModTextureMap::endside);
         blockStateModelGenerator.registerCubeWithCustomTextures(Bookshelves.MANGROVE_BOOKSHELF, Blocks.MANGROVE_PLANKS, ModTextureMap::endside);
@@ -58,9 +54,7 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Cartography Tables
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.ACACIA_CARTOGRAPHY_TABLE, Blocks.ACACIA_PLANKS, ModTextureMap::threesides);
-        blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE, Blocks.BAMBOO_PLANKS, ModTextureMap::threesides);
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.BIRCH_CARTOGRAPHY_TABLE, Blocks.BIRCH_PLANKS, ModTextureMap::threesides);
-        blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.CHERRY_CARTOGRAPHY_TABLE, Blocks.CHERRY_PLANKS, ModTextureMap::threesides);
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE, Blocks.CRIMSON_PLANKS, ModTextureMap::threesides);
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE, Blocks.SPRUCE_PLANKS, ModTextureMap::threesides);
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.JUNGLE_CARTOGRAPHY_TABLE, Blocks.JUNGLE_PLANKS, ModTextureMap::threesides);
@@ -69,28 +63,14 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.registerCubeWithCustomTextures(CartographyTables.WARPED_CARTOGRAPHY_TABLE, Blocks.WARPED_PLANKS, ModTextureMap::threesides);
 
         // Chests
-        blockStateModelGenerator.registerBuiltin(VariantChests.ACACIA.getId().withPrefixedPath("block/"), Blocks.ACACIA_PLANKS).includeWithoutItem(Chests.ACACIA_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.BAMBOO.getId().withPrefixedPath("block/"), Blocks.BAMBOO_PLANKS).includeWithoutItem(Chests.BAMBOO_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.BIRCH.getId().withPrefixedPath("block/"), Blocks.BIRCH_PLANKS).includeWithoutItem(Chests.BIRCH_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.CHERRY.getId().withPrefixedPath("block/"), Blocks.CHERRY_PLANKS).includeWithoutItem(Chests.CHERRY_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.CRIMSON.getId().withPrefixedPath("block/"), Blocks.CRIMSON_PLANKS).includeWithoutItem(Chests.CRIMSON_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.DARK_OAK.getId().withPrefixedPath("block/"), Blocks.DARK_OAK_PLANKS).includeWithoutItem(Chests.DARK_OAK_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.JUNGLE.getId().withPrefixedPath("block/"), Blocks.JUNGLE_PLANKS).includeWithoutItem(Chests.JUNGLE_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.MANGROVE.getId().withPrefixedPath("block/"), Blocks.MANGROVE_PLANKS).includeWithoutItem(Chests.MANGROVE_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.SPRUCE.getId().withPrefixedPath("block/"), Blocks.SPRUCE_PLANKS).includeWithoutItem(Chests.SPRUCE_CHEST);
-        blockStateModelGenerator.registerBuiltin(VariantChests.WARPED.getId().withPrefixedPath("block/"), Blocks.WARPED_PLANKS).includeWithoutItem(Chests.WARPED_CHEST);
-
-        // Chiseled Bookshelves
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.BIRCH_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.CHERRY_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.CRIMSON_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.DARK_OAK_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.JUNGLE_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.MANGROVE_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.SPRUCE_CHISELED_BOOKSHELF);
-        //createChiseledBookshelf(blockStateModelGenerator, ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF);
+        blockStateModelGenerator.registerBuiltin(Chests.ACACIA_CHEST, Blocks.ACACIA_PLANKS).includeWithoutItem(Chests.ACACIA_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.BIRCH_CHEST, Blocks.BIRCH_PLANKS).includeWithoutItem(Chests.BIRCH_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.CRIMSON_CHEST, Blocks.CRIMSON_PLANKS).includeWithoutItem(Chests.CRIMSON_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.DARK_OAK_CHEST, Blocks.DARK_OAK_PLANKS).includeWithoutItem(Chests.DARK_OAK_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.JUNGLE_CHEST, Blocks.JUNGLE_PLANKS).includeWithoutItem(Chests.JUNGLE_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.MANGROVE_CHEST, Blocks.MANGROVE_PLANKS).includeWithoutItem(Chests.MANGROVE_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.SPRUCE_CHEST, Blocks.SPRUCE_PLANKS).includeWithoutItem(Chests.SPRUCE_CHEST);
+        blockStateModelGenerator.registerBuiltin(Chests.WARPED_CHEST, Blocks.WARPED_PLANKS).includeWithoutItem(Chests.WARPED_CHEST);
 
         // Composters
         for (Block block : Composters.MOD_COMPOSTERS.values()) {
@@ -99,9 +79,7 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Crafting Tables
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.ACACIA_CRAFTING_TABLE, Blocks.ACACIA_PLANKS, TextureMap::frontSideWithCustomBottom);
-        blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.BAMBOO_CRAFTING_TABLE, Blocks.BAMBOO_PLANKS, TextureMap::frontSideWithCustomBottom);
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.BIRCH_CRAFTING_TABLE, Blocks.BIRCH_PLANKS, TextureMap::frontSideWithCustomBottom);
-        blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.CHERRY_CRAFTING_TABLE, Blocks.CHERRY_PLANKS, TextureMap::frontSideWithCustomBottom);
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.DARK_OAK_CRAFTING_TABLE, Blocks.DARK_OAK_PLANKS, TextureMap::frontSideWithCustomBottom);
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.JUNGLE_CRAFTING_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontSideWithCustomBottom);
         blockStateModelGenerator.registerCubeWithCustomTextures(CraftingTables.MANGROVE_CRAFTING_TABLE, Blocks.MANGROVE_PLANKS, TextureMap::frontSideWithCustomBottom);
@@ -111,8 +89,6 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Fletching Tables
         blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.ACACIA_FLETCHING_TABLE, Blocks.ACACIA_PLANKS, TextureMap::frontTopSide);
-        blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.BAMBOO_FLETCHING_TABLE, Blocks.BAMBOO_PLANKS, TextureMap::frontTopSide);
-        blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.CHERRY_FLETCHING_TABLE, Blocks.CHERRY_PLANKS, TextureMap::frontTopSide);
         blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.CRIMSON_FLETCHING_TABLE, Blocks.CRIMSON_PLANKS, TextureMap::frontTopSide);
         blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.DARK_OAK_FLETCHING_TABLE, Blocks.DARK_OAK_PLANKS, TextureMap::frontTopSide);
         blockStateModelGenerator.registerCubeWithCustomTextures(FletchingTables.JUNGLE_FLETCHING_TABLE, Blocks.JUNGLE_PLANKS, TextureMap::frontTopSide);
@@ -123,9 +99,7 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Grindstones
         createGrindstone(blockStateModelGenerator, Grindstones.ACACIA_GRINDSTONE, Blocks.ACACIA_LOG);
-        createGrindstone(blockStateModelGenerator, Grindstones.BAMBOO_GRINDSTONE, Blocks.BAMBOO_MOSAIC);
         createGrindstone(blockStateModelGenerator, Grindstones.BIRCH_GRINDSTONE, Blocks.BIRCH_LOG);
-        createGrindstone(blockStateModelGenerator, Grindstones.CHERRY_GRINDSTONE, Blocks.CHERRY_LOG);
         createGrindstone(blockStateModelGenerator, Grindstones.CRIMSON_GRINDSTONE, Blocks.CRIMSON_STEM);
         createGrindstone(blockStateModelGenerator, Grindstones.JUNGLE_GRINDSTONE, Blocks.JUNGLE_LOG);
         createGrindstone(blockStateModelGenerator, Grindstones.MANGROVE_GRINDSTONE, Blocks.MANGROVE_LOG);
@@ -135,9 +109,7 @@ public class ModelGenerator extends FabricModelProvider {
 
         // Lecterns
         createLectern(blockStateModelGenerator, Lecterns.ACACIA_LECTERN, Blocks.ACACIA_PLANKS);
-        createLectern(blockStateModelGenerator, Lecterns.BAMBOO_LECTERN, Blocks.BAMBOO_PLANKS);
         createLectern(blockStateModelGenerator, Lecterns.BIRCH_LECTERN, Blocks.BIRCH_PLANKS);
-        createLectern(blockStateModelGenerator, Lecterns.CHERRY_LECTERN, Blocks.CHERRY_PLANKS);
         createLectern(blockStateModelGenerator, Lecterns.CRIMSON_LECTERN, Blocks.CRIMSON_PLANKS);
         createLectern(blockStateModelGenerator, Lecterns.DARK_OAK_LECTERN, Blocks.DARK_OAK_PLANKS);
         createLectern(blockStateModelGenerator, Lecterns.JUNGLE_LECTERN, Blocks.JUNGLE_PLANKS);
@@ -158,16 +130,14 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        createChestItem(itemModelGenerator, Chests.ACACIA_CHEST);
-        createChestItem(itemModelGenerator, Chests.BAMBOO_CHEST);
-        createChestItem(itemModelGenerator, Chests.BIRCH_CHEST);
-        createChestItem(itemModelGenerator, Chests.CHERRY_CHEST);
-        createChestItem(itemModelGenerator, Chests.CRIMSON_CHEST);
-        createChestItem(itemModelGenerator, Chests.DARK_OAK_CHEST);
-        createChestItem(itemModelGenerator, Chests.JUNGLE_CHEST);
-        createChestItem(itemModelGenerator, Chests.MANGROVE_CHEST);
-        createChestItem(itemModelGenerator, Chests.SPRUCE_CHEST);
-        createChestItem(itemModelGenerator, Chests.WARPED_CHEST);
+        chestItem(itemModelGenerator, Chests.ACACIA_CHEST);
+        chestItem(itemModelGenerator, Chests.BIRCH_CHEST);
+        chestItem(itemModelGenerator, Chests.CRIMSON_CHEST);
+        chestItem(itemModelGenerator, Chests.DARK_OAK_CHEST);
+        chestItem(itemModelGenerator, Chests.JUNGLE_CHEST);
+        chestItem(itemModelGenerator, Chests.MANGROVE_CHEST);
+        chestItem(itemModelGenerator, Chests.SPRUCE_CHEST);
+        chestItem(itemModelGenerator, Chests.WARPED_CHEST);
     }
 
     public void createBarrel(BlockStateModelGenerator blockStateModelGenerator, Block block) {
@@ -253,8 +223,27 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, Models.CUBE.upload(block, textureMap, blockStateModelGenerator.modelCollector)));
     }
 
-    public final void createChestItem(ItemModelGenerator itemModelGenerator, Block block) {
+    public final void chestItem(ItemModelGenerator itemModelGenerator, Block block) {
         TextureMap textureMap = new TextureMap().put(ModTextureKey.CHEST, getId(block));
         ModModel.CHEST.upload(ModelIds.getItemModelId(block.asItem()), textureMap, itemModelGenerator.writer);
+    }
+
+    public static void registerModel(BlockStateModelGenerator blockStateModelGenerator, Map<Identifier, Block> blockMap, String modId, Function<String, String> modelPathGenerator) {
+        for (Block chest : blockMap.values()) {
+            String blockName = chest.getTranslationKey();
+            int firstUnderscoreIndex = blockName.indexOf('_');
+            if (firstUnderscoreIndex != -1) {
+                String plankName = blockName.substring(firstUnderscoreIndex + 1, blockName.lastIndexOf("_chest"));
+                String modelPath = modId + ":block/" + modelPathGenerator.apply(plankName);
+                blockStateModelGenerator.registerBuiltinWithParticle(chest, new Identifier(modelPath));
+            } else {
+                System.out.println("Invalid block name format: " + blockName);
+            }
+        }
+    }
+
+    public static Identifier getId(Block block) {
+        Identifier identifier = Registry.BLOCK.getId(block);
+        return identifier;
     }
 }

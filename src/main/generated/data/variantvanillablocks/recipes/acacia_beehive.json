@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "H": {
       "item": "minecraft:honeycomb"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:acacia_beehive"
-  },
-  "show_notification": true
+  }
 }

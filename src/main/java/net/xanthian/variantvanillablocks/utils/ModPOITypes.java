@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import net.xanthian.variantvanillablocks.block.*;
@@ -22,9 +22,9 @@ public class ModPOITypes {
                 .getPointOfInterestStatesToType();
 
         // Fisherman - Barrel
-        RegistryEntry<PointOfInterestType> fishermanEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> fishermanEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.FISHERMAN).get();
-        PointOfInterestType fishermanPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FISHERMAN);
+        PointOfInterestType fishermanPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FISHERMAN);
         List<BlockState> fishermanBlockStates = new ArrayList<>(fishermanPoiType.blockStates);
         for (Block block : Barrels.MOD_BARRELS.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -36,9 +36,9 @@ public class ModPOITypes {
         fishermanPoiType.blockStates = ImmutableSet.copyOf(fishermanBlockStates);
 
         // Cartographer - Cartography Tables
-        RegistryEntry<PointOfInterestType> cartographerEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> cartographerEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.CARTOGRAPHER).get();
-        PointOfInterestType cartographerPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.CARTOGRAPHER);
+        PointOfInterestType cartographerPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.CARTOGRAPHER);
         List<BlockState> cartographerBlockStates = new ArrayList<>(cartographerPoiType.blockStates);
         for (Block block : CartographyTables.MOD_CARTOGRAPHY_TABLES.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -50,9 +50,9 @@ public class ModPOITypes {
         cartographerPoiType.blockStates = ImmutableSet.copyOf(cartographerBlockStates);
 
         // Fletcher - Fletching Table
-        RegistryEntry<PointOfInterestType> fletcherEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> fletcherEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.FLETCHER).get();
-        PointOfInterestType fletcherPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FLETCHER);
+        PointOfInterestType fletcherPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FLETCHER);
         List<BlockState> fletcherBlockStates = new ArrayList<>(fletcherPoiType.blockStates);
         for (Block block : FletchingTables.MOD_FLETCHING_TABLES.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -65,9 +65,9 @@ public class ModPOITypes {
         fletcherPoiType.blockStates = ImmutableSet.copyOf(fletcherBlockStates);
 
         // Cleric - Lectern
-        RegistryEntry<PointOfInterestType> clericEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> clericEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.CLERIC).get();
-        PointOfInterestType clericPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.CLERIC);
+        PointOfInterestType clericPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.CLERIC);
         List<BlockState> clericBlockStates = new ArrayList<>(clericPoiType.blockStates);
         for (Block block : Lecterns.MOD_LECTERNS.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -79,9 +79,9 @@ public class ModPOITypes {
         clericPoiType.blockStates = ImmutableSet.copyOf(clericBlockStates);
 
         // Bee - BeeHive
-        RegistryEntry<PointOfInterestType> beeEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> beeEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.BEEHIVE).get();
-        PointOfInterestType beePoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.BEEHIVE);
+        PointOfInterestType beePoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.BEEHIVE);
         List<BlockState> beeBlockStates = new ArrayList<>(beePoiType.blockStates);
         for (Block block : Beehives.MOD_BEEHIVES.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -93,9 +93,9 @@ public class ModPOITypes {
         beePoiType.blockStates = ImmutableSet.copyOf(beeBlockStates);
 
         // Weaponsmith - Grindstone
-        RegistryEntry<PointOfInterestType> weaponsmithEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> weaponsmithEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.WEAPONSMITH).get();
-        PointOfInterestType weaponsmithPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.WEAPONSMITH);
+        PointOfInterestType weaponsmithPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.WEAPONSMITH);
         List<BlockState> weaponsmithBlockStates = new ArrayList<>(weaponsmithPoiType.blockStates);
         for (Block block : Grindstones.MOD_GRINDSTONES.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -107,9 +107,9 @@ public class ModPOITypes {
         weaponsmithPoiType.blockStates = ImmutableSet.copyOf(weaponsmithBlockStates);
 
         // Farmer - Composter
-        RegistryEntry<PointOfInterestType> farmerEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> farmerEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.FARMER).get();
-        PointOfInterestType farmerPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FARMER);
+        PointOfInterestType farmerPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.FARMER);
         List<BlockState> farmerBlockStates = new ArrayList<>(farmerPoiType.blockStates);
         for (Block block : Composters.MOD_COMPOSTERS.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -121,9 +121,9 @@ public class ModPOITypes {
         farmerPoiType.blockStates = ImmutableSet.copyOf(farmerBlockStates);
 
         // Armorsmith - Smithing Table
-        RegistryEntry<PointOfInterestType> toolsmithEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> toolsmithEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.TOOLSMITH).get();
-        PointOfInterestType toolsmithPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.TOOLSMITH);
+        PointOfInterestType toolsmithPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.TOOLSMITH);
         List<BlockState> toolsmithBlockStates = new ArrayList<>(toolsmithPoiType.blockStates);
         for (Block block : SmithingTables.MOD_SMITHING_TABLES.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();
@@ -135,9 +135,9 @@ public class ModPOITypes {
         toolsmithPoiType.blockStates = ImmutableSet.copyOf(toolsmithBlockStates);
 
         // Butcher - Smoker
-        RegistryEntry<PointOfInterestType> butcherEntry = Registries.POINT_OF_INTEREST_TYPE
+        RegistryEntry<PointOfInterestType> butcherEntry = Registry.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.BUTCHER).get();
-        PointOfInterestType butcherPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.BUTCHER);
+        PointOfInterestType butcherPoiType = Registry.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.BUTCHER);
         List<BlockState> butcherBlockStates = new ArrayList<>(butcherPoiType.blockStates);
         for (Block block : Smokers.MOD_SMOKERS.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();

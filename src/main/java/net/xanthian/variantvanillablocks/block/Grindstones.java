@@ -12,9 +12,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.GrindstoneBlock;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
@@ -22,11 +21,8 @@ import java.util.Map;
 public class Grindstones {
 
     public static final GrindstoneBlock ACACIA_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
-    public static final GrindstoneBlock BAMBOO_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock BIRCH_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
-    public static final GrindstoneBlock CHERRY_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock CRIMSON_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
-    // Vanilla Grindstone is made from Dark Oak
     public static final GrindstoneBlock JUNGLE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock MANGROVE_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
     public static final GrindstoneBlock OAK_GRINDSTONE = new GrindstoneBlock(FabricBlockSettings.copy(Blocks.GRINDSTONE));
@@ -36,9 +32,7 @@ public class Grindstones {
 
     public static void registerVanillaGrindstones() {
         registerGrindstoneBlock("acacia_grindstone", ACACIA_GRINDSTONE);
-        registerGrindstoneBlock("bamboo_grindstone", BAMBOO_GRINDSTONE);
         registerGrindstoneBlock("birch_grindstone", BIRCH_GRINDSTONE);
-        registerGrindstoneBlock("cherry_grindstone", CHERRY_GRINDSTONE);
         registerGrindstoneBlock("crimson_grindstone", CRIMSON_GRINDSTONE);
         registerGrindstoneBlock("jungle_grindstone", JUNGLE_GRINDSTONE);
         registerGrindstoneBlock("mangrove_grindstone", MANGROVE_GRINDSTONE);
@@ -49,8 +43,8 @@ public class Grindstones {
 
     private static void registerGrindstoneBlock(String name, Block block) {
         Identifier identifier = new Identifier(Initialise.MOD_ID, name);
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registry.BLOCK, identifier, block);
+        Registry.register(Registry.ITEM, identifier, new BlockItem(block, new FabricItemSettings().group(Initialise.ITEM_GROUP)));
         MOD_GRINDSTONES.put(identifier, block);
 
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:mangrove_planks"
@@ -12,6 +11,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:mangrove_crafting_table"
-  },
-  "show_notification": true
+  }
 }

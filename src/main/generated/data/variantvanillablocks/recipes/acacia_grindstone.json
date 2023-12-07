@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:acacia_planks"
@@ -18,6 +17,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:acacia_grindstone"
-  },
-  "show_notification": true
+  }
 }

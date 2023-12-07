@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "redstone",
   "ingredients": [
     {
       "tag": "variantvanillablocks:lecterns"

@@ -2,14 +2,12 @@
   "replace": false,
   "values": [
     "variantvanillablocks:acacia_cartography_table",
-    "variantvanillablocks:bamboo_cartography_table",
-    "variantvanillablocks:birch_cartography_table",
-    "variantvanillablocks:cherry_cartography_table",
-    "variantvanillablocks:crimson_cartography_table",
+    "variantvanillablocks:warped_cartography_table",
     "variantvanillablocks:jungle_cartography_table",
-    "variantvanillablocks:mangrove_cartography_table",
     "variantvanillablocks:oak_cartography_table",
+    "variantvanillablocks:birch_cartography_table",
     "variantvanillablocks:spruce_cartography_table",
-    "variantvanillablocks:warped_cartography_table"
+    "variantvanillablocks:crimson_cartography_table",
+    "variantvanillablocks:mangrove_cartography_table"
   ]
 }

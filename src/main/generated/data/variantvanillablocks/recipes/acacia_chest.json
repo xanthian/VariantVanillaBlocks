@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "P": {
       "item": "minecraft:acacia_planks"
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:acacia_chest"
-  },
-  "show_notification": true
+  }
 }

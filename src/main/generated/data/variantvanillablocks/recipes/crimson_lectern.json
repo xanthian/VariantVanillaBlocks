@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "redstone",
   "key": {
     "B": {
       "item": "variantvanillablocks:crimson_bookshelf"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:crimson_lectern"
-  },
-  "show_notification": true
+  }
 }

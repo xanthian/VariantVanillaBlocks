@@ -6,13 +6,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
@@ -20,22 +16,18 @@ import java.util.Map;
 public class Beehives {
 
     public static final BeehiveBlock ACACIA_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock BAMBOO_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     public static final BeehiveBlock BIRCH_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock CHERRY_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock CRIMSON_BEEHIVE = new BeehiveBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
+    public static final BeehiveBlock CRIMSON_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.CRIMSON_PLANKS).strength(0.6F));
     public static final BeehiveBlock DARK_OAK_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     public static final BeehiveBlock JUNGLE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     public static final BeehiveBlock MANGROVE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
     // Vanilla Beehive is made from Oak
     public static final BeehiveBlock SPRUCE_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.BEEHIVE));
-    public static final BeehiveBlock WARPED_BEEHIVE = new BeehiveBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(0.6F).sounds(BlockSoundGroup.WOOD));
+    public static final BeehiveBlock WARPED_BEEHIVE = new BeehiveBlock(FabricBlockSettings.copy(Blocks.WARPED_PLANKS).strength(0.6F));
     public static Map<Identifier, Block> MOD_BEEHIVES = Maps.newHashMap();
 
     public static void registerVanillaHives() {
         registerBeehiveBlock("acacia_beehive", ACACIA_BEEHIVE);
-        registerBeehiveBlock("bamboo_beehive", BAMBOO_BEEHIVE);
-        registerBeehiveBlock("cherry_beehive", CHERRY_BEEHIVE);
         registerBeehiveBlock("crimson_beehive", CRIMSON_BEEHIVE);
         registerBeehiveBlock("dark_oak_beehive", DARK_OAK_BEEHIVE);
         registerBeehiveBlock("jungle_beehive", JUNGLE_BEEHIVE);
@@ -47,8 +39,8 @@ public class Beehives {
 
     private static void registerBeehiveBlock(String name, Block block) {
         Identifier identifier = new Identifier(Initialise.MOD_ID, name);
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registry.BLOCK, identifier, block);
+        Registry.register(Registry.ITEM, identifier, new BlockItem(block, new FabricItemSettings().group(Initialise.ITEM_GROUP)));
         MOD_BEEHIVES.put(identifier, block);
     }
 }

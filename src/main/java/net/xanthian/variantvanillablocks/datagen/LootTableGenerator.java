@@ -1,10 +1,10 @@
 package net.xanthian.variantvanillablocks.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -15,15 +15,15 @@ import net.minecraft.predicate.StatePredicate;
 import net.xanthian.variantvanillablocks.block.*;
 
 public class LootTableGenerator extends FabricBlockLootTableProvider {
-    public LootTableGenerator(FabricDataOutput dataOutput) {
+    public LootTableGenerator(FabricDataGenerator dataOutput) {
         super(dataOutput);
     }
 
     @Override
-    public void generate() {
+    protected void generateBlockLootTables() {
 
         for (Block block : Barrels.MOD_BARRELS.values()) {
-            addDrop(block, this::nameableContainerDrops);
+            addDrop(block, BlockLootTableGenerator::nameableContainerDrops);
         }
 
         for (Block block : Beehives.MOD_BEEHIVES.values()) {
@@ -31,7 +31,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         }
 
         for (Block block : Bookshelves.MOD_BOOKSHELVES.values()) {
-            addDrop(block, (Block bookshelf) -> this.drops(bookshelf, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
+            addDrop(block, (Block bookshelf) -> drops(bookshelf, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
         }
 
         for (Block block : CartographyTables.MOD_CARTOGRAPHY_TABLES.values()) {
@@ -39,16 +39,12 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         }
 
         for (Block block : Chests.MOD_CHESTS.values()) {
-            addDrop(block, this::nameableContainerDrops);
-        }
-
-        for (Block block : ChiseledBookshelves.MOD_CHISELED_BOOKSHELVES.values()) {
-            addDropWithSilkTouch(block);
+            addDrop(block, BlockLootTableGenerator::nameableContainerDrops);
         }
 
         for (Block block : Composters.MOD_COMPOSTERS.values()) {
             addDrop(block, composter ->
-                    LootTable.builder().pool(LootPool.builder().with(this.applyExplosionDecay(composter, ItemEntry.builder(block))))
+                    LootTable.builder().pool(LootPool.builder().with(applyExplosionDecay(composter, ItemEntry.builder(block))))
                             .pool(LootPool.builder().with(ItemEntry.builder(Items.BONE_MEAL))
                                     .conditionally(BlockStatePropertyLootCondition.builder(composter).properties(StatePredicate.Builder.create()
                                             .exactMatch(ComposterBlock.LEVEL, 8)))));
@@ -75,7 +71,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         }
 
         for (Block block : Smokers.MOD_SMOKERS.values()) {
-            addDrop(block, this::nameableContainerDrops);
+            addDrop(block, BlockLootTableGenerator::nameableContainerDrops);
         }
     }
 }

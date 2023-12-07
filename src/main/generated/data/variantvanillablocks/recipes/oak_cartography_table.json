@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:oak_planks"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:oak_cartography_table"
-  },
-  "show_notification": true
+  }
 }

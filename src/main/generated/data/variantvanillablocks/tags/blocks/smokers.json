@@ -1,15 +1,13 @@
 {
   "replace": false,
   "values": [
-    "variantvanillablocks:acacia_smoker",
-    "variantvanillablocks:bamboo_smoker",
-    "variantvanillablocks:birch_smoker",
-    "variantvanillablocks:cherry_smoker",
-    "variantvanillablocks:crimson_smoker",
+    "variantvanillablocks:warped_smoker",
     "variantvanillablocks:dark_oak_smoker",
-    "variantvanillablocks:jungle_smoker",
-    "variantvanillablocks:mangrove_smoker",
     "variantvanillablocks:spruce_smoker",
-    "variantvanillablocks:warped_smoker"
+    "variantvanillablocks:acacia_smoker",
+    "variantvanillablocks:crimson_smoker",
+    "variantvanillablocks:jungle_smoker",
+    "variantvanillablocks:birch_smoker",
+    "variantvanillablocks:mangrove_smoker"
   ]
 }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "tag": "variantvanillablocks:chests"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "minecraft:shulker_box"
-  },
-  "show_notification": true
+  }
 }

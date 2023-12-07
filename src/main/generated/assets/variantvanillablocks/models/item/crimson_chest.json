@@ -1,6 +1,6 @@
 {
   "parent": "variantvanillablocks:block/variantchest",
   "textures": {
-    "chest": "variantvanillablocks:chest/crimson_chest"
+    "chest": "variantvanillablocks:entity/chest/crimson_chest"
   }
 }

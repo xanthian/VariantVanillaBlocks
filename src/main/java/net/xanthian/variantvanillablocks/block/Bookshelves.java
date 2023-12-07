@@ -6,9 +6,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
@@ -16,9 +15,7 @@ import java.util.Map;
 public class Bookshelves {
 
     public static final Block ACACIA_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block BAMBOO_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
     public static final Block BIRCH_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block CHERRY_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
     public static final Block DARK_OAK_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
     public static final Block JUNGLE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
     public static final Block MANGROVE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
@@ -29,9 +26,7 @@ public class Bookshelves {
 
     public static void registerVanillaBookShelves() {
         registerBookshelfBlock("acacia_bookshelf", ACACIA_BOOKSHELF);
-        registerBookshelfBlock("bamboo_bookshelf", BAMBOO_BOOKSHELF);
         registerBookshelfBlock("birch_bookshelf", BIRCH_BOOKSHELF);
-        registerBookshelfBlock("cherry_bookshelf", CHERRY_BOOKSHELF);
         registerBookshelfBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF);
         registerBookshelfBlock("jungle_bookshelf", JUNGLE_BOOKSHELF);
         registerBookshelfBlock("mangrove_bookshelf", MANGROVE_BOOKSHELF);
@@ -42,8 +37,8 @@ public class Bookshelves {
 
     private static void registerBookshelfBlock(String name, Block block) {
         Identifier identifier = new Identifier(Initialise.MOD_ID, name);
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registry.BLOCK, identifier, block);
+        Registry.register(Registry.ITEM, identifier, new BlockItem(block, new FabricItemSettings().group(Initialise.ITEM_GROUP)));
         MOD_BOOKSHELVES.put(identifier, block);
     }
 }

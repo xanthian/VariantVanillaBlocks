@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "tag": "minecraft:birch_logs"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:birch_smoker"
-  },
-  "show_notification": true
+  }
 }

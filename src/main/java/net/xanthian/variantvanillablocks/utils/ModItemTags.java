@@ -1,9 +1,9 @@
 package net.xanthian.variantvanillablocks.utils;
 
 import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.Initialise;
 
 public class ModItemTags {
@@ -24,6 +24,6 @@ public class ModItemTags {
     public static final TagKey<Item> BAMBOO_LOGS = register("bamboo_logs");
 
     private static TagKey<Item> register(String name) {
-        return TagKey.of(RegistryKeys.ITEM, new Identifier(Initialise.MOD_ID, name));
+        return TagKey.of(Registry.ITEM_KEY, new Identifier(Initialise.MOD_ID, name));
     }
 }

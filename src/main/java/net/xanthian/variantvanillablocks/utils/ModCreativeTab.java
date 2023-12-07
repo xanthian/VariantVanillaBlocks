@@ -1,181 +1,139 @@
 package net.xanthian.variantvanillablocks.utils;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.block.*;
 
 public class ModCreativeTab {
 
-    public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Initialise.MOD_ID, "variantvanillablocks"),
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder
+            .create(new Identifier(Initialise.MOD_ID, "variantvanillablocks"))
+            .icon(() -> new ItemStack(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE))
+            .appendItems(entries -> {
 
-            FabricItemGroup.builder()
-                    .displayName(Text.literal("Variant Vanilla Blocks"))
-                    .icon(() -> new ItemStack(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE))
-                    .entries((context, entries) -> {
+                entries.add(new ItemStack(Barrels.ACACIA_BARREL));
+                entries.add(new ItemStack(Beehives.ACACIA_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.ACACIA_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.ACACIA_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.ACACIA_CHEST));
+                entries.add(new ItemStack(Composters.ACACIA_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.ACACIA_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.ACACIA_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.ACACIA_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.ACACIA_LECTERN));
+                entries.add(new ItemStack(SmithingTables.ACACIA_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.ACACIA_SMOKER));
 
-                        entries.add(Barrels.ACACIA_BARREL);
-                        entries.add(Beehives.ACACIA_BEEHIVE);
-                        entries.add(Bookshelves.ACACIA_BOOKSHELF);
-                        entries.add(CartographyTables.ACACIA_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.ACACIA_CHEST);
-                        entries.add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF);
-                        entries.add(Composters.ACACIA_COMPOSTER);
-                        entries.add(CraftingTables.ACACIA_CRAFTING_TABLE);
-                        entries.add(FletchingTables.ACACIA_FLETCHING_TABLE);
-                        entries.add(Grindstones.ACACIA_GRINDSTONE);
-                        entries.add(Lecterns.ACACIA_LECTERN);
-                        entries.add(SmithingTables.ACACIA_SMITHING_TABLE);
-                        entries.add(Smokers.ACACIA_SMOKER);
 
-                        entries.add(Barrels.BAMBOO_BARREL);
-                        entries.add(Beehives.BAMBOO_BEEHIVE);
-                        entries.add(Bookshelves.BAMBOO_BOOKSHELF);
-                        entries.add(CartographyTables.BAMBOO_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.BAMBOO_CHEST);
-                        entries.add(ChiseledBookshelves.BAMBOO_CHISELED_BOOKSHELF);
-                        entries.add(Composters.BAMBOO_COMPOSTER);
-                        entries.add(CraftingTables.BAMBOO_CRAFTING_TABLE);
-                        entries.add(FletchingTables.BAMBOO_FLETCHING_TABLE);
-                        entries.add(Grindstones.BAMBOO_GRINDSTONE);
-                        entries.add(Lecterns.BAMBOO_LECTERN);
-                        entries.add(SmithingTables.BAMBOO_SMITHING_TABLE);
-                        entries.add(Smokers.BAMBOO_SMOKER);
+                entries.add(new ItemStack(Barrels.BIRCH_BARREL));
+                entries.add(new ItemStack(Beehives.BIRCH_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.BIRCH_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.BIRCH_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.BIRCH_CHEST));
+                entries.add(new ItemStack(Composters.BIRCH_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.BIRCH_CRAFTING_TABLE));
+                entries.add(new ItemStack(Blocks.FLETCHING_TABLE)); // Birch
+                entries.add(new ItemStack(Grindstones.BIRCH_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.BIRCH_LECTERN));
+                entries.add(new ItemStack(SmithingTables.BIRCH_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.BIRCH_SMOKER));
 
-                        entries.add(Barrels.BIRCH_BARREL);
-                        entries.add(Beehives.BIRCH_BEEHIVE);
-                        entries.add(Bookshelves.BIRCH_BOOKSHELF);
-                        entries.add(CartographyTables.BIRCH_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.BIRCH_CHEST);
-                        entries.add(ChiseledBookshelves.BIRCH_CHISELED_BOOKSHELF);
-                        entries.add(Composters.BIRCH_COMPOSTER);
-                        entries.add(CraftingTables.BIRCH_CRAFTING_TABLE);
-                        entries.add(Blocks.FLETCHING_TABLE); // Birch
-                        entries.add(Grindstones.BIRCH_GRINDSTONE);
-                        entries.add(Lecterns.BIRCH_LECTERN);
-                        entries.add(SmithingTables.BIRCH_SMITHING_TABLE);
-                        entries.add(Smokers.BIRCH_SMOKER);
+                entries.add(new ItemStack(Barrels.CRIMSON_BARREL));
+                entries.add(new ItemStack(Beehives.CRIMSON_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.CRIMSON_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.CRIMSON_CHEST));
+                entries.add(new ItemStack(Composters.CRIMSON_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.CRIMSON_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.CRIMSON_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.CRIMSON_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.CRIMSON_LECTERN));
+                entries.add(new ItemStack(SmithingTables.CRIMSON_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.CRIMSON_SMOKER));
 
-                        entries.add(Barrels.CHERRY_BARREL);
-                        entries.add(Beehives.CHERRY_BEEHIVE);
-                        entries.add(Bookshelves.CHERRY_BOOKSHELF);
-                        entries.add(CartographyTables.CHERRY_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.CHERRY_CHEST);
-                        entries.add(ChiseledBookshelves.CHERRY_CHISELED_BOOKSHELF);
-                        entries.add(Composters.CHERRY_COMPOSTER);
-                        entries.add(CraftingTables.CHERRY_CRAFTING_TABLE);
-                        entries.add(FletchingTables.CHERRY_FLETCHING_TABLE);
-                        entries.add(Grindstones.CHERRY_GRINDSTONE);
-                        entries.add(Lecterns.CHERRY_LECTERN);
-                        entries.add(SmithingTables.CHERRY_SMITHING_TABLE);
-                        entries.add(Smokers.CHERRY_SMOKER);
+                entries.add(new ItemStack(Barrels.DARK_OAK_BARREL));
+                entries.add(new ItemStack(Beehives.DARK_OAK_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.DARK_OAK_BOOKSHELF));
+                entries.add(new ItemStack(Blocks.CARTOGRAPHY_TABLE)); // Dark Oak
+                entries.add(new ItemStack(Chests.DARK_OAK_CHEST));
+                entries.add(new ItemStack(Composters.DARK_OAK_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.DARK_OAK_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.DARK_OAK_FLETCHING_TABLE));
+                entries.add(new ItemStack(Blocks.GRINDSTONE)); // Dark Oak
+                entries.add(new ItemStack(Lecterns.DARK_OAK_LECTERN));
+                entries.add(new ItemStack(SmithingTables.DARK_OAK_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.DARK_OAK_SMOKER));
 
-                        entries.add(Barrels.CRIMSON_BARREL);
-                        entries.add(Beehives.CRIMSON_BEEHIVE);
-                        entries.add(Bookshelves.CRIMSON_BOOKSHELF);
-                        entries.add(CartographyTables.CRIMSON_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.CRIMSON_CHEST);
-                        entries.add(ChiseledBookshelves.CRIMSON_CHISELED_BOOKSHELF);
-                        entries.add(Composters.CRIMSON_COMPOSTER);
-                        entries.add(CraftingTables.CRIMSON_CRAFTING_TABLE);
-                        entries.add(FletchingTables.CRIMSON_FLETCHING_TABLE);
-                        entries.add(Grindstones.CRIMSON_GRINDSTONE);
-                        entries.add(Lecterns.CRIMSON_LECTERN);
-                        entries.add(SmithingTables.CRIMSON_SMITHING_TABLE);
-                        entries.add(Smokers.CRIMSON_SMOKER);
+                entries.add(new ItemStack(Barrels.JUNGLE_BARREL));
+                entries.add(new ItemStack(Beehives.JUNGLE_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.JUNGLE_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.JUNGLE_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.JUNGLE_CHEST));
+                entries.add(new ItemStack(Composters.JUNGLE_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.JUNGLE_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.JUNGLE_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.JUNGLE_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.JUNGLE_LECTERN));
+                entries.add(new ItemStack(SmithingTables.JUNGLE_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.JUNGLE_SMOKER));
 
-                        entries.add(Barrels.DARK_OAK_BARREL);
-                        entries.add(Beehives.DARK_OAK_BEEHIVE);
-                        entries.add(Bookshelves.DARK_OAK_BOOKSHELF);
-                        entries.add(Blocks.CARTOGRAPHY_TABLE); // Dark Oak
-                        entries.add(Chests.DARK_OAK_CHEST);
-                        entries.add(ChiseledBookshelves.DARK_OAK_CHISELED_BOOKSHELF);
-                        entries.add(Composters.DARK_OAK_COMPOSTER);
-                        entries.add(CraftingTables.DARK_OAK_CRAFTING_TABLE);
-                        entries.add(FletchingTables.DARK_OAK_FLETCHING_TABLE);
-                        entries.add(Blocks.GRINDSTONE); // Dark Oak
-                        entries.add(Lecterns.DARK_OAK_LECTERN);
-                        entries.add(SmithingTables.DARK_OAK_SMITHING_TABLE);
-                        entries.add(Smokers.DARK_OAK_SMOKER);
+                entries.add(new ItemStack(Barrels.MANGROVE_BARREL));
+                entries.add(new ItemStack(Beehives.MANGROVE_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.MANGROVE_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.MANGROVE_CHEST));
+                entries.add(new ItemStack(Composters.MANGROVE_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.MANGROVE_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.MANGROVE_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.MANGROVE_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.MANGROVE_LECTERN));
+                entries.add(new ItemStack(Blocks.SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.MANGROVE_SMOKER));
 
-                        entries.add(Barrels.JUNGLE_BARREL);
-                        entries.add(Beehives.JUNGLE_BEEHIVE);
-                        entries.add(Bookshelves.JUNGLE_BOOKSHELF);
-                        entries.add(CartographyTables.JUNGLE_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.JUNGLE_CHEST);
-                        entries.add(ChiseledBookshelves.JUNGLE_CHISELED_BOOKSHELF);
-                        entries.add(Composters.JUNGLE_COMPOSTER);
-                        entries.add(CraftingTables.JUNGLE_CRAFTING_TABLE);
-                        entries.add(FletchingTables.JUNGLE_FLETCHING_TABLE);
-                        entries.add(Grindstones.JUNGLE_GRINDSTONE);
-                        entries.add(Lecterns.JUNGLE_LECTERN);
-                        entries.add(SmithingTables.JUNGLE_SMITHING_TABLE);
-                        entries.add(Smokers.JUNGLE_SMOKER);
+                entries.add(new ItemStack(Barrels.OAK_BARREL));
+                entries.add(new ItemStack(Blocks.BEEHIVE)); // Oak
+                entries.add(new ItemStack(Blocks.BOOKSHELF)); // Oak
+                entries.add(new ItemStack(CartographyTables.OAK_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Blocks.CHEST));
+                entries.add(new ItemStack(Composters.OAK_COMPOSTER));
+                entries.add(new ItemStack(Blocks.CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.OAK_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.OAK_GRINDSTONE));
+                entries.add(new ItemStack(Blocks.LECTERN)); // Oak
+                entries.add(new ItemStack(SmithingTables.OAK_SMITHING_TABLE));
+                entries.add(new ItemStack(Blocks.SMOKER));
 
-                        entries.add(Barrels.MANGROVE_BARREL);
-                        entries.add(Beehives.MANGROVE_BEEHIVE);
-                        entries.add(Bookshelves.MANGROVE_BOOKSHELF);
-                        entries.add(CartographyTables.MANGROVE_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.MANGROVE_CHEST);
-                        entries.add(ChiseledBookshelves.MANGROVE_CHISELED_BOOKSHELF);
-                        entries.add(Composters.MANGROVE_COMPOSTER);
-                        entries.add(CraftingTables.MANGROVE_CRAFTING_TABLE);
-                        entries.add(FletchingTables.MANGROVE_FLETCHING_TABLE);
-                        entries.add(Grindstones.MANGROVE_GRINDSTONE);
-                        entries.add(Lecterns.MANGROVE_LECTERN);
-                        entries.add(Blocks.SMITHING_TABLE);
-                        entries.add(Smokers.MANGROVE_SMOKER);
+                entries.add(new ItemStack(Blocks.BARREL)); // Spruce
+                entries.add(new ItemStack(Beehives.SPRUCE_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.SPRUCE_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.SPRUCE_CHEST));
+                entries.add(new ItemStack(Blocks.COMPOSTER)); // Spruce
+                entries.add(new ItemStack(CraftingTables.SPRUCE_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.SPRUCE_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.SPRUCE_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.SPRUCE_LECTERN));
+                entries.add(new ItemStack(SmithingTables.SPRUCE_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.SPRUCE_SMOKER));
 
-                        entries.add(Barrels.OAK_BARREL);
-                        entries.add(Blocks.BEEHIVE); // Oak
-                        entries.add(Blocks.BOOKSHELF); // Oak
-                        entries.add(CartographyTables.OAK_CARTOGRAPHY_TABLE);
-                        entries.add(Blocks.CHEST);
-                        entries.add(Blocks.CHISELED_BOOKSHELF); // Oak
-                        entries.add(Composters.OAK_COMPOSTER);
-                        entries.add(Blocks.CRAFTING_TABLE);
-                        entries.add(FletchingTables.OAK_FLETCHING_TABLE);
-                        entries.add(Grindstones.OAK_GRINDSTONE);
-                        entries.add(Blocks.LECTERN); // Oak
-                        entries.add(SmithingTables.OAK_SMITHING_TABLE);
-                        entries.add(Blocks.SMOKER);
-
-                        entries.add(Blocks.BARREL); // Spruce
-                        entries.add(Beehives.SPRUCE_BEEHIVE);
-                        entries.add(Bookshelves.SPRUCE_BOOKSHELF);
-                        entries.add(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.SPRUCE_CHEST);
-                        entries.add(ChiseledBookshelves.SPRUCE_CHISELED_BOOKSHELF);
-                        entries.add(Blocks.COMPOSTER); // Spruce
-                        entries.add(CraftingTables.SPRUCE_CRAFTING_TABLE);
-                        entries.add(FletchingTables.SPRUCE_FLETCHING_TABLE);
-                        entries.add(Grindstones.SPRUCE_GRINDSTONE);
-                        entries.add(Lecterns.SPRUCE_LECTERN);
-                        entries.add(SmithingTables.SPRUCE_SMITHING_TABLE);
-                        entries.add(Smokers.SPRUCE_SMOKER);
-
-                        entries.add(Barrels.WARPED_BARREL);
-                        entries.add(Beehives.WARPED_BEEHIVE);
-                        entries.add(Bookshelves.WARPED_BOOKSHELF);
-                        entries.add(CartographyTables.WARPED_CARTOGRAPHY_TABLE);
-                        entries.add(Chests.WARPED_CHEST);
-                        entries.add(ChiseledBookshelves.WARPED_CHISELED_BOOKSHELF);
-                        entries.add(Composters.WARPED_COMPOSTER);
-                        entries.add(CraftingTables.WARPED_CRAFTING_TABLE);
-                        entries.add(FletchingTables.WARPED_FLETCHING_TABLE);
-                        entries.add(Grindstones.WARPED_GRINDSTONE);
-                        entries.add(Lecterns.WARPED_LECTERN);
-                        entries.add(SmithingTables.WARPED_SMITHING_TABLE);
-                        entries.add(Smokers.WARPED_SMOKER);
-                    })
-                    .build());
+                entries.add(new ItemStack(Barrels.WARPED_BARREL));
+                entries.add(new ItemStack(Beehives.WARPED_BEEHIVE));
+                entries.add(new ItemStack(Bookshelves.WARPED_BOOKSHELF));
+                entries.add(new ItemStack(CartographyTables.WARPED_CARTOGRAPHY_TABLE));
+                entries.add(new ItemStack(Chests.WARPED_CHEST));
+                entries.add(new ItemStack(Composters.WARPED_COMPOSTER));
+                entries.add(new ItemStack(CraftingTables.WARPED_CRAFTING_TABLE));
+                entries.add(new ItemStack(FletchingTables.WARPED_FLETCHING_TABLE));
+                entries.add(new ItemStack(Grindstones.WARPED_GRINDSTONE));
+                entries.add(new ItemStack(Lecterns.WARPED_LECTERN));
+                entries.add(new ItemStack(SmithingTables.WARPED_SMITHING_TABLE));
+                entries.add(new ItemStack(Smokers.WARPED_SMOKER));
+            })
+            .build();
 
     public static void registerItemGroup() {
     }

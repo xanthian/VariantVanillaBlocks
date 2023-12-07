@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:spruce_planks"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:spruce_fletching_table"
-  },
-  "show_notification": true
+  }
 }

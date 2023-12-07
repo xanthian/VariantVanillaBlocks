@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "tag": "minecraft:warped_stems"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:warped_smoker"
-  },
-  "show_notification": true
+  }
 }

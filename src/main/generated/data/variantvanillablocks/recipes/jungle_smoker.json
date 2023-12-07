@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "tag": "minecraft:jungle_logs"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:jungle_smoker"
-  },
-  "show_notification": true
+  }
 }

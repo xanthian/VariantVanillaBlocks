@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:birch_planks"
@@ -18,6 +17,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:birch_grindstone"
-  },
-  "show_notification": true
+  }
 }

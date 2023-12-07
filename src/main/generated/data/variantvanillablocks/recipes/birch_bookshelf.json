@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "#": {
       "item": "minecraft:birch_planks"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:birch_bookshelf"
-  },
-  "show_notification": true
+  }
 }

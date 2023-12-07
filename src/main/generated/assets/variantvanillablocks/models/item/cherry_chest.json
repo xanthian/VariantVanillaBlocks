@@ -1,6 +1,0 @@
-{
-  "parent": "variantvanillablocks:block/variantchest",
-  "textures": {
-    "chest": "variantvanillablocks:chest/cherry_chest"
-  }
-}

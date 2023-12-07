@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "redstone",
   "key": {
     "B": {
       "item": "variantvanillablocks:warped_bookshelf"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "variantvanillablocks:warped_lectern"
-  },
-  "show_notification": true
+  }
 }

@@ -7,9 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SmokerBlock;
 import net.minecraft.item.BlockItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.xanthian.variantvanillablocks.Initialise;
 
 import java.util.Map;
@@ -17,9 +16,7 @@ import java.util.Map;
 public class Smokers {
 
     public static final SmokerBlock ACACIA_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock BAMBOO_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock BIRCH_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock CHERRY_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock CRIMSON_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock DARK_OAK_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
     public static final SmokerBlock JUNGLE_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
@@ -31,9 +28,7 @@ public class Smokers {
 
     public static void registerVanillaSmokers() {
         registerSmokerBlock("acacia_smoker", ACACIA_SMOKER);
-        registerSmokerBlock("bamboo_smoker", BAMBOO_SMOKER);
         registerSmokerBlock("birch_smoker", BIRCH_SMOKER);
-        registerSmokerBlock("cherry_smoker", CHERRY_SMOKER);
         registerSmokerBlock("crimson_smoker", CRIMSON_SMOKER);
         registerSmokerBlock("dark_oak_smoker", DARK_OAK_SMOKER);
         registerSmokerBlock("jungle_smoker", JUNGLE_SMOKER);
@@ -44,8 +39,8 @@ public class Smokers {
 
     private static void registerSmokerBlock(String name, Block block) {
         Identifier identifier = new Identifier(Initialise.MOD_ID, name);
-        Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registry.BLOCK, identifier, block);
+        Registry.register(Registry.ITEM, identifier, new BlockItem(block, new FabricItemSettings().group(Initialise.ITEM_GROUP)));
         MOD_SMOKERS.put(identifier, block);
     }
 }

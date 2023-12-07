@@ -28,8 +28,6 @@ import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
 
 import java.util.Locale;
 
-import static net.minecraft.block.enums.ChestType.SINGLE;
-
 @Environment(EnvType.CLIENT)
 public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestBlockEntity> {
 
@@ -41,9 +39,9 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
         for (VariantChests type : VariantChests.values()) {
             int ordinal = type.ordinal();
             String name = type.name().toLowerCase(Locale.ROOT);
-            single[ordinal] = getChestTextureId(name + "_chest");
-            left[ordinal] = getChestTextureId(name + "_chest_left");
-            right[ordinal] = getChestTextureId(name + "_chest_right");
+            single[ordinal] = getChestID(name + "_chest");
+            left[ordinal] = getChestID(name + "_chest_left");
+            right[ordinal] = getChestID(name + "_chest_right");
         }
     }
 
@@ -73,32 +71,31 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
         this.doubleChestRightLock = modelPart3.getChild("lock");
     }
 
-    private static SpriteIdentifier getChestTextureId(String variant) {
-        return new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, new Identifier(Initialise.MOD_ID, "entity/chest/" + variant));
+    public static SpriteIdentifier getChestID(String path) {
+        return new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, new Identifier(Initialise.MOD_ID, "entity/chest/" + path));
     }
 
-    public static SpriteIdentifier getChestTexture(VariantChestBlockEntity tile, ChestType type) {
-        return getChestTexture(type, left[tile.getChestType().ordinal()], right[tile.getChestType().ordinal()], single[tile.getChestType().ordinal()]);
-    }
-
-    private static SpriteIdentifier getChestTexture(ChestType type, SpriteIdentifier single, SpriteIdentifier left, SpriteIdentifier right) {
+    public static SpriteIdentifier chooseMaterial(ChestType type, SpriteIdentifier left, SpriteIdentifier right, SpriteIdentifier single) {
         return switch (type) {
             case LEFT -> left;
             case RIGHT -> right;
             default -> single;
         };
+    }
 
+    private SpriteIdentifier getChestTexture(VariantChestBlockEntity tile, ChestType type) {
+        return chooseMaterial(type, left[tile.getChestType().ordinal()], right[tile.getChestType().ordinal()], single[tile.getChestType().ordinal()]);
     }
 
     public void render(VariantChestBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         World world = entity.getWorld();
 
         BlockState blockState = world != null ? entity.getCachedState() : Blocks.CHEST.getDefaultState().with(ChestBlock.FACING, Direction.SOUTH);
-        ChestType chestType = blockState.contains(ChestBlock.CHEST_TYPE) ? blockState.get(ChestBlock.CHEST_TYPE) : SINGLE;
+        ChestType chestType = blockState.contains(ChestBlock.CHEST_TYPE) ? blockState.get(ChestBlock.CHEST_TYPE) : ChestType.SINGLE;
         Block block = blockState.getBlock();
 
-        if (block instanceof VariantChestBlock variantChestBlock) {
-            boolean bl2 = chestType != SINGLE;
+        if (block instanceof VariantChestBlock) {
+            boolean bl2 = chestType != ChestType.SINGLE;
             matrices.push();
 
             float f = blockState.get(ChestBlock.FACING).asRotation();
@@ -111,7 +108,7 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
             if (world == null) {
                 propertySource = DoubleBlockProperties.PropertyRetriever::getFallback;
             } else {
-                propertySource = variantChestBlock.getBlockEntitySource(blockState, world, entity.getPos(), true);
+                propertySource = ((VariantChestBlock) block).getBlockEntitySource(blockState, world, entity.getPos(), true);
             }
 
             float g = propertySource.apply(ChestBlock.getAnimationProgressRetriever(entity)).get(tickDelta);

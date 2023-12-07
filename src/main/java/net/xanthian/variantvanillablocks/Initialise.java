@@ -2,15 +2,20 @@ package net.xanthian.variantvanillablocks;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.xanthian.variantvanillablocks.block.*;
+import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.utils.ModCreativeTab;
 import net.xanthian.variantvanillablocks.utils.ModPOITypes;
 import net.xanthian.variantvanillablocks.utils.ModRegistries;
+
+import java.util.Locale;
 
 public class Initialise implements ModInitializer {
 
@@ -159,9 +164,19 @@ public class Initialise implements ModInitializer {
         SmithingTables.registerVanillaSmithingTables();
         Smokers.registerVanillaSmokers();
 
-        //ModCreativeTab.registerItemGroup();
+        ModCreativeTab.registerItemGroup();
         ModRegistries.registerFuelandFlammable();
         ModPOITypes.init();
+
+        ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
+            for (VariantChests type : VariantChests.values()) {
+                String name = type.name().toLowerCase(Locale.ROOT);
+                registry.register(new Identifier(MOD_ID, "entity/chest/" + name + "_chest"));
+                registry.register(new Identifier(MOD_ID, "entity/chest/" + name + "_chest_left"));
+                registry.register(new Identifier(MOD_ID, "entity/chest/" + name + "_chest_right"));
+
+            }
+        });
 
     }
 }

@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "morebeautifultorches"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "tag": "c:bookshelves"
+    },
+    "#": [
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 32,
+    "item": "morebeautifultorches:bookshelf_redstone_torch"
+  },
+  "show_notification": true
+}

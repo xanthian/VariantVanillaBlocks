@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
@@ -44,7 +43,7 @@ public enum VariantChests {
         return new VariantChestBlockEntity(this, pos, state);
     }
 
-    public Identifier getId(){
+    public Identifier getId() {
         return new Identifier(Initialise.MOD_ID, this.name().toLowerCase(Locale.ROOT) + "_chest");
     }
 }

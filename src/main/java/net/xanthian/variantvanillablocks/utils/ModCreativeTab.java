@@ -175,7 +175,7 @@ public class ModCreativeTab {
                         entries.add(SmithingTables.WARPED_SMITHING_TABLE);
                         entries.add(Smokers.WARPED_SMOKER);
                     })
-                    .build());
+                    .texture("variantvanillablocks.png").noRenderedName().build());
 
     public static void registerItemGroup() {
     }

@@ -2,8 +2,6 @@ package net.xanthian.variantvanillablocks.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-
-
 import net.minecraft.world.item.WrittenBookItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LecternBlock;

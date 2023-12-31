@@ -3,7 +3,6 @@ package net.xanthian.variantvanillablocks.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -24,19 +23,32 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.LidBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
-
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.block.custom.VariantChestBlock;
 import net.xanthian.variantvanillablocks.block.custom.VariantChests;
 import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
-
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Locale;
 
 @OnlyIn(Dist.CLIENT)
 public class VariantChestRenderer<T extends VariantChestBlockEntity & LidBlockEntity> extends ChestRenderer<T> {
+
+    public static Material[] single = new Material[VariantChests.values().length];
+    public static Material[] left = new Material[VariantChests.values().length];
+    public static Material[] right = new Material[VariantChests.values().length];
+
+    static {
+        for (VariantChests type : VariantChests.values()) {
+            int ordinal = type.ordinal();
+            String name = type.name().toLowerCase(Locale.ROOT);
+            single[ordinal] = getChestID(name + "_chest");
+            left[ordinal] = getChestID(name + "_chest_left");
+            right[ordinal] = getChestID(name + "_chest_right");
+        }
+    }
 
     private final ModelPart lid;
     private final ModelPart bottom;
@@ -47,27 +59,6 @@ public class VariantChestRenderer<T extends VariantChestBlockEntity & LidBlockEn
     private final ModelPart doubleRightLid;
     private final ModelPart doubleRightBottom;
     private final ModelPart doubleRightLock;
-    public static Material[] single = new Material[VariantChests.values().length];
-    public static Material[] left = new Material[VariantChests.values().length];
-    public static Material[] right = new Material[VariantChests.values().length];
-
-    static {
-        for (VariantChests type : VariantChests.values()) {
-            int ordinal = type.ordinal();
-            String name = type.name().toLowerCase();
-            single[ordinal] = getChestID(name + "_chest");
-            left[ordinal] = getChestID(name + "_chest_left");
-            right[ordinal] = getChestID(name + "_chest_right");
-        }
-    }
-
-    public static Material getChestID(String path) {
-        return new Material(Sheets.CHEST_SHEET, new ResourceLocation(Initialise.MOD_ID, "entity/chest/" + path)) {};
-    }
-
-    private Material getChestTexture(VariantChestBlockEntity tile, ChestType type) {
-        return chooseMaterial(type, left[tile.getChestType().ordinal()], right[tile.getChestType().ordinal()], single[tile.getChestType().ordinal()]);
-    }
 
     public VariantChestRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
@@ -83,6 +74,23 @@ public class VariantChestRenderer<T extends VariantChestBlockEntity & LidBlockEn
         this.doubleRightLid = modelPart3.getChild("lid");
         this.doubleRightBottom = modelPart3.getChild("bottom");
         this.doubleRightLock = modelPart3.getChild("lock");
+    }
+
+    public static Material getChestID(String path) {
+        return new Material(Sheets.CHEST_SHEET, new ResourceLocation(Initialise.MOD_ID, "entity/chest/" + path)) {
+        };
+    }
+
+    public static Material chooseMaterial(ChestType type, Material left, Material right, Material single) {
+        return switch (type) {
+            case LEFT -> left;
+            case RIGHT -> right;
+            default -> single;
+        };
+    }
+
+    private Material getChestTexture(VariantChestBlockEntity tile, ChestType type) {
+        return chooseMaterial(type, left[tile.getChestType().ordinal()], right[tile.getChestType().ordinal()], single[tile.getChestType().ordinal()]);
     }
 
     public void render(T pBlockEntity, float pPartialTick, @NotNull PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
@@ -106,7 +114,7 @@ public class VariantChestRenderer<T extends VariantChestBlockEntity & LidBlockEn
             if (level == null) {
                 neighborcombineresult = DoubleBlockCombiner.Combiner::acceptNone;
             } else {
-                neighborcombineresult = ((VariantChestBlock)block).combine(blockState, level, pBlockEntity.getBlockPos(), true);
+                neighborcombineresult = ((VariantChestBlock) block).combine(blockState, level, pBlockEntity.getBlockPos(), true);
             }
 
             float g = neighborcombineresult.apply(ChestBlock.opennessCombiner(pBlockEntity)).get(pPartialTick);
@@ -129,18 +137,10 @@ public class VariantChestRenderer<T extends VariantChestBlockEntity & LidBlockEn
     }
 
     private void render(PoseStack pPoseStack, VertexConsumer pConsumer, ModelPart pLidPart, ModelPart pLockPart, ModelPart pBottomPart, float pLidAngle, int pPackedLight, int pPackedOverlay) {
-        pLidPart.xRot = -(pLidAngle * ((float)Math.PI / 2F));
+        pLidPart.xRot = -(pLidAngle * ((float) Math.PI / 2F));
         pLockPart.xRot = pLidPart.xRot;
         pLidPart.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
         pLockPart.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
         pBottomPart.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
-    }
-
-    public static Material chooseMaterial(ChestType type, Material left, Material right, Material single) {
-        return switch (type) {
-            case LEFT -> left;
-            case RIGHT -> right;
-            default -> single;
-        };
     }
 }

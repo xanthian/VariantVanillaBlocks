@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "morebeautifultorches"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "tag": "variantvanillablocks:beehives"
+    },
+    "#": [
+      {
+        "item": "minecraft:soul_soil"
+      },
+      {
+        "item": "minecraft:soul_sand"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 32,
+    "item": "morebeautifultorches:beehive_soul_torch"
+  },
+  "show_notification": true
+}

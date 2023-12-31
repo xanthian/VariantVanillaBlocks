@@ -1,8 +1,5 @@
 package net.xanthian.variantvanillablocks.block;
 
-import com.google.common.collect.Maps;
-
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -11,25 +8,19 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LecternBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class Lecterns {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
-
-    public static Map<ResourceLocation, Supplier> MOD_LECTERNS = Maps.newHashMap();
-
     public static final RegistryObject<Block> ACACIA_LECTERN = register("acacia_lectern",
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
     public static final RegistryObject<Block> BAMBOO_LECTERN = register("bamboo_lectern",
@@ -46,7 +37,6 @@ public class Lecterns {
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
     public static final RegistryObject<Block> MANGROVE_LECTERN = register("mangrove_lectern",
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
-
     public static final RegistryObject<Block> SPRUCE_LECTERN = register("spruce_lectern",
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_LECTERN = register("warped_lectern",
@@ -59,7 +49,7 @@ public class Lecterns {
     }
 
     private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()) {
             @Override
             public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
                 return burnTime;

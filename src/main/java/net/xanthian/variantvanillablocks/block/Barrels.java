@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -53,7 +52,7 @@ public class Barrels {
     }
 
     private static <T extends Block> RegistryObject<BlockItem> registerBlockItem(String name, RegistryObject<T> block, int burnTime) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()) {
             @Override
             public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
                 return burnTime;

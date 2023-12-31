@@ -1,9 +1,5 @@
 package net.xanthian.variantvanillablocks.block;
 
-import com.google.common.collect.Maps;
-
-import net.minecraft.resources.ResourceLocation;
-
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,16 +12,12 @@ import net.minecraftforge.registries.RegistryObject;
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.item.ModItems;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class Grindstones {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
-
-    public static Map<ResourceLocation, Supplier> MOD_GRINDSTONES = Maps.newHashMap();
-
     public static final RegistryObject<Block> ACACIA_GRINDSTONE = registerBlock("acacia_grindstone",
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)));
     public static final RegistryObject<Block> BAMBOO_GRINDSTONE = registerBlock("bamboo_grindstone",
@@ -36,7 +28,6 @@ public class Grindstones {
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
     public static final RegistryObject<Block> CRIMSON_GRINDSTONE = registerBlock("crimson_grindstone",
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)));
-
     public static final RegistryObject<Block> JUNGLE_GRINDSTONE = registerBlock("jungle_grindstone",
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)));
     public static final RegistryObject<Block> MANGROVE_GRINDSTONE = registerBlock("mangrove_grindstone",
@@ -53,6 +44,7 @@ public class Grindstones {
         registerBlockItem(name, toReturn);
         return toReturn;
     }
+
     private static <T extends Block> RegistryObject<BlockItem> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }

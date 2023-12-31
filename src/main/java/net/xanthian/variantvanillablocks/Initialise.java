@@ -6,12 +6,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
 import net.xanthian.variantvanillablocks.block.*;
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.item.ModItems;
 import net.xanthian.variantvanillablocks.renderer.VariantChestRenderer;
 import net.xanthian.variantvanillablocks.utils.ModCreativeModTabs;
+import net.xanthian.variantvanillablocks.utils.ModPOITypes;
 
 
 @Mod(Initialise.MOD_ID)
@@ -22,6 +22,8 @@ public class Initialise {
 
     public Initialise() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModPOITypes.POI_TYPES.register(modEventBus);
 
         ModCreativeModTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -48,7 +50,7 @@ public class Initialise {
     }
 
     @SubscribeEvent
-    public void registerChestEntityRenders(EntityRenderersEvent.RegisterRenderers  event) {
+    public void registerChestEntityRenders(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(EntityInitialise.ACACIA_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.BAMBOO_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.BIRCH_CHEST.get(), VariantChestRenderer::new);

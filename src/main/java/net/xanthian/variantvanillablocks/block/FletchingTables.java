@@ -1,40 +1,30 @@
 package net.xanthian.variantvanillablocks.block;
 
-import com.google.common.collect.Maps;
-
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.FletchingTableBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FletchingTableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
 import net.xanthian.variantvanillablocks.Initialise;
 import net.xanthian.variantvanillablocks.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class FletchingTables {
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Initialise.MOD_ID);
-
-    public static Map<ResourceLocation, Supplier> MOD_FLETCHING_TABLES = Maps.newHashMap();
-
     public static final RegistryObject<Block> ACACIA_FLETCHING_TABLE = register("acacia_fletching_table",
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
     public static final RegistryObject<Block> BAMBOO_FLETCHING_TABLE = register("bamboo_fletching_table",
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
-
     public static final RegistryObject<Block> CHERRY_FLETCHING_TABLE = register("cherry_fletching_table",
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
     public static final RegistryObject<Block> CRIMSON_FLETCHING_TABLE = register("crimson_fletching_table",
@@ -59,7 +49,7 @@ public class FletchingTables {
     }
 
     private static <T extends Block> RegistryObject<BlockItem> registerItem(String name, RegistryObject<T> block, int burnTime) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()){
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()) {
             @Override
             public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
                 return burnTime;

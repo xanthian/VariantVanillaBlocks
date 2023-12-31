@@ -1,0 +1,40 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "travelersbackpack"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "CCC",
+    "ADA",
+    "CCC"
+  ],
+
+  "key":
+  {
+    "D":
+    {
+      "tag": "variantvanillablocks:chests"
+    },
+
+    "C":
+    {
+      "item": "minecraft:leather"
+    },
+
+    "A":
+    {
+      "item": "travelersbackpack:backpack_tank"
+    }
+  },
+
+  "result":
+  {
+    "item": "travelersbackpack:blank_upgrade",
+    "count": 4
+  }
+}

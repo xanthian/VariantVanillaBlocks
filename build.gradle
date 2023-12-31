@@ -117,9 +117,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0-rc.5"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.2.0-rc.5")) {
-        jarJar.ranged(it, "[0.2.0-rc.5,)")
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.2"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.2")) {
+        jarJar.ranged(it, "[0.3.2,)")
     }
 }
 

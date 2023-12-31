@@ -5,10 +5,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-
 import net.xanthian.variantvanillablocks.block.custom.VariantChests;
-
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Locale;
 
 public class VariantChestBlockEntity extends ChestBlockEntity {
 
@@ -29,7 +29,7 @@ public class VariantChestBlockEntity extends ChestBlockEntity {
 
     @Override
     public @NotNull Component getDefaultName() {
-        return Component.translatable("container.variantvanillablocks." + type.name().toLowerCase() + "_chest");
+        return Component.translatable("container.variantvanillablocks." + type.name().toLowerCase(Locale.ROOT) + "_chest");
     }
 
 }

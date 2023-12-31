@@ -11,7 +11,6 @@
     "CatSitOnBlockGoalMixin",
     "CraftingMenuMixin",
     "GrindstoneMenuMixin",
-    "PoiTypesAccessor",
     "SmithingMenuMixin",
     "WorkAtComposterMixin",
     "WritableBookItemMixin",

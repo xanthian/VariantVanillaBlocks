@@ -3,7 +3,6 @@ package net.xanthian.variantvanillablocks.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.entity.VariantChestBlockEntity;
 

@@ -66,8 +66,8 @@ public class ModPOITypes {
 
         // Cleric - Lectern
         RegistryEntry<PointOfInterestType> clericEntry = Registries.POINT_OF_INTEREST_TYPE
-                .getEntry(PointOfInterestTypes.CLERIC).get();
-        PointOfInterestType clericPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.CLERIC);
+                .getEntry(PointOfInterestTypes.LIBRARIAN).get();
+        PointOfInterestType clericPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.LIBRARIAN);
         List<BlockState> clericBlockStates = new ArrayList<>(clericPoiType.blockStates);
         for (Block block : Lecterns.MOD_LECTERNS.values()) {
             ImmutableList<BlockState> blockStates = block.getStateManager().getStates();

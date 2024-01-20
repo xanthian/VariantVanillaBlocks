@@ -25,6 +25,8 @@ public class FletchingTables {
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), 300);
     public static final RegistryObject<Block> BAMBOO_FLETCHING_TABLE = register("bamboo_fletching_table",
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)), 300);
+    public static final RegistryObject<Block> BIRCH_FLETCHING_TABLE = register("birch_fletching_table",
+            () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)), 300);
     public static final RegistryObject<Block> CHERRY_FLETCHING_TABLE = register("cherry_fletching_table",
             () -> new FletchingTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
     public static final RegistryObject<Block> CRIMSON_FLETCHING_TABLE = register("crimson_fletching_table",

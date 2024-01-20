@@ -59,6 +59,7 @@ public class Initialise {
         event.registerBlockEntityRenderer(EntityInitialise.DARK_OAK_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.JUNGLE_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.MANGROVE_CHEST.get(), VariantChestRenderer::new);
+        event.registerBlockEntityRenderer(EntityInitialise.OAK_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.SPRUCE_CHEST.get(), VariantChestRenderer::new);
         event.registerBlockEntityRenderer(EntityInitialise.WARPED_CHEST.get(), VariantChestRenderer::new);
     }

@@ -55,7 +55,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ChiseledBookshelves.BIRCH_CHISELED_BOOKSHELF.get());
                         pOutput.accept(Composters.BIRCH_COMPOSTER.get());
                         pOutput.accept(CraftingTables.BIRCH_CRAFTING_TABLE.get());
-                        pOutput.accept(Blocks.FLETCHING_TABLE); // Birch
+                        pOutput.accept(FletchingTables.BIRCH_FLETCHING_TABLE.get());
                         pOutput.accept(Grindstones.BIRCH_GRINDSTONE.get());
                         pOutput.accept(Lecterns.BIRCH_LECTERN.get());
                         pOutput.accept(SmithingTables.BIRCH_SMITHING_TABLE.get());
@@ -92,13 +92,13 @@ public class ModCreativeModTabs {
                         pOutput.accept(Barrels.DARK_OAK_BARREL.get());
                         pOutput.accept(Beehives.DARK_OAK_BEEHIVE.get());
                         pOutput.accept(Bookshelves.DARK_OAK_BOOKSHELF.get());
-                        pOutput.accept(Blocks.CARTOGRAPHY_TABLE); // Dark Oak
+                        pOutput.accept(CartographyTables.DARK_OAK_CARTOGRAPHY_TABLE.get());
                         pOutput.accept(Chests.DARK_OAK_CHEST.get());
                         pOutput.accept(ChiseledBookshelves.DARK_OAK_CHISELED_BOOKSHELF.get());
                         pOutput.accept(Composters.DARK_OAK_COMPOSTER.get());
                         pOutput.accept(CraftingTables.DARK_OAK_CRAFTING_TABLE.get());
                         pOutput.accept(FletchingTables.DARK_OAK_FLETCHING_TABLE.get());
-                        pOutput.accept(Blocks.GRINDSTONE); // Dark Oak
+                        pOutput.accept(Grindstones.DARK_OAK_GRINDSTONE.get());
                         pOutput.accept(Lecterns.DARK_OAK_LECTERN.get());
                         pOutput.accept(SmithingTables.DARK_OAK_SMITHING_TABLE.get());
                         pOutput.accept(Smokers.DARK_OAK_SMOKER.get());
@@ -132,26 +132,26 @@ public class ModCreativeModTabs {
                         pOutput.accept(Smokers.MANGROVE_SMOKER.get());
 
                         pOutput.accept(Barrels.OAK_BARREL.get());
-                        pOutput.accept(Blocks.BEEHIVE); // Oak
-                        pOutput.accept(Blocks.BOOKSHELF); // Oak
+                        pOutput.accept(Beehives.OAK_BEEHIVE.get());
+                        pOutput.accept(Bookshelves.OAK_BOOKSHELF.get());
                         pOutput.accept(CartographyTables.OAK_CARTOGRAPHY_TABLE.get());
-                        pOutput.accept(Blocks.CHEST);
-                        pOutput.accept(Blocks.CHISELED_BOOKSHELF); // Oak
+                        pOutput.accept(Chests.OAK_CHEST.get());
+                        pOutput.accept(ChiseledBookshelves.OAK_CHISELED_BOOKSHELF.get());
                         pOutput.accept(Composters.OAK_COMPOSTER.get());
-                        pOutput.accept(Blocks.CRAFTING_TABLE);
+                        pOutput.accept(CraftingTables.OAK_CRAFTING_TABLE.get());
                         pOutput.accept(FletchingTables.OAK_FLETCHING_TABLE.get());
                         pOutput.accept(Grindstones.OAK_GRINDSTONE.get());
-                        pOutput.accept(Blocks.LECTERN); // Oak
+                        pOutput.accept(Lecterns.OAK_LECTERN.get());
                         pOutput.accept(SmithingTables.OAK_SMITHING_TABLE.get());
-                        pOutput.accept(Blocks.SMOKER);
+                        pOutput.accept(Smokers.OAK_SMOKER.get());
 
-                        pOutput.accept(Blocks.BARREL); // Spruce
+                        pOutput.accept(Barrels.SPRUCE_BARREL.get());
                         pOutput.accept(Beehives.SPRUCE_BEEHIVE.get());
                         pOutput.accept(Bookshelves.SPRUCE_BOOKSHELF.get());
                         pOutput.accept(CartographyTables.SPRUCE_CARTOGRAPHY_TABLE.get());
                         pOutput.accept(Chests.SPRUCE_CHEST.get());
                         pOutput.accept(ChiseledBookshelves.SPRUCE_CHISELED_BOOKSHELF.get());
-                        pOutput.accept(Blocks.COMPOSTER); // Spruce
+                        pOutput.accept(Composters.SPRUCE_COMPOSTER.get());
                         pOutput.accept(CraftingTables.SPRUCE_CRAFTING_TABLE.get());
                         pOutput.accept(FletchingTables.SPRUCE_FLETCHING_TABLE.get());
                         pOutput.accept(Grindstones.SPRUCE_GRINDSTONE.get());

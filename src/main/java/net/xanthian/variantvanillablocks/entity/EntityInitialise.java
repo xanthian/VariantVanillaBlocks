@@ -65,6 +65,11 @@ public class EntityInitialise {
                     BlockEntityType.Builder.of((pos, state) -> new VariantChestBlockEntity(
                                     pos, state, VariantChests.MANGROVE),
                             Chests.MANGROVE_CHEST.get()).build(null));
+    public static final RegistryObject<BlockEntityType<VariantChestBlockEntity>> OAK_CHEST =
+            BLOCK_ENTITIES.register("oak_chest", () ->
+                    BlockEntityType.Builder.of((pos, state) -> new VariantChestBlockEntity(
+                                    pos, state, VariantChests.OAK),
+                            Chests.OAK_CHEST.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<VariantChestBlockEntity>> SPRUCE_CHEST =
             BLOCK_ENTITIES.register("spruce_chest", () ->

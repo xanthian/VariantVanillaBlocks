@@ -40,7 +40,8 @@ public class Barrels {
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
     public static final RegistryObject<Block> OAK_BARREL = register("oak_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
-
+    public static final RegistryObject<Block> SPRUCE_BARREL = register("spruce_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_BARREL = register("warped_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
 

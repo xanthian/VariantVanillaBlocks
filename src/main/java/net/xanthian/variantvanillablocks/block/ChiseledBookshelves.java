@@ -37,6 +37,8 @@ public class ChiseledBookshelves {
             () -> new ChiseledBookShelfBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
     public static final RegistryObject<Block> MANGROVE_CHISELED_BOOKSHELF = register("mangrove_chiseled_bookshelf",
             () -> new ChiseledBookShelfBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_CHISELED_BOOKSHELF = register("oak_chiseled_bookshelf",
+            () -> new ChiseledBookShelfBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
     public static final RegistryObject<Block> SPRUCE_CHISELED_BOOKSHELF = register("spruce_chiseled_bookshelf",
             () -> new ChiseledBookShelfBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_CHISELED_BOOKSHELF = register("warped_chiseled_bookshelf",

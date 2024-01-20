@@ -37,6 +37,8 @@ public class CraftingTables {
             () -> new CraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
     public static final RegistryObject<Block> MANGROVE_CRAFTING_TABLE = register("mangrove_crafting_table",
             () -> new CraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_CRAFTING_TABLE = register("oak_crafting_table",
+            () -> new CraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
     public static final RegistryObject<Block> SPRUCE_CRAFTING_TABLE = register("spruce_crafting_table",
             () -> new CraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_CRAFTING_TABLE = register("warped_crafting_table",

@@ -35,6 +35,8 @@ public class SmithingTables {
             () -> new SmithingTableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), 300);
     public static final RegistryObject<Block> JUNGLE_SMITHING_TABLE = register("jungle_smithing_table",
             () -> new SmithingTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
+    public static final RegistryObject<Block> MANGROVE_SMITHING_TABLE = register("mangrove_smithing_table",
+            () -> new SmithingTableBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
     public static final RegistryObject<Block> OAK_SMITHING_TABLE = register("oak_smithing_table",
             () -> new SmithingTableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
     public static final RegistryObject<Block> SPRUCE_SMITHING_TABLE = register("spruce_smithing_table",

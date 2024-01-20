@@ -26,6 +26,8 @@ public class Grindstones {
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)));
     public static final RegistryObject<Block> CHERRY_GRINDSTONE = registerBlock("cherry_grindstone",
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
+    public static final RegistryObject<Block> DARK_OAK_GRINDSTONE = registerBlock("dark_oak_grindstone",
+            () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
     public static final RegistryObject<Block> CRIMSON_GRINDSTONE = registerBlock("crimson_grindstone",
             () -> new GrindstoneBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)));
     public static final RegistryObject<Block> JUNGLE_GRINDSTONE = registerBlock("jungle_grindstone",

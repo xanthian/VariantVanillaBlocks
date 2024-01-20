@@ -31,6 +31,8 @@ public class CartographyTables {
             () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)), 300);
     public static final RegistryObject<Block> CRIMSON_CARTOGRAPHY_TABLE = register("crimson_cartography_table",
             () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), 0);
+    public static final RegistryObject<Block> DARK_OAK_CARTOGRAPHY_TABLE = register("dark_oak_cartography_table",
+            () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), 0);
     public static final RegistryObject<Block> JUNGLE_CARTOGRAPHY_TABLE = register("jungle_cartography_table",
             () -> new CartographyTableBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
     public static final RegistryObject<Block> MANGROVE_CARTOGRAPHY_TABLE = register("mangrove_cartography_table",

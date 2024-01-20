@@ -34,6 +34,8 @@ public class Beehives {
             () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)));
     public static final RegistryObject<Block> MANGROVE_BEEHIVE = registerBlock("mangrove_beehive",
             () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)));
+    public static final RegistryObject<Block> OAK_BEEHIVE = registerBlock("oak_beehive",
+            () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Block> SPRUCE_BEEHIVE = registerBlock("spruce_beehive",
             () -> new BeehiveBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)));
     public static final RegistryObject<Block> WARPED_BEEHIVE = registerBlock("warped_beehive",

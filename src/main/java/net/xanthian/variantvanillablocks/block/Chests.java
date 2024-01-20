@@ -38,6 +38,8 @@ public class Chests {
             () -> new VariantChestBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS), VariantChests.JUNGLE), 300);
     public static final RegistryObject<Block> MANGROVE_CHEST = register("mangrove_chest",
             () -> new VariantChestBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS), VariantChests.MANGROVE), 300);
+    public static final RegistryObject<Block> OAK_CHEST = register("oak_chest",
+            () -> new VariantChestBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS), VariantChests.OAK), 300);
     public static final RegistryObject<Block> SPRUCE_CHEST = register("spruce_chest",
             () -> new VariantChestBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS), VariantChests.SPRUCE), 300);
     public static final RegistryObject<Block> WARPED_CHEST = register("warped_chest",

@@ -39,6 +39,8 @@ public class Lecterns {
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
     public static final RegistryObject<Block> SPRUCE_LECTERN = register("spruce_lectern",
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_LECTERN = register("oak_lectern",
+            () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_LECTERN = register("warped_lectern",
             () -> new LecternBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
 

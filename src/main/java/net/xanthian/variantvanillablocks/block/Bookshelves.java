@@ -36,6 +36,8 @@ public class Bookshelves {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), 300);
     public static final RegistryObject<Block> MANGROVE_BOOKSHELF = register("mangrove_bookshelf",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
+    public static final RegistryObject<Block> OAK_BOOKSHELF = register("oak_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
     public static final RegistryObject<Block> SPRUCE_BOOKSHELF = register("spruce_bookshelf",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_BOOKSHELF = register("warped_bookshelf",

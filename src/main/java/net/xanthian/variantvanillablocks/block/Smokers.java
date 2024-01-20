@@ -34,6 +34,8 @@ public class Smokers {
             () -> new SmokerBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)));
     public static final RegistryObject<Block> MANGROVE_SMOKER = registerBlock("mangrove_smoker",
             () -> new SmokerBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)));
+    public static final RegistryObject<Block> OAK_SMOKER = registerBlock("oak_smoker",
+            () -> new SmokerBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<Block> SPRUCE_SMOKER = registerBlock("spruce_smoker",
             () -> new SmokerBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)));
     public static final RegistryObject<Block> WARPED_SMOKER = registerBlock("warped_smoker",

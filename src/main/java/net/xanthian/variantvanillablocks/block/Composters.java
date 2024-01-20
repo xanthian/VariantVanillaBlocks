@@ -39,6 +39,8 @@ public class Composters {
             () -> new ComposterBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), 300);
     public static final RegistryObject<Block> OAK_COMPOSTER = register("oak_composter",
             () -> new ComposterBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), 300);
+    public static final RegistryObject<Block> SPRUCE_COMPOSTER = register("spruce_composter",
+            () -> new ComposterBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), 300);
     public static final RegistryObject<Block> WARPED_COMPOSTER = register("warped_composter",
             () -> new ComposterBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), 0);
 

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/oak_planks",
+    "east": "variantvanillablocks:block/oak_crafting_table_side",
+    "north": "variantvanillablocks:block/oak_crafting_table_front",
+    "particle": "variantvanillablocks:block/oak_crafting_table_front",
+    "south": "variantvanillablocks:block/oak_crafting_table_side",
+    "up": "variantvanillablocks:block/oak_crafting_table_top",
+    "west": "variantvanillablocks:block/oak_crafting_table_front"
+  }
+}

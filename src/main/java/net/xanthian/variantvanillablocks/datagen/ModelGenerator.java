@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.block.enums.BlockFace;
 import net.minecraft.data.client.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
@@ -212,20 +212,20 @@ public class ModelGenerator extends FabricModelProvider {
                 .put(ModTextureKey.LEG, TextureMap.getId(log));
         ModModel.GRINDSTONE.upload(block, textureMap, blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, BlockStateVariant.create()
-                .put(VariantSettings.MODEL, ModelIds.getBlockModelId(block))).coordinate(BlockStateVariantMap.create(Properties.WALL_MOUNT_LOCATION, Properties.HORIZONTAL_FACING).register(WallMountLocation.FLOOR, Direction.NORTH, BlockStateVariant.create()).register(WallMountLocation.FLOOR, Direction.EAST, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.FLOOR, Direction.SOUTH, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.FLOOR, Direction.WEST, BlockStateVariant.create()
-                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(WallMountLocation.WALL, Direction.NORTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R90)).register(WallMountLocation.WALL, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.MODEL, ModelIds.getBlockModelId(block))).coordinate(BlockStateVariantMap.create(Properties.BLOCK_FACE, Properties.HORIZONTAL_FACING).register(BlockFace.FLOOR, Direction.NORTH, BlockStateVariant.create()).register(BlockFace.FLOOR, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.FLOOR, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.FLOOR, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(BlockFace.WALL, Direction.NORTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R90)).register(BlockFace.WALL, Direction.EAST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.WALL, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.WALL, Direction.SOUTH, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.WALL, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.WALL, Direction.WEST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R90)
-                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(WallMountLocation.CEILING, Direction.SOUTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180)).register(WallMountLocation.CEILING, Direction.WEST, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(WallMountLocation.CEILING, Direction.NORTH, BlockStateVariant.create()
-                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(WallMountLocation.CEILING, Direction.EAST, BlockStateVariant.create()
+                .put(VariantSettings.Y, VariantSettings.Rotation.R270)).register(BlockFace.CEILING, Direction.SOUTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180)).register(BlockFace.CEILING, Direction.WEST, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R90)).register(BlockFace.CEILING, Direction.NORTH, BlockStateVariant.create()
+                .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R180)).register(BlockFace.CEILING, Direction.EAST, BlockStateVariant.create()
                 .put(VariantSettings.X, VariantSettings.Rotation.R180).put(VariantSettings.Y, VariantSettings.Rotation.R270))));
     }
 

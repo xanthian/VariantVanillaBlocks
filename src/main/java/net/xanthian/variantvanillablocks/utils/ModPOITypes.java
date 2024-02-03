@@ -64,7 +64,7 @@ public class ModPOITypes {
         }
         fletcherPoiType.blockStates = ImmutableSet.copyOf(fletcherBlockStates);
 
-        // Cleric - Lectern
+        // Librarian - Lectern
         RegistryEntry<PointOfInterestType> clericEntry = Registries.POINT_OF_INTEREST_TYPE
                 .getEntry(PointOfInterestTypes.LIBRARIAN).get();
         PointOfInterestType clericPoiType = Registries.POINT_OF_INTEREST_TYPE.get(PointOfInterestTypes.LIBRARIAN);

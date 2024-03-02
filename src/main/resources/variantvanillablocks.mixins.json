@@ -6,7 +6,6 @@
   "mixins": [
     "BlockEntityTypeMixin",
     "CartographyTableScreenHandlerMixin",
-    "CatSitOnBlockGoalMixin",
     "CraftingScreenHandlerMixin",
     "FarmerWorkTaskMixin",
     "GrindstoneScreenHandlerMixin",

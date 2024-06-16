@@ -24,6 +24,6 @@ public class ModItemTags {
     public static final TagKey<Item> BAMBOO_LOGS = register("bamboo_logs");
 
     private static TagKey<Item> register(String name) {
-        return TagKey.of(RegistryKeys.ITEM, new Identifier(Initialise.MOD_ID, name));
+        return TagKey.of(RegistryKeys.ITEM, Identifier.of(Initialise.MOD_ID, name));
     }
 }

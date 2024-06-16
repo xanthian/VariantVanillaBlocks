@@ -3,15 +3,18 @@ package net.xanthian.variantvanillablocks.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.RegistryWrapper;
 import net.xanthian.variantvanillablocks.block.*;
 
+import java.util.concurrent.CompletableFuture;
+
 public class LangFileGenerator extends FabricLanguageProvider {
-    public LangFileGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public LangFileGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
 
         translationBuilder.add(Barrels.ACACIA_BARREL, "Acacia Barrel");
         translationBuilder.add(Barrels.BAMBOO_BARREL, "Bamboo Barrel");

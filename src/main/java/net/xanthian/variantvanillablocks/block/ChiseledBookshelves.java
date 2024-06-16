@@ -1,13 +1,13 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.item.Item;
+import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ChiseledBookshelfBlock;
 import net.minecraft.block.MapColor;
-import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,17 +20,17 @@ import java.util.Map;
 public class ChiseledBookshelves {
 
     // Vanilla
-    public static final ChiseledBookshelfBlock ACACIA_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock BAMBOO_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock BIRCH_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock CHERRY_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock CRIMSON_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_CRIMSON).instrument(Instrument.BASS).strength(1.5f).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock DARK_OAK_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock JUNGLE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock MANGROVE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock ACACIA_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock BAMBOO_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock BIRCH_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock CHERRY_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock CRIMSON_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_CRIMSON).instrument(NoteBlockInstrument.BASS).strength(1.5f).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock DARK_OAK_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock JUNGLE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock MANGROVE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
     // Vanilla Chiseled Bookshelf block is made from Oak
-    public static final ChiseledBookshelfBlock SPRUCE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.copy(Blocks.CHISELED_BOOKSHELF));
-    public static final ChiseledBookshelfBlock WARPED_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).instrument(Instrument.BASS).strength(1.5f).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock SPRUCE_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.copy(Blocks.CHISELED_BOOKSHELF));
+    public static final ChiseledBookshelfBlock WARPED_CHISELED_BOOKSHELF = new ChiseledBookshelfBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_AQUA).instrument(NoteBlockInstrument.BASS).strength(1.5f).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
     public static Map<Identifier, Block> MOD_CHISELED_BOOKSHELVES = Maps.newHashMap();
 
     public static void registerVanillaChiseledBookshelves() {
@@ -47,9 +47,9 @@ public class ChiseledBookshelves {
     }
 
     private static void registerChiseledBookshelfBlock(String name, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
+        Identifier identifier = Identifier.of(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new Item.Settings()));
         MOD_CHISELED_BOOKSHELVES.put(identifier, block);
     }
 }

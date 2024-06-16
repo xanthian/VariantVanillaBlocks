@@ -15,26 +15,26 @@ import java.util.concurrent.CompletableFuture;
 import static net.xanthian.variantvanillablocks.Initialise.MOD_ID;
 
 public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
-    private static final TagKey<Block> BARRELS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "barrels"));
-    private static final TagKey<Block> BEEHIVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "beehives"));
-    private static final TagKey<Block> BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "bookshelves"));
-    private static final TagKey<Block> CARTOGRAPHY_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "cartography_tables"));
-    private static final TagKey<Block> CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "chests"));
-    private static final TagKey<Block> CHISELED_BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "chiseled_bookshelves"));
-    private static final TagKey<Block> COMPOSTERS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "composters"));
-    private static final TagKey<Block> CRAFTING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "crafting_tables"));
-    private static final TagKey<Block> FLETCHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "fletching_tables"));
-    private static final TagKey<Block> GRINDSTONES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "grindstones"));
-    private static final TagKey<Block> LECTERNS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "lecterns"));
-    private static final TagKey<Block> SMITHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "smithing_tables"));
-    private static final TagKey<Block> SMOKERS = TagKey.of(Registries.BLOCK.getKey(), new Identifier(MOD_ID, "smokers"));
-    private static final TagKey<Block> BEE_HOME = TagKey.of(Registries.BLOCK.getKey(), new Identifier("minecraft:point_of_interest_type/bee_home"));
-    private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:bookshelves"));
-    private static final TagKey<Block> C_CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:chests"));
-    private static final TagKey<Block> C_JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:villager_job_sites"));
-    private static final TagKey<Block> C_WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:workbench"));
-    private static final TagKey<Block> C_WOODEN_BARRELS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:wooden_barrels"));
-    private static final TagKey<Block> C_WOODEN_CHESTS = TagKey.of(Registries.BLOCK.getKey(), new Identifier("c:wooden_chests"));
+    private static final TagKey<Block> BARRELS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "barrels"));
+    private static final TagKey<Block> BEEHIVES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "beehives"));
+    private static final TagKey<Block> BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "bookshelves"));
+    private static final TagKey<Block> CARTOGRAPHY_TABLES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "cartography_tables"));
+    private static final TagKey<Block> CHESTS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "chests"));
+    private static final TagKey<Block> CHISELED_BOOKSHELVES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "chiseled_bookshelves"));
+    private static final TagKey<Block> COMPOSTERS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "composters"));
+    private static final TagKey<Block> CRAFTING_TABLES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "crafting_tables"));
+    private static final TagKey<Block> FLETCHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "fletching_tables"));
+    private static final TagKey<Block> GRINDSTONES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "grindstones"));
+    private static final TagKey<Block> LECTERNS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "lecterns"));
+    private static final TagKey<Block> SMITHING_TABLES = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "smithing_tables"));
+    private static final TagKey<Block> SMOKERS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of(MOD_ID, "smokers"));
+    private static final TagKey<Block> BEE_HOME = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("minecraft:point_of_interest_type/bee_home"));
+    private static final TagKey<Block> C_BOOKSHELF = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:bookshelves"));
+    private static final TagKey<Block> C_CHESTS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:chests"));
+    private static final TagKey<Block> C_JOB_SITE = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:villager_job_sites"));
+    private static final TagKey<Block> C_WORKBENCH = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:workbench"));
+    private static final TagKey<Block> C_WOODEN_BARRELS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:wooden_barrels"));
+    private static final TagKey<Block> C_WOODEN_CHESTS = TagKey.of(Registries.BLOCK.getKey(), Identifier.of("c:wooden_chests"));
 
     public BlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);

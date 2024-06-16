@@ -14,7 +14,7 @@ import net.xanthian.variantvanillablocks.block.*;
 public class ModCreativeTab {
 
     public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Initialise.MOD_ID, "variantvanillablocks"),
+            Identifier.of(Initialise.MOD_ID, "variantvanillablocks"),
 
             FabricItemGroup.builder()
                     .displayName(Text.literal("Variant Vanilla Blocks"))
@@ -175,7 +175,7 @@ public class ModCreativeTab {
                         entries.add(SmithingTables.WARPED_SMITHING_TABLE);
                         entries.add(Smokers.WARPED_SMOKER);
                     })
-                    .texture("variantvanillablocks.png").noRenderedName().build());
+                    .texture(Identifier.ofVanilla("textures/gui/container/creative_inventory/tab_variantvanillablocks.png")).noRenderedName().build());
 
     public static void registerItemGroup() {
     }

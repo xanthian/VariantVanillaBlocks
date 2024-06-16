@@ -1,6 +1,5 @@
 package net.xanthian.variantvanillablocks.entity;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -36,7 +35,7 @@ public class EntityInitialise {
 
     private static BlockEntityType<VariantChestBlockEntity> register(VariantChests type, Block... block) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, type.getId(),
-                FabricBlockEntityTypeBuilder.create((pos, state) -> new VariantChestBlockEntity(type, pos, state),
+                BlockEntityType. Builder. create((pos, state) -> new VariantChestBlockEntity(type, pos, state),
                         block).build(null));
     }
 }

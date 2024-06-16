@@ -1,8 +1,8 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.item.Item;
+import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SmokerBlock;
@@ -16,17 +16,17 @@ import java.util.Map;
 
 public class Smokers {
 
-    public static final SmokerBlock ACACIA_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock BAMBOO_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock BIRCH_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock CHERRY_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock CRIMSON_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock DARK_OAK_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock JUNGLE_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock MANGROVE_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
+    public static final SmokerBlock ACACIA_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock BAMBOO_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock BIRCH_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock CHERRY_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock CRIMSON_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock DARK_OAK_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock JUNGLE_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock MANGROVE_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
     // Vanilla Smoker block is made from Oak
-    public static final SmokerBlock SPRUCE_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
-    public static final SmokerBlock WARPED_SMOKER = new SmokerBlock(FabricBlockSettings.copy(Blocks.SMOKER));
+    public static final SmokerBlock SPRUCE_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
+    public static final SmokerBlock WARPED_SMOKER = new SmokerBlock(AbstractBlock.Settings.copy(Blocks.SMOKER));
     public static Map<Identifier, Block> MOD_SMOKERS = Maps.newHashMap();
 
     public static void registerVanillaSmokers() {
@@ -43,9 +43,9 @@ public class Smokers {
     }
 
     private static void registerSmokerBlock(String name, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
+        Identifier identifier = Identifier.of(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new Item.Settings()));
         MOD_SMOKERS.put(identifier, block);
     }
 }

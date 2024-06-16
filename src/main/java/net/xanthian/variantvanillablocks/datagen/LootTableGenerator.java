@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -12,11 +11,14 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryWrapper;
 import net.xanthian.variantvanillablocks.block.*;
 
+import java.util.concurrent.CompletableFuture;
+
 public class LootTableGenerator extends FabricBlockLootTableProvider {
-    public LootTableGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public LootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
@@ -27,7 +29,7 @@ public class LootTableGenerator extends FabricBlockLootTableProvider {
         }
 
         for (Block block : Beehives.MOD_BEEHIVES.values()) {
-            addDrop(block, BlockLootTableGenerator::beehiveDrops);
+            addDrop(block, this::beehiveDrops);
         }
 
         for (Block block : Bookshelves.MOD_BOOKSHELVES.values()) {

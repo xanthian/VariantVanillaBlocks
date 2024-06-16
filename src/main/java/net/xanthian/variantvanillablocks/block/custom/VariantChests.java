@@ -44,6 +44,6 @@ public enum VariantChests {
     }
 
     public Identifier getId() {
-        return new Identifier(Initialise.MOD_ID, this.name().toLowerCase(Locale.ROOT) + "_chest");
+        return Identifier.of(Initialise.MOD_ID, this.name().toLowerCase(Locale.ROOT) + "_chest");
     }
 }

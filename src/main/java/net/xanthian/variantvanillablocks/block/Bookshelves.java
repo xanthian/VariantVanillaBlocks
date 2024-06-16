@@ -1,8 +1,8 @@
 package net.xanthian.variantvanillablocks.block;
 
 import com.google.common.collect.Maps;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.item.Item;
+import net.minecraft.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -15,16 +15,16 @@ import java.util.Map;
 
 public class Bookshelves {
 
-    public static final Block ACACIA_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block BAMBOO_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block BIRCH_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block CHERRY_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block DARK_OAK_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block JUNGLE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block MANGROVE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block SPRUCE_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block WARPED_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
-    public static final Block CRIMSON_BOOKSHELF = new Block(FabricBlockSettings.copy(Blocks.BOOKSHELF));
+    public static final Block ACACIA_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block BAMBOO_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block BIRCH_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block CHERRY_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block DARK_OAK_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block JUNGLE_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block MANGROVE_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block SPRUCE_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
+    public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.copy(Blocks.BOOKSHELF));
     public static Map<Identifier, Block> MOD_BOOKSHELVES = Maps.newHashMap();
 
     public static void registerVanillaBookShelves() {
@@ -41,9 +41,9 @@ public class Bookshelves {
     }
 
     private static void registerBookshelfBlock(String name, Block block) {
-        Identifier identifier = new Identifier(Initialise.MOD_ID, name);
+        Identifier identifier = Identifier.of(Initialise.MOD_ID, name);
         Registry.register(Registries.BLOCK, identifier, block);
-        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, identifier, new BlockItem(block, new Item.Settings()));
         MOD_BOOKSHELVES.put(identifier, block);
     }
 }

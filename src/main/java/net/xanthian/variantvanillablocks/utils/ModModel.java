@@ -21,7 +21,7 @@ public class ModModel {
     }
 
     public static Identifier getBlockId(String id) {
-        return new Identifier("variantvanillablocks", "block/" + id);
+        return Identifier.of("variantvanillablocks", "block/" + id);
     }
 
     public static Model createModel(String parent, TextureKey... requiredTextures) {

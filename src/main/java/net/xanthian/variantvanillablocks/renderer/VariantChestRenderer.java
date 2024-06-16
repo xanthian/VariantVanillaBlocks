@@ -72,7 +72,7 @@ public class VariantChestRenderer extends ChestBlockEntityRenderer<VariantChestB
     }
 
     public static SpriteIdentifier getChestID(String path) {
-        return new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, new Identifier(Initialise.MOD_ID, "entity/chest/" + path)) {
+        return new SpriteIdentifier(TexturedRenderLayers.CHEST_ATLAS_TEXTURE, Identifier.of(Initialise.MOD_ID, "entity/chest/" + path)) {
         };
     }
 

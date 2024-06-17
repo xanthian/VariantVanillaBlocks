@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "variantvanillablocks:fletching_tables"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:fletching_table"
+  }
+}

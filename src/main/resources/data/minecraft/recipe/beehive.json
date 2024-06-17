@@ -15,7 +15,7 @@
     "PPP"
   ],
   "result": {
-    "item": "minecraft:beehive"
+    "id": "minecraft:beehive"
   },
   "show_notification": true
 }

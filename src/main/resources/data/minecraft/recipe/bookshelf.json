@@ -15,7 +15,7 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:bookshelf"
+    "id": "minecraft:bookshelf"
   },
   "show_notification": true
 }

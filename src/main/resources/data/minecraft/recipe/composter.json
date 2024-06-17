@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:composter"
+    "id": "minecraft:composter"
   },
   "show_notification": true
 }

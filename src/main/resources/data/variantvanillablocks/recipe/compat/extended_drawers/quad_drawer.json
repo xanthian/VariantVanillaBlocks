@@ -26,7 +26,7 @@
     "LCL"
   ],
   "result": {
-    "item": "extended_drawers:quad_drawer"
+    "id": "extended_drawers:quad_drawer"
   },
   "show_notification": true
 }

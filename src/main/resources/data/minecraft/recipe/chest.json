@@ -12,7 +12,7 @@
     "PPP"
   ],
   "result": {
-    "item": "minecraft:chest"
+    "id": "minecraft:chest"
   },
   "show_notification": true
 }

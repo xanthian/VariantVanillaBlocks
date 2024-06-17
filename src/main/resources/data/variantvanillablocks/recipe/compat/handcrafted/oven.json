@@ -32,7 +32,7 @@
     "###"
   ],
   "result": {
-    "item": "handcrafted:oven"
+    "id": "handcrafted:oven"
   },
   "show_notification": true
 }

@@ -29,7 +29,7 @@
     "SPS"
   ],
   "result": {
-    "item": "extended_drawers:compacting_drawer"
+    "id": "extended_drawers:compacting_drawer"
   },
   "show_notification": true
 }

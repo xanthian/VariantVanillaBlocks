@@ -26,7 +26,7 @@
     "SSS"
   ],
   "result": {
-    "item": "extended_drawers:t1_upgrade"
+    "id": "extended_drawers:t1_upgrade"
   },
   "show_notification": true
 }

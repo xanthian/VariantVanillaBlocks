@@ -17,7 +17,7 @@
     "# #"
   ],
   "result": {
-    "item": "minecraft:grindstone"
+    "id": "minecraft:grindstone"
   },
   "show_notification": true
 }

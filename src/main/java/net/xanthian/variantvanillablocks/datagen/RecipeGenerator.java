@@ -193,6 +193,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
         offerChestRecipe(exporter, Chests.DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
         offerChestRecipe(exporter, Chests.JUNGLE_CHEST, Items.JUNGLE_PLANKS);
         offerChestRecipe(exporter, Chests.MANGROVE_CHEST, Items.MANGROVE_PLANKS);
+        offerChestRecipe(exporter, Chests.OAK_CHEST, Items.OAK_PLANKS);
         offerChestRecipe(exporter, Chests.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
         offerChestRecipe(exporter, Chests.WARPED_CHEST, Items.WARPED_PLANKS);
 
@@ -341,7 +342,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.BEEHIVES, Blocks.BEEHIVE);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModItemTags.BOOKSHELVES, Blocks.BOOKSHELF);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CARTOGRAPHY_TABLES, Blocks.CARTOGRAPHY_TABLE);
-        RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CHESTS, Blocks.CHEST);
+        //RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CHESTS, Blocks.CHEST);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModItemTags.CHISELED_BOOKSHELVES, Blocks.CHISELED_BOOKSHELF);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.DECORATIONS, ModItemTags.COMPOSTERS, Blocks.COMPOSTER);
         RecipeGenerator.offerUncraftingRecipe(exporter, RecipeCategory.MISC, ModItemTags.CRAFTING_TABLES, Blocks.CRAFTING_TABLE);

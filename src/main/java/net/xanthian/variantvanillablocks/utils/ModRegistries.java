@@ -88,6 +88,7 @@ public class ModRegistries {
         registry.add(Chests.DARK_OAK_CHEST, 300);
         registry.add(Chests.JUNGLE_CHEST, 300);
         registry.add(Chests.MANGROVE_CHEST, 300);
+        registry.add(Chests.OAK_CHEST, 300);
         registry.add(Chests.SPRUCE_CHEST, 300);
 
         registry.add(ChiseledBookshelves.ACACIA_CHISELED_BOOKSHELF, 300);

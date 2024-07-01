@@ -72,7 +72,7 @@ public class LangFileGenerator extends FabricLanguageProvider {
         translationBuilder.add(Chests.DARK_OAK_CHEST, "Dark Oak Chest");
         translationBuilder.add(Chests.JUNGLE_CHEST, "Jungle Chest");
         translationBuilder.add(Chests.MANGROVE_CHEST, "Mangrove Chest");
-        translationBuilder.add(Blocks.CHEST, "Oak Chest");
+        translationBuilder.add(Chests.OAK_CHEST, "Oak Chest");
         translationBuilder.add(Chests.SPRUCE_CHEST, "Spruce Chest");
         translationBuilder.add(Chests.WARPED_CHEST, "Warped Chest");
 

@@ -27,6 +27,7 @@ public class Chests {
     public static final Block DARK_OAK_CHEST = new VariantChestBlock(AbstractBlock.Settings.copy(Blocks.CHEST), VariantChests.DARK_OAK);
     public static final Block JUNGLE_CHEST = new VariantChestBlock(AbstractBlock.Settings.copy(Blocks.CHEST), VariantChests.JUNGLE);
     public static final Block MANGROVE_CHEST = new VariantChestBlock(AbstractBlock.Settings.copy(Blocks.CHEST), VariantChests.MANGROVE);
+    public static final Block OAK_CHEST = new VariantChestBlock(AbstractBlock.Settings.copy(Blocks.CHEST), VariantChests.OAK);
     public static final Block SPRUCE_CHEST = new VariantChestBlock(AbstractBlock.Settings.copy(Blocks.CHEST), VariantChests.SPRUCE);
     public static final Block WARPED_CHEST = new VariantChestBlock(AbstractBlock.Settings.create().mapColor(MapColor.CYAN).instrument(NoteBlockInstrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD), VariantChests.WARPED);
     public static Map<Identifier, Block> MOD_CHESTS = Maps.newHashMap();
@@ -40,6 +41,7 @@ public class Chests {
         registerChestBlock(VariantChests.DARK_OAK.getId(), DARK_OAK_CHEST);
         registerChestBlock(VariantChests.JUNGLE.getId(), JUNGLE_CHEST);
         registerChestBlock(VariantChests.MANGROVE.getId(), MANGROVE_CHEST);
+        registerChestBlock(VariantChests.OAK.getId(), OAK_CHEST);
         registerChestBlock(VariantChests.SPRUCE.getId(), SPRUCE_CHEST);
         registerChestBlock(VariantChests.WARPED.getId(), WARPED_CHEST);
     }

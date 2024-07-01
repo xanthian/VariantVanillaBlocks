@@ -20,6 +20,7 @@ public enum VariantChests {
     DARK_OAK,
     JUNGLE,
     MANGROVE,
+    OAK,
     SPRUCE,
     WARPED,
     ;
@@ -34,6 +35,7 @@ public enum VariantChests {
             case DARK_OAK -> EntityInitialise.DARK_OAK_CHEST;
             case JUNGLE -> EntityInitialise.JUNGLE_CHEST;
             case MANGROVE -> EntityInitialise.MANGROVE_CHEST;
+            case OAK -> EntityInitialise.OAK_CHEST;
             case SPRUCE -> EntityInitialise.SPRUCE_CHEST;
             case WARPED -> EntityInitialise.WARPED_CHEST;
         };

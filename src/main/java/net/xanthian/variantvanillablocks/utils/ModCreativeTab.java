@@ -137,7 +137,7 @@ public class ModCreativeTab {
                         entries.add(Blocks.BEEHIVE); // Oak
                         entries.add(Blocks.BOOKSHELF); // Oak
                         entries.add(CartographyTables.OAK_CARTOGRAPHY_TABLE);
-                        entries.add(Blocks.CHEST);
+                        entries.add(Chests.OAK_CHEST);
                         entries.add(Blocks.CHISELED_BOOKSHELF); // Oak
                         entries.add(Composters.OAK_COMPOSTER);
                         entries.add(Blocks.CRAFTING_TABLE);

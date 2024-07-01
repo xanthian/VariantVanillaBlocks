@@ -77,6 +77,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.registerBuiltin(VariantChests.DARK_OAK.getId().withPrefixedPath("block/"), Blocks.DARK_OAK_PLANKS).includeWithoutItem(Chests.DARK_OAK_CHEST);
         blockStateModelGenerator.registerBuiltin(VariantChests.JUNGLE.getId().withPrefixedPath("block/"), Blocks.JUNGLE_PLANKS).includeWithoutItem(Chests.JUNGLE_CHEST);
         blockStateModelGenerator.registerBuiltin(VariantChests.MANGROVE.getId().withPrefixedPath("block/"), Blocks.MANGROVE_PLANKS).includeWithoutItem(Chests.MANGROVE_CHEST);
+        blockStateModelGenerator.registerBuiltin(VariantChests.OAK.getId().withPrefixedPath("block/"), Blocks.OAK_PLANKS).includeWithoutItem(Chests.OAK_CHEST);
         blockStateModelGenerator.registerBuiltin(VariantChests.SPRUCE.getId().withPrefixedPath("block/"), Blocks.SPRUCE_PLANKS).includeWithoutItem(Chests.SPRUCE_CHEST);
         blockStateModelGenerator.registerBuiltin(VariantChests.WARPED.getId().withPrefixedPath("block/"), Blocks.WARPED_PLANKS).includeWithoutItem(Chests.WARPED_CHEST);
 

@@ -167,6 +167,7 @@ public class ModelGenerator extends FabricModelProvider {
         createChestItem(itemModelGenerator, Chests.DARK_OAK_CHEST);
         createChestItem(itemModelGenerator, Chests.JUNGLE_CHEST);
         createChestItem(itemModelGenerator, Chests.MANGROVE_CHEST);
+        createChestItem(itemModelGenerator, Chests.OAK_CHEST);
         createChestItem(itemModelGenerator, Chests.SPRUCE_CHEST);
         createChestItem(itemModelGenerator, Chests.WARPED_CHEST);
     }

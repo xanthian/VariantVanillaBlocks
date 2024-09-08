@@ -1,6 +1,8 @@
 package net.xanthian.variantvanillablocks;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.xanthian.variantvanillablocks.block.*;
 import net.xanthian.variantvanillablocks.entity.EntityInitialise;
 import net.xanthian.variantvanillablocks.utils.ModCreativeTab;
@@ -33,5 +35,9 @@ public class Initialise implements ModInitializer {
         ModCreativeTab.registerItemGroup();
         ModRegistries.registerFuelandFlammable();
         ModPOITypes.init();
+
+        for (Block block : ChiseledBookshelves.MOD_CHISELED_BOOKSHELVES.values()) {
+            BlockEntityType.CHISELED_BOOKSHELF.addSupportedBlock((block));
+        }
     }
 }
